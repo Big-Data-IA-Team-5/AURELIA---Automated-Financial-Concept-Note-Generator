@@ -1,0 +1,97 @@
+cat > requirements.txt << 'EOF'
+# ===== CORE DEPENDENCIES =====
+python-dotenv==1.0.0
+pydantic==2.5.0
+pydantic-settings==2.0.0
+tenacity==8.2.3
+
+# ===== P1 - DATA PIPELINE & ML DEPENDENCIES =====
+# PDF Processing
+PyMuPDF==1.23.8
+pypdf==3.17.4
+pdfplumber==0.10.0
+
+# LangChain Ecosystem
+langchain==0.1.0
+langchain-openai==0.0.2
+langchain-community==0.0.10
+langchain-pinecone==0.0.3
+langchain-chroma==0.1.0
+langchain-text-splitters==0.0.1
+
+# Vector Databases
+pinecone-client==3.0.0
+chromadb==0.4.22
+
+# Orchestration
+apache-airflow==2.8.0
+apache-airflow-providers-google==10.15.0
+apache-airflow-providers-postgres==5.7.1
+
+# ML & Embeddings
+openai==1.12.0
+sentence-transformers==2.2.2
+scikit-learn==1.4.0
+numpy==1.25.2
+
+# ===== P2 - BACKEND API DEPENDENCIES =====
+# FastAPI Framework
+fastapi==0.109.0
+uvicorn[standard]==0.25.0
+python-multipart==0.0.6
+
+# Database
+sqlalchemy==2.0.23
+psycopg2-binary==2.9.9
+alembic==1.13.1
+
+# AI Integration
+instructor==0.4.5
+wikipedia==1.4.0
+
+# HTTP & Async
+httpx==0.26.0
+aiofiles==23.2.0
+asyncpg==0.29.0
+
+# ===== P3 - FRONTEND DEPENDENCIES =====
+# Streamlit
+streamlit==1.29.0
+streamlit-chat==0.1.1
+streamlit-option-menu==0.3.6
+
+# Visualization & Analysis
+plotly==5.18.0
+pandas==2.1.4
+matplotlib==3.8.2
+seaborn==0.13.0
+
+# ===== SHARED DEPENDENCIES =====
+# Google Cloud Platform
+google-cloud-storage==2.14.0
+google-cloud-secret-manager==2.16.4
+google-cloud-sql-connector==1.4.3
+
+# Utilities
+requests==2.31.0
+tqdm==4.66.1
+click==8.1.7
+python-json-logger==2.0.7
+colorlog==6.8.0
+
+# Development & Testing
+pytest==7.4.4
+pytest-asyncio==0.23.2
+black==23.12.1
+isort==5.13.2
+flake8==7.0.0
+
+# Data Processing
+beautifulsoup4==4.12.2
+lxml==5.1.0
+xmltodict==0.13.0
+
+# Monitoring & Logging
+prometheus-client==0.19.0
+structlog==23.2.0
+EOF
