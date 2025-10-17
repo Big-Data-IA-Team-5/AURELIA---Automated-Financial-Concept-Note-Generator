@@ -1,69 +1,40 @@
-# PROJECT AURELIA - Final Requirements
-# Tested and compatible versions for Python 3.9+
 
 # ===== CORE API FRAMEWORK =====
-fastapi==0.109.0
-uvicorn[standard]==0.25.0
-pydantic==2.5.0
-python-dotenv==1.0.0
-python-multipart==0.0.6
+fastapi==0.115.4
+uvicorn[standard]==0.32.0
+pydantic==2.9.2
+pydantic-settings==2.6.1
+python-dotenv==1.0.1
+python-multipart==0.0.9
 
 # ===== DATABASE =====
-sqlalchemy==2.0.25
-psycopg2-binary==2.9.9
+sqlalchemy==2.0.36
+psycopg2-binary==2.9.10
 alembic==1.13.1
 
-# ===== HTTP & REQUESTS =====
-httpx==0.26.0
-requests==2.31.0
-aiofiles==23.2.0
+# ===== GOOGLE CLOUD SQL (FIXED VERSION) =====
+pg8000==1.31.2
+cloud-sql-python-connector[pg8000]==1.18.5
 
-# ===== P1 - DATA PIPELINE (Core only) =====
-# PDF Processing
-PyMuPDF==1.23.8
-pypdf==4.0.1
+# ===== GOOGLE AI / GEMINI (REQUIRED) =====
+google-generativeai==0.8.3
+google-ai-generativelanguage==0.6.10
 
-# LangChain (Stable versions)
-langchain==0.1.4
-langchain-openai==0.0.5
-langchain-community==0.0.13
-langchain-text-splitters==0.0.1
-
-# Vector Databases
-pinecone-client==3.0.0
-chromadb==0.4.22
-
-# AI & ML
-openai==1.12.0
-sentence-transformers==2.2.2
-numpy==1.25.2
-scikit-learn==1.4.0
-
-# ===== P2 - BACKEND SPECIFIC =====
-# LLM Integration
-instructor==0.4.8
+# ===== WIKIPEDIA FALLBACK (REQUIRED) =====
 wikipedia==1.4.0
 
-# ===== P3 - FRONTEND =====
-streamlit==1.31.0
-plotly==5.18.0
-pandas==2.2.0
+# ===== GOOGLE CLOUD SERVICES =====
+google-cloud-storage==2.18.2
+google-cloud-secret-manager==2.21.1
 
-# ===== GOOGLE CLOUD =====
-google-cloud-storage==2.14.0
-google-cloud-secret-manager==2.16.4
+# ===== HTTP & REQUESTS =====
+requests==2.32.3
+httpx==0.27.2
 
 # ===== UTILITIES =====
-tqdm==4.66.1
-click==8.1.7
-beautifulsoup4==4.12.2
+typing-extensions==4.12.2
+annotated-types==0.7.0
 
-# ===== DEVELOPMENT =====
-pytest==8.0.0
-black==24.2.0
-isort==5.13.2
-
-# ===== OPTIONAL: AIRFLOW (Uncomment if needed) =====
-# apache-airflow==2.8.2
-# apache-airflow-providers-google==10.15.0
-# apache-airflow-providers-postgres==5.7.1
+# ===== ASYNC SUPPORT =====
+anyio==4.6.2.post1
+starlette==0.41.3

@@ -1,46 +1,69 @@
-import time
-import random
+import chromadb
+from chromadb.config import Settings
+import openai
+from typing import List, Dict
+import os
 
-def retrieve_for_concept(concept: str, vector_store="pinecone"):
-    """Mock P1's retrieval function for testing"""
+class VectorRetrievalService:
+    def __init__(self):
+        # Initialize ChromaDB (simpler than Pinecone for quick implementation)
+        self.client = chromadb.Client(Settings(
+            chroma_db_impl="duckdb+parquet",
+            persist_directory="./chroma_db"
+        ))
+        self.collection_name = "aurelia_financial"
+        self.openai_client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        
+    def get_or_create_collection(self):
+        try:
+            collection = self.client.get_collection(self.collection_name)
+        except:
+            collection = self.client.create_collection(self.collection_name)
+        return collection
     
-    # Simulate processing time
-    time.sleep(0.1)
+    def add_documents(self, texts: List[str], metadatas: List[Dict], ids: List[str]):
+        """Add documents to vector store"""
+        collection = self.get_or_create_collection()
+        collection.add(
+            documents=texts,
+            metadatas=metadatas,
+            ids=ids
+        )
     
-    # Mock retrieval results with varying scores
-    if concept.lower() in ["duration", "sharpe ratio", "beta", "alpha"]:
-        # High score for "known" financial concepts
-        score = random.uniform(0.75, 0.95)
-        chunks = [
-            {
-                "content": f"Financial concept: {concept} is a key metric used in quantitative finance for measuring risk and return characteristics.",
-                "page_num": random.randint(1, 50),
-                "score": score,
-                "chunk_id": f"chunk_{random.randint(1000, 9999)}"
-            },
-            {
-                "content": f"In practice, {concept} is calculated using specific formulas and is widely applied in portfolio management and risk assessment.",
-                "page_num": random.randint(1, 50), 
-                "score": score - 0.05,
-                "chunk_id": f"chunk_{random.randint(1000, 9999)}"
+    def search_similar(self, query: str, n_results: int = 5) -> Dict:
+        """Search for similar chunks"""
+        collection = self.get_or_create_collection()
+        
+        results = collection.query(
+            query_texts=[query],
+            n_results=n_results
+        )
+        
+        if not results['documents'][0]:
+            return {
+                "chunks": [],
+                "scores": [],
+                "total_found": 0
             }
-        ]
-    else:
-        # Low score for unknown concepts (triggers Wikipedia fallback)
-        score = random.uniform(0.3, 0.6)
-        chunks = [
-            {
-                "content": f"Limited information found about {concept} in the financial database.",
-                "page_num": random.randint(1, 50),
+        
+        chunks = []
+        for i, doc in enumerate(results['documents'][0]):
+            metadata = results['metadatas'][0][i] if results['metadatas'] else {}
+            distance = results['distances'][0][i] if results['distances'] else 1.0
+            score = 1 - distance  # Convert distance to similarity score
+            
+            chunks.append({
+                "content": doc,
+                "metadata": metadata,
                 "score": score,
-                "chunk_id": f"chunk_{random.randint(1000, 9999)}"
-            }
-        ]
-    
-    return {
-        "chunks": chunks,
-        "vector_store": vector_store,
-        "retrieval_time_ms": random.uniform(80, 150),
-        "query": concept,
-        "total_chunks_available": random.randint(800, 1200)
-    }
+                "page_num": metadata.get('page_num', 'unknown')
+            })
+        
+        return {
+            "chunks": chunks,
+            "scores": [chunk["score"] for chunk in chunks],
+            "total_found": len(chunks)
+        }
+
+# Global instance
+retrieval_service = VectorRetrievalService()

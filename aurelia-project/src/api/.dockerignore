@@ -1,0 +1,53 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+*.md
+docs/
+
+# Tests
+tests/
+test_*.py
+*_test.py
+
+# Environment files
+.env
+.env.local
+
+# Frontend (not needed for backend)
+src/frontend/
+
+# Data files
+*.csv
+*.db
+*.sqlite
+
+# Jupyter notebooks
+*.ipynb
+.ipynb_checkpoints/

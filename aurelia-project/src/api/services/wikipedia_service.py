@@ -1,44 +1,78 @@
+"""
+Wikipedia fallback service when concept not found in PDF
+"""
+
 import wikipedia
-from typing import Dict, Any
+from typing import Optional, Dict
+from .instructor_service import generate_concept_note
 
-def get_wikipedia_content(concept: str) -> str:
-    """Get Wikipedia content for a concept"""
+
+def get_wikipedia_content(concept: str) -> Optional[str]:
+    """
+    Fetch Wikipedia content for a concept
+    """
     try:
-        # Search for pages
-        search_results = wikipedia.search(concept, results=3)
-        if not search_results:
-            return f"No Wikipedia content found for {concept}"
+        wikipedia.set_lang("en")
+        page = wikipedia.page(concept, auto_suggest=True)
+        content = f"{page.summary}\n\n{page.content[:4000]}"
+        print(f"✅ Found Wikipedia page for: {concept}")
+        return content
         
-        # Try to get the first page
+    except wikipedia.exceptions.DisambiguationError as e:
         try:
-            page = wikipedia.page(search_results[0])
-            # Limit content to avoid token limits
-            content = page.content[:2000]
-            return content
-        except wikipedia.exceptions.DisambiguationError as e:
-            # Try first disambiguation option
+            print(f"⚠️ Disambiguation for '{concept}', trying: {e.options[0]}")
             page = wikipedia.page(e.options[0])
-            content = page.content[:2000]
+            content = f"{page.summary}\n\n{page.content[:4000]}"
             return content
+        except Exception as inner_e:
+            print(f"❌ Error with disambiguation: {inner_e}")
+            return None
             
+    except wikipedia.exceptions.PageError:
+        print(f"❌ Wikipedia page not found for: {concept}")
+        return None
+        
     except Exception as e:
-        return f"Error retrieving Wikipedia content for {concept}: {str(e)}"
+        print(f"❌ Wikipedia error: {e}")
+        return None
 
-def generate_wikipedia_concept(concept: str) -> Dict[str, Any]:
-    """Generate concept note from Wikipedia content"""
-    content = get_wikipedia_content(concept)
+
+def generate_from_wikipedia(concept: str) -> Dict:
+    """
+    Generate concept note using Wikipedia as source
+    """
+    print(f"🔍 Searching Wikipedia for: {concept}")
     
-    # Simple structure for Wikipedia content
-    return {
-        "concept_name": concept,
-        "definition": f"{concept} is a concept that extends beyond traditional finance, with applications in various business and economic contexts.",
-        "formula": None,
-        "example": f"For example, when analyzing {concept}, professionals consider market conditions, historical data, and risk factors. Typical values range from industry benchmarks with adjustments for specific circumstances.",
-        "applications": [
-            "General business analysis",
-            "Economic research", 
-            "Cross-disciplinary applications"
-        ],
-        "source": "wikipedia",
-        "pdf_references": []
-    }
+    wiki_content = get_wikipedia_content(concept)
+    
+    if not wiki_content:
+        return {
+            "concept_name": concept,
+            "definition": f"Could not find information for '{concept}' in Wikipedia.",
+            "formula": None,
+            "example": "N/A",
+            "applications": ["Information not available"],
+            "key_points": ["Concept not found in Wikipedia"],
+            "source": "wikipedia",
+            "error": "Wikipedia page not found"
+        }
+    
+    wiki_chunks = [
+        {
+            "content": wiki_content,
+            "page_num": "Wikipedia",
+            "score": 1.0
+        }
+    ]
+    
+    result = generate_concept_note(concept, wiki_chunks, source="wikipedia")
+    return result
+
+
+if __name__ == "__main__":
+    print("Testing Wikipedia Fallback Service...")
+    print("=" * 50)
+    
+    import json
+    result = generate_from_wikipedia("Cryptocurrency")
+    print(json.dumps(result, indent=2))
