@@ -1,0 +1,12 @@
+PDF PARSING SUMMARY
+==================================================
+Total pages: 3462
+Pages with text: 3448
+Total characters: 5,353,495
+Total tables: 186
+
+First page preview (first 500 chars):
+--------------------------------------------------
+Financial Toolbox™
+User's Guide
+R2025b

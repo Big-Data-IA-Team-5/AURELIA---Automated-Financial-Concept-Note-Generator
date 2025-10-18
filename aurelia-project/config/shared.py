@@ -21,8 +21,6 @@ DB_USER = "postgres"
 DB_PASSWORD = os.getenv("DB_PASSWORD", "AureliaTeam2025")
 DB_HOST = os.getenv("DB_HOST", "34.136.16.4")  # Your public IP
 DB_PORT = 5432
-# Google AI (Gemini)
-GOOGLE_AI_KEY = os.getenv("GOOGLE_AI_KEY", "AIzaSyB_rxNvCwVEHiXILzpvPn3sPIGFBo00cRA")
 
 # ===== OPENAI CONFIGURATION =====
 OPENAI_KEY = os.getenv("OPENAI_KEY")
