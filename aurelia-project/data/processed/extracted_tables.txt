@@ -1,0 +1,9300 @@
+
+=== PAGE 30 TABLES ===
+
+Table 1:
+In this section...
+“Introduction” on page 1-4
+“Key Definitions” on page 1-4
+“Referencing Matrix Elements” on page 1-4
+“Transposing Matrices” on page 1-5
+
+=== PAGE 33 TABLES ===
+
+Table 1:
+In this section...
+“Introduction” on page 1-7
+“Adding and Subtracting Matrices” on page 1-7
+“Multiplying Matrices” on page 1-8
+“Dividing Matrices” on page 1-11
+“Solving Simultaneous Linear Equations” on page 1-11
+“Operating Element by Element” on page 1-13
+
+=== PAGE 38 TABLES ===
+
+Table 1:
+ | M1 | M2
+Prime flat: | $100 * 10 units | + $70 * 20 units = $2400
+receipts
+Prime down: | $80 * 10 units | + $40 * 20 units = $1600
+receipts
+
+=== PAGE 39 TABLES ===
+
+Table 1:
+ | M1 | M2
+Prime flat: | $100 * x units | + $70 * y units = $7000
+receipts
+Prime down: | $80 * x units | + $40 * y units = $5000
+receipts
+
+=== PAGE 41 TABLES ===
+
+Table 1:
+In this section...
+“Input Arguments” on page 1-15
+“Output Arguments” on page 1-16
+
+=== PAGE 46 TABLES ===
+
+Table 1:
+In this section...
+“Date Formats” on page 2-2
+“Date Conversions” on page 2-3
+“Current Date and Time” on page 2-7
+“Determining Specific Dates” on page 2-8
+“Determining Holidays” on page 2-8
+“Determining Cash-Flow Dates” on page 2-9
+
+=== PAGE 47 TABLES ===
+
+Table 1:
+datedisp | Displays a numeric matrix with date entries formatted as date character
+vectors.
+datenum | Converts a date character vector to a serial date number.
+datestr | Converts a serial date number to a date character vector.
+datetime | Converts from date character vectors or serial date numbers to create a
+datetime array.
+datevec | Converts a serial date number or date character vector to a date vector
+whose elements are [Year Month Day Hour Minute Second].
+m2xdate | Converts MATLAB serial date number to Excel® serial date number.
+x2mdate | Converts Microsoft® Excel serial date number to MATLAB serial date
+number.
+
+=== PAGE 51 TABLES ===
+
+Table 1:
+datestr Format Description
+01-Mar-2000 15:45:17 day-month-year hour:minute:second
+01-Mar-2000 day-month-year
+03/01/00 month/day/year
+Mar month, three letters
+M month, single letter
+3 month number
+03/01 month/day
+1 day of month
+Wed day of week, three letters
+W day of week, single letter
+2000 year, four numbers
+99 year, two numbers
+Mar01 month year
+15:45:17 hour:minute:second
+03:45:17 PM hour:minute:second AM or PM
+15:45 hour:minute
+03:45 PM hour:minute AM or PM
+Q1-99 calendar quarter-year
+Q1 calendar quarter
+
+=== PAGE 55 TABLES ===
+
+Table 1:
+In this section...
+“Introduction” on page 2-11
+“Interest Rates/Rates of Return” on page 2-11
+“Present or Future Values” on page 2-12
+“Depreciation” on page 2-13
+“Annuities” on page 2-13
+
+=== PAGE 59 TABLES ===
+
+Table 1:
+In this section...
+“Introduction” on page 2-15
+“Fixed-Income Terminology” on page 2-15
+“Framework” on page 2-18
+“Default Parameter Values” on page 2-18
+“Coupon Date Calculations” on page 2-20
+“Yield Conventions” on page 2-21
+“Pricing Functions” on page 2-21
+“Yield Functions” on page 2-21
+“Fixed-Income Sensitivities” on page 2-22
+
+=== PAGE 60 TABLES ===
+
+Table 1:
+Period Value Payment Schedule
+0 No coupons (Zero coupon bond)
+1 Annual
+2 Semiannual
+3 Tri-annual
+4 Quarterly
+6 Bi-monthly
+12 Monthly
+
+=== PAGE 61 TABLES ===
+
+Table 1:
+Basis
+Value | Day Count Convention
+0 | actual/actual (default) — Number of days in both a period and a year is the actual
+number of days. Also, another common actual/actual basis is basis 12.
+1 | 30/360 SIA — Year fraction is calculated based on a 360 day year with 30-day months,
+after applying the following rules: If the first date and the second date are the last day
+of February, the second date is changed to the 30th. If the first date falls on the 31st or
+is the last day of February, it is changed to the 30th. If after the preceding test, the first
+day is the 30th and the second day is the 31st, then the second day is changed to the
+30th.
+2 | actual/360 — Number of days in a period is equal to the actual number of days,
+however the number of days in a year is 360.
+3 | actual/365 — Number of days in a period is equal to the actual number of days,
+however the number of days in a year is 365 (even in a leap year).
+4 | 30/360 PSA — Number of days in every month is set to 30 (including February). If the
+start date of the period is either the 31st of a month or the last day of February, the start
+date is set to the 30th, while if the start date is the 30th of a month and the end date is
+the 31st, the end date is set to the 30th. The number of days in a year is 360.
+5 | 30/360 ISDA — Number of days in every month is set to 30, except for February where
+it is the actual number of days. If the start date of the period is the 31st of a month, the
+start date is set to the 30th while if the start date is the 30th of a month and the end
+date is the 31st, the end date is set to the 30th. The number of days in a year is 360.
+6 | 30E /360 — Number of days in every month is set to 30 except for February where it is
+equal to the actual number of days. If the start date or the end date of the period is the
+31st of a month, that date is set to the 30th. The number of days in a year is 360.
+7 | actual/365 Japanese — Number of days in a period is equal to the actual number of
+days, except for leap days (29th February) which are ignored. The number of days in a
+year is 365 (even in a leap year).
+8 | actual/actual ICMA — Number of days in both a period and a year is the actual
+number of days and the compounding frequency is annual.
+9 | actual/360 ICMA — Number of days in a period is equal to the actual number of days,
+however the number of days in a year is 360 and the compounding frequency is annual.
+10 | actual/365 ICMA — Number of days in a period is equal to the actual number of days,
+however the number of days in a year is 365 (even in a leap year) and the compounding
+frequency is annual.
+11 | 30/360 ICMA — Number of days in every month is set to 30, except for February where
+it is equal to the actual number of days. If the start date or the end date of the period is
+the 31st of a month, that date is set to the 30th. The number of days in a year is 360 and
+the compounding frequency is annual.
+12 | actual/365 ISDA — The day count fraction is calculated using the following formula:
+(Actual number of days in period that fall in a leap year / 366) +
+(Actual number of days in period that fall in a normal year / 365).
+Basis 12 is also referred to as actual/actual ISDA.
+13 | bus/252 — The number of days in a period is equal to the actual number of business
+days. The number of business days in a year is 252.
+
+=== PAGE 62 TABLES ===
+
+Table 1:
+End-of-Month Rule Value Meaning
+1 (default) Rule in effect.
+0 Rule not in effect.
+
+Table 2:
+Input Meaning
+Settle Settlement date
+Maturity Maturity date
+Period Coupon payment period
+Basis Day-count basis
+EndMonthRule End-of-month payment rule
+IssueDate Bond issue date
+FirstCouponDate First coupon payment date
+LastCouponDate Last coupon payment date
+
+=== PAGE 67 TABLES ===
+
+Table 1:
+3M | 1Y | 2Y | 3Y | 5Y | 7Y | 10Y | 15Y | 20Y | 25Y | 30Y
+.01 | .04 | .09 | .21 | .4 | .65 | 1.27 | 1.71 | 1.68 | 1.83 | 7.03
+
+=== PAGE 70 TABLES ===
+
+Table 1:
+In this section...
+“Introduction” on page 2-26
+“Treasury Bill Repurchase Agreements” on page 2-26
+“Treasury Bill Yields” on page 2-27
+
+Table 2:
+Function | Purpose
+tbilldisc2yield | Convert discount rate to yield.
+tbillprice | Price Treasury bill given its yield or discount rate.
+tbillrepo | Break-even discount of repurchase agreement.
+tbillyield | Yield and discount of Treasury bill given its price.
+tbillyield2disc | Convert yield to discount rate.
+tbillval01 | The value of 1 basis point (one hundredth of one percentage point,
+or 0.0001) given the characteristics of the Treasury bill, as
+represented by its settlement and maturity dates. You can relate
+the basis point to discount, money-market, or bond-equivalent
+yield.
+
+=== PAGE 71 TABLES ===
+
+Table 1:
+Date | Cash Out Flow |  | Cash In Flow | 
+9/26/2002 | Purchase T-bill | 99.593 | Repo money | 99.593
+10/26/2002 | Payment of repo | 99.593 | Sell T-bill | 99.7168
+ | Repo interest | 0.1238 |  | 
+ | Total | 199.3098 |  | 199.3098
+
+=== PAGE 83 TABLES ===
+
+Table 1:
+In this section...
+“Introduction” on page 2-39
+“Sensitivity Measures” on page 2-39
+“Analysis Models” on page 2-40
+
+=== PAGE 141 TABLES ===
+
+Table 1:
+Capital Allocation | Description
+portalloc | Computes the optimal risky portfolio on the efficient frontier, based on the
+risk-free rate, the borrowing rate, and the investor's degree of risk aversion.
+Also generates the capital allocation line, which provides the optimal
+allocation of funds between the risky portfolio and the risk-free asset.
+
+Table 2:
+Efficient Frontier
+Computation | Description
+frontier | Computes portfolios along the efficient frontier for a given group of assets.
+Generates a surface of efficient frontiers showing how asset allocation
+influences risk and return over time.
+portopt | Computes portfolios along the efficient frontier for a given group of assets.
+The computation is based on a set of user-specified linear constraints.
+Typically, these constraints are generated using the constraint specification
+functions described below.
+ | Warning portopt has been partially removed and will no longer accept
+ConSet or varargin arguments. portopt will only solve the portfolio
+problem for long-only fully invested portfolios. Use Portfolio instead. For
+more information on migrating portopt code to Portfolio, see “portopt
+Migration to Portfolio Object” on page 3-11.
+
+Table 3:
+Constraint
+Specification | Description
+portcons | Generates the portfolio constraints matrix for a portfolio of asset investments
+using linear inequalities. The inequalities are of the type A*Wts' <= b,
+where Wts is a row vector of weights.
+portvrisk | Portfolio value at risk (VaR) returns the maximum potential loss in the value
+of a portfolio over one period of time, given the loss probability level
+RiskThreshold.
+pcalims | Asset minimum and maximum allocation. Generates a constraint set to fix the
+minimum and maximum weight for each individual asset.
+pcgcomp | Group-to-group ratio constraint. Generates a constraint set specifying the
+maximum and minimum ratios between pairs of groups.
+pcglims | Asset group minimum and maximum allocation. Generates a constraint set to
+fix the minimum and maximum total weight for each defined group of assets.
+pcpval | Total portfolio value. Generates a constraint set to fix the total value of the
+portfolio.
+
+=== PAGE 142 TABLES ===
+
+Table 1:
+Constraint
+Conversion | Description
+abs2active | Transforms a constraint matrix expressed in absolute weight format to an
+equivalent matrix expressed in active weight format.
+active2abs | Transforms a constraint matrix expressed in active weight format to an
+equivalent matrix expressed in absolute weight format.
+
+=== PAGE 143 TABLES ===
+
+Table 1:
+In this section...
+“Introduction” on page 3-5
+“Efficient Frontier Example” on page 3-5
+
+=== PAGE 145 TABLES ===
+
+Table 1:
+In this section...
+“Introduction” on page 3-7
+“Optimal Risky Portfolio” on page 3-8
+
+=== PAGE 149 TABLES ===
+
+Table 1:
+In this section...
+“Migrate portopt Without Output Arguments” on page 3-11
+“Migrate portopt with Output Arguments” on page 3-12
+“Migrate portopt for Target Returns Within Range of Efficient Portfolio Returns” on page 3-13
+“Migrate portopt for Target Return Outside Range of Efficient Portfolio Returns” on page 3-14
+“Migrate portopt Using portcons Output for ConSet” on page 3-15
+“Integrate Output from portcons, pcalims, pcglims, and pcgcomp with a Portfolio Object” on page 3-
+17
+
+=== PAGE 157 TABLES ===
+
+Table 1:
+Asset | INTC | XON | RD
+Sector | Technology | Energy | Energy
+
+=== PAGE 159 TABLES ===
+
+Table 1:
+Group | Minimum Exposure | Maximum Exposure
+North America | 0.30 | 0.75
+Europe | 0.10 | 0.55
+Latin America | 0.20 | 0.50
+Asia | 0.50 | 0.50
+
+Table 2:
+Group | Fund 1 | Fund 2 | Fund 3
+North America | X | X | 
+Europe |  |  | X
+Latin America | X |  | 
+Asia |  | X | X
+
+Table 3:
+1. | W1 + W2 | ≥ | 0.30
+2. | W1 + W2 | ≤ | 0.75
+3. | W3 | ≥ | 0.10
+4. | W3 | ≤ | 0.55
+5. | W1 | ≥ | 0.20
+6. | W1 | ≤ | 0.50
+7. | W2 + W3 | = | 0.50
+
+=== PAGE 160 TABLES ===
+
+Table 1:
+1. | -W1 - W2 | ≤ | -0.30
+2. | W1 + W2 | ≤ | 0.75
+3. | -W3 | ≤ | -0.10
+4. | W3 | ≤ | 0.55
+5. | -W1 | ≤ | -0.20
+6. | W1 | ≤ | 0.50
+7. | -W2 - W3 | ≤ | -0.50
+8. | W2 + W3 | ≤ | 0.50
+
+=== PAGE 162 TABLES ===
+
+Table 1:
+Group | Fund 1 | Fund 2 | Fund 3
+North America | X | X | 
+Europe |  |  | X
+Latin America | X |  | 
+Asia |  | X | X
+
+Table 2:
+Group | Minimum Exposure | Maximum Exposure
+North America | 0.30 | 0.75
+Europe | 0.10 | 0.55
+Latin America | 0.20 | 0.50
+Asia | 0.50 | 0.50
+
+=== PAGE 172 TABLES ===
+
+Table 1:
+In this section...
+“Portfolio Optimization Problems” on page 4-4
+“Portfolio Problem Specification” on page 4-4
+“Return Proxy” on page 4-5
+“Risk Proxy” on page 4-6
+
+=== PAGE 188 TABLES ===
+
+Table 1:
+In this section...
+“Portfolio Object Properties and Functions” on page 4-20
+“Working with Portfolio Objects” on page 4-20
+“Setting and Getting Properties” on page 4-20
+“Displaying Portfolio Objects” on page 4-21
+“Saving and Loading Portfolio Objects” on page 4-21
+“Estimating Efficient Portfolios and Frontiers” on page 4-21
+“Arrays of Portfolio Objects” on page 4-22
+“Subclassing Portfolio Objects” on page 4-23
+“Conventions for Representation of Data” on page 4-23
+
+=== PAGE 193 TABLES ===
+
+Table 1:
+In this section...
+“Syntax” on page 4-25
+“Portfolio Problem Sufficiency” on page 4-25
+“Portfolio Function Examples” on page 4-26
+
+=== PAGE 199 TABLES ===
+
+Table 1:
+Shortcut Argument Name | Equivalent Argument / Property Name
+ae | AEquality
+ai | AInequality
+covar | AssetCovar
+assetnames or assets | AssetList
+mean | AssetMean
+be | bEquality
+bi | bInequality
+group | GroupMatrix
+lb | LowerBound
+n or num | NumAssets
+rfr | RiskFreeRate
+ub | UpperBound
+budget | UpperBudget and LowerBudget
+
+=== PAGE 201 TABLES ===
+
+Table 1:
+In this section...
+“Naming a Portfolio Object” on page 4-33
+“Configuring the Assets in the Asset Universe” on page 4-33
+“Setting Up a List of Asset Identifiers” on page 4-33
+“Truncating and Padding Asset Lists” on page 4-35
+
+=== PAGE 210 TABLES ===
+
+Table 1:
+In this section...
+“Assignment Using the Portfolio Function” on page 4-42
+“Assignment Using the setAssetMoments Function” on page 4-43
+“Scalar Expansion of Arguments” on page 4-44
+“Estimating Asset Moments from Prices or Returns” on page 4-45
+“Estimating Asset Moments with Missing Data” on page 4-47
+“Estimating Asset Moments from Time Series Data” on page 4-49
+
+=== PAGE 262 TABLES ===
+
+Table 1:
+In this section...
+“Validating a Portfolio Set” on page 4-94
+“Validating Portfolios” on page 4-95
+
+=== PAGE 284 TABLES ===
+
+Table 1:
+Portfolio
+Problem | Portfolio
+Function | Type of
+Optimization
+Problem | Main Solver | Helper Solver
+Portfolio without
+tracking error
+constraints | estimateFronti
+erByRisk | Optimizing a
+portfolio for a
+certain risk level
+introduces a
+nonlinear
+constraint.
+Therefore, this
+problem has a
+linear objective
+with linear and
+nonlinear
+constraints. | 'fmincon' using
+setSolver | For 'min':
+quadratic
+objective,
+'quadprog' or
+'lcprog' using
+setSolver
+For 'max': linear
+objective,
+'linprog' or
+'lcprog' using
+setSolver
+Portfolio without
+tracking error
+constraints | estimateFronti
+erByReturn | Quadratic
+objective with
+linear constraints | 'quadprog' or
+'lcprog' using
+setSolver | For ‘min’:
+quadratic
+objective,
+'quadprog' or
+'lcprog' using
+setSolver
+For ‘max’: linear
+objective,
+'linprog' or
+'lcprog' using
+setSolver
+Portfolio without
+tracking error
+constraints | estimateFronti
+erLimits | Quadratic or linear
+objective with
+linear constraints | For ‘min’:
+quadratic
+objective,
+'quadprog' or
+'lcprog' using
+setSolver
+For ‘max’: linear
+objective,
+'linprog' or
+'lcprog' using
+setSolver | Not applicable
+Portfolio without
+tracking error
+constraints | estimateMaxSha
+rpeRatio | Quadratic
+objective with
+linear constraints | 'quadprog' using
+setSolver | Because
+estimateMaxSha
+rpeRatio
+internally calls
+estimateFronti
+erLimits, all
+solvers needed by
+estimateFronti
+erLimits are the
+helper solvers
+
+=== PAGE 285 TABLES ===
+
+Table 1:
+Portfolio
+Problem | Portfolio
+Function | Type of
+Optimization
+Problem | Main Solver | Helper Solver
+Portfolio with
+tracking error
+constraints | estimateFronti
+erByRisk | Linear objective
+with linear and
+nonlinear
+constraints | 'fmincon' using
+setSolver | Not applicable
+Portfolio with
+tracking error
+constraints | estimateFronti
+erByReturn | Linear objective
+with linear and
+nonlinear
+constraints | 'fmincon' using
+setSolver | Not applicable
+Portfolio with
+tracking error
+constraints | estimateFronti
+erLimits | Quadratic
+(minimum risk
+problem) or linear
+(maximum return
+problem) objective
+with linear and
+nonlinear
+constraints | 'fmincon' using
+setSolver | Not applicable
+Portfolio with
+tracking error
+constraints | estimateMaxSha
+rpeRatio | Quadratic
+objective with
+linear and
+nonlinear
+constraints | 'fmincon' using
+setSolver | Not applicable
+Portfolio with
+active
+'Conditional'
+BoundType,
+MinNumAssets,
+MaxNumAssets, or
+conditional budget
+constraints | estimateFronti
+erByRisk | The problem is
+formulated by
+introducing
+NumAssets binary
+variables to
+indicate whether
+the corresponding
+asset is invested or
+not. Therefore, it
+requires a mixed
+integer nonlinear
+programming
+solver. Three types
+of MINLP solvers
+are offered, see
+setSolverMINLP. | Mixed integer
+nonlinear
+programming
+solver (MINLP)
+using
+setSolverMINLP | 'quadprog' or
+'fmincon' are
+used when the
+estimate
+functions reduce
+the problem into
+NLP. These two
+solvers can be
+configured through
+setSolver.
+
+=== PAGE 286 TABLES ===
+
+Table 1:
+Portfolio
+Problem | Portfolio
+Function | Type of
+Optimization
+Problem | Main Solver | Helper Solver
+Portfolio with
+active
+'Conditional'
+BoundType,
+MinNumAssets,
+MaxNumAssets, or
+conditional budget
+constraints | estimateFronti
+erByReturn | The problem is
+formulated by
+introducing
+NumAssets binary
+variables to
+indicate whether
+the corresponding
+asset is invested or
+not. Therefore, it
+requires a mixed
+integer nonlinear
+programming
+solver. Three types
+of MINLP solvers
+are offered, see
+setSolverMINLP. | Mixed integer
+nonlinear
+programming
+solver (MINLP)
+using
+setSolverMINLP | 'quadprog' or
+'fmincon' are
+used when the
+estimate
+functions reduce
+the problem into
+NLP. These two
+solvers can be
+configured through
+setSolver.
+Portfolio with
+active
+'Conditional'
+BoundType,
+MinNumAssets,
+MaxNumAssets, or
+conditional budget
+constraints | estimateFronti
+erLimits | The problem is
+formulated by
+introducing
+NumAssets binary
+variables to
+indicate whether
+the corresponding
+asset is invested or
+not. Therefore, it
+requires a mixed
+integer nonlinear
+programming
+solver. Three types
+of MINLP solvers
+are offered, see
+setSolverMINLP. | Mixed integer
+nonlinear
+programming
+solver (MINLP)
+using
+setSolverMINLP | 'quadprog' or
+'fmincon' are
+used when the
+estimate
+functions reduce
+the problem into
+NLP. These two
+solvers can be
+configured through
+setSolver.
+
+=== PAGE 287 TABLES ===
+
+Table 1:
+Portfolio
+Problem | Portfolio
+Function | Type of
+Optimization
+Problem | Main Solver | Helper Solver
+Portfolio with
+active
+'Conditional'
+BoundType,
+MinNumAssets,
+MaxNumAssets, or
+conditional budget
+constraints | estimateMaxSha
+rpeRatio | The problem is
+formulated by
+introducing
+NumAssets binary
+variables to
+indicate whether
+the corresponding
+asset is invested or
+not. Therefore, it
+requires a mixed
+integer nonlinear
+programming
+solver. Three types
+of MINLP solvers
+are offered, see
+setSolverMINLP. | Mixed integer
+nonlinear
+programming
+solver (MINLP)
+using
+setSolverMINLP | 'quadprog' or
+'fmincon' are
+used when the
+estimate
+functions reduce
+the problem into
+NLP. These two
+solvers can be
+configured through
+setSolver.
+
+Table 2:
+Portfolio
+Problem | Portfolio
+Function | Type of
+Optimization
+Problem | Main Solver | Helper Solver
+Portfolio with
+custom linear
+objective without
+tracking error
+constraints | estimateCustom
+ObjectivePortf
+olio | Linear objective
+with linear
+constraints | 'linprog' using
+setSolver | Not applicable
+Portfolio with
+custom quadratic
+objective without
+tracking error
+constraints | estimateCustom
+ObjectivePortf
+olio | Quadratic
+objective with
+linear constraints | 'quadprog' using
+setSolver | Not applicable
+Portfolio with
+custom nonlinear
+objective without
+tracking error
+constraints | estimateCustom
+ObjectivePortf
+olio | Nonlinear
+objective with
+linear constraints | 'fmincon' using
+setSolver | Not applicable
+Portfolio with
+custom linear
+objective with
+tracking error
+constraints | estimateCustom
+ObjectivePortf
+olio | Linear objective
+with linear and
+nonlinear
+constraints | 'fmincon' using
+setSolver | Not applicable
+
+=== PAGE 288 TABLES ===
+
+Table 1:
+Portfolio
+Problem | Portfolio
+Function | Type of
+Optimization
+Problem | Main Solver | Helper Solver
+Portfolio with
+custom quadratic
+objective with
+tracking error
+constraints | estimateCustom
+ObjectivePortf
+olio | Quadratic
+objective with
+linear and
+nonlinear
+constraints | 'fmincon' using
+setSolver | Not applicable
+Portfolio with
+custom nonlinear
+objective with
+tracking error
+constraints | estimateCustom
+ObjectivePortf
+olio | Nonlinear
+objective with
+linear and
+nonlinear
+constraints | 'fmincon' using
+setSolver | Not applicable
+Portfolio with
+active
+'Conditional'
+BoundType,
+MinNumAssets,
+MaxNumAssets, or
+conditional budget
+constraints | estimateCustom
+ObjectivePortf
+olio | The problem is
+formulated by
+introducing
+NumAssets binary
+variables to
+indicate whether
+the corresponding
+asset is invested or
+not. Therefore, it
+requires a mixed
+integer nonlinear
+programming
+solver. Three types
+of MINLP solvers
+are offered, see
+setSolverMINLP. | Mixed integer
+nonlinear
+programming
+solver (MINLP)
+using
+setSolverMINLP | 'intlinprog' is
+used when the
+problem reduces to
+a mixed-integer
+linear problem.
+This solver can be
+configured using
+setSolverMINLP
+and its name-value
+argument
+IntMainSolverO
+ptions.
+
+=== PAGE 301 TABLES ===
+
+Table 1:
+Case for Solving
+Portfolio Problem | Objective Function | Constraints | Integer (Binary)
+Variables
+"Always" case with
+Financial Toolbox | • Return — Gross
+portfolio returns or
+net portfolio returns
+• Risk — Variance,
+CVaR, or MAD
+• Sharpe ratio (only
+for mean-variance
+problems using
+Portfolio object)
+• Continuous convex
+functions (only using
+the Portfolio
+object) | • Return — Gross
+portfolio returns or
+net portfolio returns
+• Risk — Variance,
+CVaR, or MAD (risk
+constraints are only
+supported when the
+objective is the
+return)
+• Linear equalities
+• Linear inequalities
+• Tracking error (only
+for mean-variance
+problems using
+Portfolio object).
+Tracking error is
+supported with
+custom objectives
+using
+estimateCustomOb
+jectivePortfolio
+. Tracking error is
+only supported when
+the objective is the
+return, variance, or
+Sharpe ratio.
+• Turnover | • Bounds on the
+number of assets
+• Conditional budget
+constraint (an upper
+bound on the sum of
+all assets that go
+above a specified
+threshold)
+• Conditional
+(semicontinuous)
+bounds (for example,
+if asset i is selected,
+then x ≥ lb,
+i i
+otherwise x = 0)
+i
+
+=== PAGE 302 TABLES ===
+
+Table 1:
+Case for Solving
+Portfolio Problem | Objective Function | Constraints | Integer (Binary)
+Variables
+"Preferred" case with
+Financial Toolbox | • Return — Gross
+portfolio returns or
+net portfolio returns
+• Risk — Variance,
+CVaR, or MAD
+• Sharpe ratio (only
+for mean-variance
+problems using
+Portfolio object)
+• Continuous functions
+(only using the
+Portfolio object) | • Return — Gross
+portfolio returns or
+net portfolio returns
+• Risk — Variance,
+CVaR, or MAD (risk
+constraints are only
+supported when the
+objective is the
+return)
+• Linear equalities
+• Linear inequalities
+• Tracking error (only
+for mean-variance
+problems using
+Portfolio object).
+Tracking error is
+supported with
+custom objectives
+using
+estimateCustomOb
+jectivePortfolio
+. Tracking error is
+only supported when
+the objective is the
+return, variance, or
+Sharpe ratio. | None
+Optimization Toolbox | Any other nonlinear
+function not mentioned
+in “Always Use Portfolio,
+PortfolioCVaR, or
+PortfolioMAD Object”
+on page 4-134 and
+“Preferred Use of
+Portfolio, PortfolioCVaR,
+or PortfolioMAD Object”
+on page 4-135 | Any other nonlinear
+function not mentioned
+in “Always Use Portfolio,
+PortfolioCVaR, or
+PortfolioMAD Object”
+on page 4-134 and
+“Preferred Use of
+Portfolio, PortfolioCVaR,
+or PortfolioMAD Object”
+on page 4-135 | None
+
+=== PAGE 306 TABLES ===
+
+Table 1:
+Function | Number of Assets | Sample Size | Sample
+cov ( MATLAB) | Any | Any | Required
+robustcov ( Statistics
+and Machine Learning
+Toolbox™) | Any | ≥ 2 × numAssets | Required
+covarianceShrinkag
+e ( Financial Toolbox) | Any (≥ 3 recommended) | Any (≤ 25,000
+recommended) | Required
+
+=== PAGE 307 TABLES ===
+
+Table 1:
+Function | Number of Assets | Sample Size | Sample
+covarianceDenoisin
+g ( Financial Toolbox) | Any (≥ 10
+recommended) | Any | Not required
+
+=== PAGE 308 TABLES ===
+
+Table 1:
+ |  | Available Solvers (Use setSolverMINLP to specify the
+solver) |  | 
+Portfolio
+Problem | Use Function: | Portfolio Object | PortfolioCVaR
+Object | PortfolioMAD
+Object
+Estimate efficient
+frontier | estimateFronti
+er(p)
+(See
+estimateFronti
+er) | • ExtendedCP
+• OuterApproxi
+mation
+(default)
+Supports
+extended
+formulation
+using the name-
+value argument
+“ExtendedForm
+ulation” on
+page 15-0 .
+• TrustRegionC
+P | • ExtendedCP
+• OuterApproxi
+mation
+• TrustRegionC
+P (default) | • ExtendedCP
+• OuterApproxi
+mation
+• TrustRegionC
+P (default)
+Minimize risk
+without return
+constraint | estimateFronti
+erLimits(p,'mi
+n')
+(See
+estimateFronti
+erLimits) | • ExtendedCP
+• OuterApproxi
+mation
+(default)
+Supports
+extended
+formulation
+using the name-
+value argument
+“ExtendedForm
+ulation” on
+page 15-0 .
+• TrustRegionC
+P | • ExtendedCP
+• OuterApproxi
+mation
+• TrustRegionC
+P (default) | • ExtendedCP
+• OuterApproxi
+mation
+• TrustRegionC
+P (default)
+
+=== PAGE 309 TABLES ===
+
+Table 1:
+ |  | Available Solvers (Use setSolverMINLP to specify the
+solver) |  | 
+Portfolio
+Problem | Use Function: | Portfolio Object | PortfolioCVaR
+Object | PortfolioMAD
+Object
+Maximize return
+without risk
+constraint or
+tracking error
+constraint | estimateFronti
+erLimits(p,'ma
+x')
+(See
+estimateFronti
+erLimits) | intlinprog
+Use
+IntMainSolverO
+ptions name-
+value argument to
+control
+intlinprog
+options. | intlinprog
+Use
+IntMainSolverO
+ptions name-
+value argument to
+control
+intlinprog
+options. | intlinprog
+Use
+IntMainSolverO
+ptions name-
+value argument to
+control
+intlinprog
+options.
+Maximize return
+with risk
+constraint and/or
+tracking error
+constraint | estimateFronti
+erLimits(p,'ma
+x')
+(See
+estimateFronti
+erLimits) | • ExtendedCP
+• OuterApproxi
+mation
+(default)
+Supports
+extended
+formulation
+using the name-
+value argument
+“ExtendedForm
+ulation” on
+page 15-0 .
+• TrustRegionC
+P | • ExtendedCP
+• OuterApproxi
+mation
+• TrustRegionC
+P (default) | • ExtendedCP
+• OuterApproxi
+mation
+• TrustRegionC
+P (default)
+Minimize risk
+subject to a return
+constraint | estimateFronti
+erByReturn(p,r
+eturnTarget)
+(See
+estimateFronti
+erByReturn) | • ExtendedCP
+• OuterApproxi
+mation
+(default)
+Supports
+extended
+formulation
+using the name-
+value argument
+“ExtendedForm
+ulation” on
+page 15-0 .
+• TrustRegionC
+P | • ExtendedCP
+• OuterApproxi
+mation
+• TrustRegionC
+P (default) | • ExtendedCP
+• OuterApproxi
+mation
+• TrustRegionC
+P (default)
+
+=== PAGE 310 TABLES ===
+
+Table 1:
+ |  | Available Solvers (Use setSolverMINLP to specify the
+solver) |  | 
+Portfolio
+Problem | Use Function: | Portfolio Object | PortfolioCVaR
+Object | PortfolioMAD
+Object
+Maximize return
+subject to a risk
+constraint | estimateFronti
+erByRisk(p,ris
+kTarget)
+(See
+estimateFronti
+erByRisk) | • ExtendedCP
+• OuterApproxi
+mation
+(default)
+Supports
+extended
+formulation
+using the name-
+value argument
+“ExtendedForm
+ulation” on
+page 15-0 .
+• TrustRegionC
+P | • ExtendedCP
+• OuterApproxi
+mation
+• TrustRegionC
+P (default) | • ExtendedCP
+• OuterApproxi
+mation
+• TrustRegionC
+P (default)
+Maximize Sharpe
+ratio | estimateMaxSha
+rpeRatio(p)
+(See
+estimateMaxSha
+rpeRatio) | • ExtendedCP
+• OuterApproxi
+mation
+(default)
+Supports
+extended
+formulation
+using the name-
+value argument
+“ExtendedForm
+ulation” on
+page 15-0 .
+• TrustRegionC
+P | • ExtendedCP
+• OuterApproxi
+mation
+• TrustRegionC
+P (default) | • ExtendedCP
+• OuterApproxi
+mation
+• TrustRegionC
+P (default)
+Optimize custom
+linear objective
+without risk or
+tracking error
+constraint | estimateCustom
+ObjectivePortf
+olio(p,linFun)
+(See
+estimateCustom
+ObjectivePortf
+olio) | intlinprog
+Use
+IntMainSolverO
+ptions name-
+value argument to
+control
+intlinprog
+options. | Not supported | Not supported
+
+=== PAGE 311 TABLES ===
+
+Table 1:
+ |  | Available Solvers (Use setSolverMINLP to specify the
+solver) |  | 
+Portfolio
+Problem | Use Function: | Portfolio Object | PortfolioCVaR
+Object | PortfolioMAD
+Object
+Optimize custom
+linear objective
+with risk or/or
+tracking error
+constraint | estimateCustom
+ObjectivePortf
+olio(p,linFun)
+(See
+estimateCustom
+ObjectivePortf
+olio) | • ExtendedCP
+• OuterApproxi
+mation
+(default)
+Supports
+extended
+formulation
+using the name-
+value argument
+“ExtendedForm
+ulation” on
+page 15-0 .
+• TrustRegionC
+P | Not supported | Not supported
+Optimize custom
+quadratic objective | estimateCustom
+ObjectivePortf
+olio(p,quadFun
+)
+(See
+estimateCustom
+ObjectivePortf
+olio) | • ExtendedCP
+• OuterApproxi
+mation
+(default)
+Supports
+extended
+formulation
+using the name-
+value argument
+“ExtendedForm
+ulation” on
+page 15-0 .
+• TrustRegionC
+P | Not supported | Not supported
+Optimize custom
+nonlinear
+nonquadratic
+objective | estimateCustom
+ObjectivePortf
+olio(p,NLFun)
+(See
+estimateCustom
+ObjectivePortf
+olio) | • ExtendedCP
+• OuterApproxi
+mation
+(default)
+• TrustRegionC
+P | Not supported | Not supported
+
+=== PAGE 629 TABLES ===
+
+Table 1:
+In this section...
+“Portfolio Optimization Problems” on page 5-3
+“Portfolio Problem Specification” on page 5-3
+“Return Proxy” on page 5-4
+“Risk Proxy” on page 5-5
+
+=== PAGE 643 TABLES ===
+
+Table 1:
+In this section...
+“PortfolioCVaR Object Properties and Functions” on page 5-17
+“Working with PortfolioCVaR Objects” on page 5-17
+“Setting and Getting Properties” on page 5-18
+“Displaying PortfolioCVaR Objects” on page 5-18
+“Saving and Loading PortfolioCVaR Objects” on page 5-18
+“Estimating Efficient Portfolios and Frontiers” on page 5-18
+“Arrays of PortfolioCVaR Objects” on page 5-19
+“Subclassing PortfolioCVaR Objects” on page 5-20
+“Conventions for Representation of Data” on page 5-20
+
+=== PAGE 648 TABLES ===
+
+Table 1:
+In this section...
+“Syntax” on page 5-22
+“PortfolioCVaR Problem Sufficiency” on page 5-22
+“PortfolioCVaR Function Examples” on page 5-23
+
+=== PAGE 653 TABLES ===
+
+Table 1:
+Shortcut Argument Name | Equivalent Argument / Property Name
+ae | AEquality
+ai | AInequality
+assetnames or assets | AssetList
+be | bEquality
+bi | bInequality
+budget | UpperBudget and LowerBudget
+group | GroupMatrix
+lb | LowerBound
+n or num | NumAssets
+level, problevel, or plevel | ProbabilityLevel
+rfr | RiskFreeRate
+scenario or assetscenarios | Scenarios
+ub | UpperBound
+
+=== PAGE 655 TABLES ===
+
+Table 1:
+In this section...
+“Naming a PortfolioCVaR Object” on page 5-29
+“Configuring the Assets in the Asset Universe” on page 5-29
+“Setting Up a List of Asset Identifiers” on page 5-29
+“Truncating and Padding Asset Lists” on page 5-31
+
+=== PAGE 662 TABLES ===
+
+Table 1:
+In this section...
+“How Stochastic Optimization Works” on page 5-36
+“What Are Scenarios?” on page 5-36
+“Setting Scenarios Using the PortfolioCVaR Function” on page 5-37
+“Setting Scenarios Using the setScenarios Function” on page 5-38
+“Estimating the Mean and Covariance of Scenarios” on page 5-38
+“Simulating Normal Scenarios” on page 5-39
+“Simulating Normal Scenarios from Returns or Prices” on page 5-39
+“Simulating Normal Scenarios with Missing Data” on page 5-40
+“Simulating Normal Scenarios from Time Series Data” on page 5-42
+“Simulating Normal Scenarios with Mean and Covariance” on page 5-44
+
+=== PAGE 707 TABLES ===
+
+Table 1:
+In this section...
+“Validating a CVaR Portfolio Set” on page 5-81
+“Validating CVaR Portfolios” on page 5-82
+
+=== PAGE 727 TABLES ===
+
+Table 1:
+PortfolioCVaR
+Problem | PortfolioCVaR
+Function | Type of
+Optimization
+Problem | Main Solver | Helper Solver
+PortfolioCVaR
+without active
+'Conditional'
+BoundType,
+MinNumAssets,
+and
+MaxNumAssets | estimateFronti
+erByRisk | Optimizing a
+portfolio for a
+certain risk level
+introduces a
+nonlinear
+constraint.
+Therefore, this
+problem has a
+linear objective
+with linear and
+nonlinear
+constraints. | 'TrustRegionCP
+', 'ExtendedCP',
+'fmincon', or
+'cuttingplane'
+using setSolver | 'linprog' using
+setSolver
+PortfolioCVaR
+without active
+'Conditional'
+BoundType,
+MinNumAssets,
+and
+MaxNumAssets | estimateFronti
+erByReturn | Nonlinear
+objective with
+linear constraints | 'TrustRegionCP
+', 'ExtendedCP',
+'fmincon', or
+'cuttingplane'
+using setSolver | 'linprog' using
+setSolver
+PortfolioCVaR
+without active
+'Conditional'
+BoundType,
+MinNumAssets,
+and
+MaxNumAssets | estimateFronti
+erLimits | Nonlinear or linear
+objective with
+linear constraints | For ‘min’:
+nonlinear
+objective,
+'TrustRegionCP
+', 'ExtendedCP',
+'fmincon', or
+'cuttingplane'
+using setSolver
+For ‘max’: linear
+objective,
+'linprog' using
+setSolver | Not applicable
+
+=== PAGE 728 TABLES ===
+
+Table 1:
+PortfolioCVaR
+Problem | PortfolioCVaR
+Function | Type of
+Optimization
+Problem | Main Solver | Helper Solver
+PortfolioCVaR with
+active
+'Conditional'
+BoundType,
+MinNumAssets,
+MaxNumAssets, or
+conditional budget
+constraints | estimateFronti
+erByRisk | The problem is
+formulated by
+introducing
+NumAssets binary
+variables to
+indicate whether
+the corresponding
+asset is invested or
+not. Therefore, it
+requires a mixed
+integer nonlinear
+programming
+solver. Three types
+of MINLP solvers
+are offered, see
+setSolverMINLP. | Mixed integer
+nonlinear
+programming
+solver (MINLP)
+using
+setSolverMINLP | 'fmincon' is used
+when the
+estimate
+functions reduce
+the problem into
+NLP. This solver is
+configured through
+setSolver.
+PortfolioCVaR with
+active
+'Conditional'
+BoundType,
+MinNumAssets,
+MaxNumAssets, or
+conditional budget
+constraints | estimateFronti
+erByReturn | The problem is
+formulated by
+introducing
+NumAssets binary
+variables to
+indicate whether
+the corresponding
+asset is invested or
+not. Therefore, it
+requires a mixed
+integer nonlinear
+programming
+solver. Three types
+of MINLP solvers
+are offered, see
+setSolverMINLP. | Mixed integer
+nonlinear
+programming
+solver (MINLP)
+using
+setSolverMINLP | 'fmincon' is used
+when the
+estimate
+functions reduce
+the problem into
+NLP. This solver is
+configured through
+setSolver
+
+=== PAGE 729 TABLES ===
+
+Table 1:
+PortfolioCVaR
+Problem | PortfolioCVaR
+Function | Type of
+Optimization
+Problem | Main Solver | Helper Solver
+PortfolioCVaR with
+active
+'Conditional'
+BoundType,
+MinNumAssets,
+MaxNumAssets, or
+conditional budget
+constraints | estimateFronti
+erLimits | The problem is
+formulated by
+introducing
+NumAssets binary
+variables to
+indicate whether
+the corresponding
+asset is invested or
+not. Therefore, it
+requires a mixed
+integer nonlinear
+programming
+solver. Three types
+of MINLP solvers
+are offered, see
+setSolverMINLP. | Mixed integer
+nonlinear
+programming
+solver (MINLP)
+using
+setSolverMINLP | 'fmincon' is used
+when the
+estimate
+functions reduce
+the problem into
+NLP. This solver is
+configured through
+setSolver
+
+=== PAGE 731 TABLES ===
+
+Table 1:
+In this section...
+“Obtaining CVaR Portfolio Risks and Returns” on page 5-105
+“Obtaining Portfolio Standard Deviation and VaR” on page 5-106
+
+=== PAGE 783 TABLES ===
+
+Table 1:
+In this section...
+“Portfolio Optimization Problems” on page 6-3
+“Portfolio Problem Specification” on page 6-3
+“Return Proxy” on page 6-4
+“Risk Proxy” on page 6-5
+
+=== PAGE 797 TABLES ===
+
+Table 1:
+In this section...
+“PortfolioMAD Object Properties and Functions” on page 6-17
+“Working with PortfolioMAD Objects” on page 6-17
+“Setting and Getting Properties” on page 6-18
+“Displaying PortfolioMAD Objects” on page 6-18
+“Saving and Loading PortfolioMAD Objects” on page 6-18
+“Estimating Efficient Portfolios and Frontiers” on page 6-18
+“Arrays of PortfolioMAD Objects” on page 6-19
+“Subclassing PortfolioMAD Objects” on page 6-20
+“Conventions for Representation of Data” on page 6-20
+
+=== PAGE 802 TABLES ===
+
+Table 1:
+In this section...
+“Syntax” on page 6-22
+“PortfolioMAD Problem Sufficiency” on page 6-22
+“PortfolioMAD Function Examples” on page 6-23
+
+=== PAGE 807 TABLES ===
+
+Table 1:
+Shortcut Argument Name | Equivalent Argument / Property Name
+ae | AEquality
+ai | AInequality
+assetnames or assets | AssetList
+be | bEquality
+bi | bInequality
+budget | UpperBudget and LowerBudget
+group | GroupMatrix
+lb | LowerBound
+n or num | NumAssets
+rfr | RiskFreeRate
+scenario or assetscenarios | Scenarios
+ub | UpperBound
+
+=== PAGE 809 TABLES ===
+
+Table 1:
+In this section...
+“Naming a PortfolioMAD Object” on page 6-29
+“Configuring the Assets in the Asset Universe” on page 6-29
+“Setting Up a List of Asset Identifiers” on page 6-29
+“Truncating and Padding Asset Lists” on page 6-31
+
+=== PAGE 815 TABLES ===
+
+Table 1:
+In this section...
+“How Stochastic Optimization Works” on page 6-35
+“What Are Scenarios?” on page 6-35
+“Setting Scenarios Using the PortfolioMAD Function” on page 6-36
+“Setting Scenarios Using the setScenarios Function” on page 6-37
+“Estimating the Mean and Covariance of Scenarios” on page 6-37
+“Simulating Normal Scenarios” on page 6-38
+“Simulating Normal Scenarios from Returns or Prices” on page 6-38
+“Simulating Normal Scenarios with Missing Data” on page 6-39
+“Simulating Normal Scenarios from Time Series Data” on page 6-41
+“Simulating Normal Scenarios with Mean and Covariance” on page 6-43
+
+=== PAGE 860 TABLES ===
+
+Table 1:
+In this section...
+“Validating a MAD Portfolio Set” on page 6-80
+“Validating MAD Portfolios” on page 6-81
+
+=== PAGE 881 TABLES ===
+
+Table 1:
+PortfolioMAD
+Problem | PortfolioMAD
+Function | Type of
+Optimization
+Problem | Main Solver | Helper Solver
+PortfolioMAD
+without active
+'Conditional'
+BoundType,
+MinNumAssets,
+MaxNumAssets, or
+conditional budget
+constraints | estimateFronti
+erByRisk | Optimizing a
+portfolio for a
+certain risk level
+introduces a
+nonlinear
+constraint.
+Therefore, this
+problem has a
+linear objective
+with linear and
+nonlinear
+constraints. | 'TrustRegionCP
+', 'ExtendedCP',
+or 'fmincon'
+using setSolver | 'linprog' using
+setSolver
+
+=== PAGE 882 TABLES ===
+
+Table 1:
+PortfolioMAD
+Problem | PortfolioMAD
+Function | Type of
+Optimization
+Problem | Main Solver | Helper Solver
+PortfolioMAD
+without active
+'Conditional'
+BoundType,
+MinNumAssets,
+MaxNumAssets, or
+conditional budget
+constraints | estimateFronti
+erByReturn | Nonlinear
+objective with
+linear constraints | 'TrustRegionCP
+', 'ExtendedCP',
+or 'fmincon'
+using setSolver | 'linprog' using
+setSolver
+PortfolioMAD
+without active
+'Conditional'
+BoundType,
+MinNumAssets,
+MaxNumAssets, or
+conditional budget
+constraints | estimateFronti
+erLimits | Nonlinear or linear
+objective with
+linear constraints | For ‘min’:
+nonlinear
+objective,
+'TrustRegionCP
+', 'ExtendedCP',
+or 'fmincon'
+using setSolver
+For ‘max’: linear
+objective,
+'linprog' using
+setSolver | Not applicable
+PortfolioMAD with
+active
+'Conditional'
+BoundType,
+MinNumAssets,
+MaxNumAssets, or
+conditional budget
+constraints | estimateFronti
+erByRisk | The problem is
+formulated by
+introducing
+NumAssets binary
+variables to
+indicate whether
+the corresponding
+asset is invested or
+not. Therefore, it
+requires a mixed
+integer nonlinear
+programming
+solver. Three types
+of MINLP solvers
+are offered, see
+setSolverMINLP. | Mixed integer
+nonlinear
+programming
+solver (MINLP)
+using
+setSolverMINLP | 'fmincon' is used
+when the
+estimate
+functions reduce
+the problem into
+NLP. This solver is
+configured through
+setSolver.
+
+=== PAGE 883 TABLES ===
+
+Table 1:
+PortfolioMAD
+Problem | PortfolioMAD
+Function | Type of
+Optimization
+Problem | Main Solver | Helper Solver
+PortfolioMAD with
+active
+'Conditional'
+BoundType,
+MinNumAssets,
+MaxNumAssets, or
+conditional budget
+constraints | estimateFronti
+erByReturn | The problem is
+formulated by
+introducing
+NumAssets binary
+variables to
+indicate whether
+the corresponding
+asset is invested or
+not. Therefore, it
+requires a mixed
+integer nonlinear
+programming
+solver. Three types
+of MINLP solvers
+are offered, see
+setSolverMINLP. | Mixed integer
+nonlinear
+programming
+solver (MINLP)
+using
+setSolverMINLP | 'fmincon' is used
+when the
+estimate
+functions reduce
+the problem into
+NLP. This solver is
+configured through
+setSolver
+PortfolioMAD with
+active
+'Conditional'
+BoundType,
+MinNumAssets,
+MaxNumAssets, or
+conditional budget
+constraints | estimateFronti
+erLimits | The problem is
+formulated by
+introducing
+NumAssets binary
+variables to
+indicate whether
+the corresponding
+asset is invested or
+not. Therefore, it
+requires a mixed
+integer nonlinear
+programming
+solver. Three types
+of MINLP solvers
+are offered, see
+setSolverMINLP. | Mixed integer
+nonlinear
+programming
+solver (MINLP)
+using
+setSolverMINLP | 'fmincon' is used
+when the
+estimate
+functions reduce
+the problem into
+NLP. This solver is
+configured through
+setSolver
+
+=== PAGE 885 TABLES ===
+
+Table 1:
+In this section...
+“Obtaining MAD Portfolio Risks and Returns” on page 6-105
+“Obtaining the PortfolioMAD Standard Deviation” on page 6-106
+
+=== PAGE 911 TABLES ===
+
+Table 1:
+In this section...
+“Introduction” on page 7-11
+“Sample Lower Partial Moments” on page 7-11
+“Expected Lower Partial Moments” on page 7-12
+
+=== PAGE 920 TABLES ===
+
+Table 1:
+In this section...
+“Introduction” on page 8-2
+“Estimate Transition Probabilities” on page 8-2
+“Estimate Transition Probabilities for Different Rating Scales” on page 8-4
+“Working with a Transition Matrix Containing NR Rating” on page 8-6
+“Estimate Point-in-Time and Through-the-Cycle Probabilities” on page 8-10
+“Estimate t-Year Default Probabilities” on page 8-12
+“Estimate Bootstrap Confidence Intervals” on page 8-13
+“Group Credit Ratings” on page 8-15
+“Work with Nonsquare Matrices” on page 8-17
+“Remove Outliers” on page 8-18
+“Estimate Probabilities for Different Segments” on page 8-19
+“Work with Large Datasets” on page 8-20
+
+=== PAGE 963 TABLES ===
+
+Table 1:
+In this section...
+“Introduction” on page 8-45
+“Compute Credit Quality Thresholds” on page 8-45
+“Visualize Credit Quality Thresholds” on page 8-46
+
+=== PAGE 967 TABLES ===
+
+Table 1:
+In this section...
+“What Is a Credit Scorecard?” on page 8-49
+“Credit Scorecard Development Process” on page 8-50
+
+=== PAGE 982 TABLES ===
+
+Table 1:
+In this section...
+“Predictor Name Is Unspecified and the Parser Returns an Error” on page 8-64
+“Using bininfo or plotbins Before Binning” on page 8-64
+“If Categorical Data Is Given as Numeric” on page 8-66
+“NaNs Returned When Scoring a “Test” Dataset” on page 8-68
+
+=== PAGE 1018 TABLES ===
+
+Table 1:
+Object | Purpose
+CDS | CDS instrument object.
+CDSOption | CDSOption instrument object.
+
+Table 2:
+Function | Purpose
+cdsbootstrap | Compute default probability parameters from CDS market quotes.
+cdsspread | Compute breakeven spreads for the CDS contracts.
+cdsprice | Compute the price for the CDS contracts.
+
+=== PAGE 1060 TABLES ===
+
+Table 1:
+In this section...
+“Introduction” on page 9-2
+“Multivariate Normal Linear Regression” on page 9-2
+“Maximum Likelihood Estimation” on page 9-3
+“Special Case of Multiple Linear Regression Model” on page 9-4
+“Least-Squares Regression” on page 9-4
+“Mean and Covariance Estimation” on page 9-4
+“Convergence” on page 9-4
+“Fisher Information” on page 9-4
+“Statistical Tests” on page 9-5
+
+=== PAGE 1065 TABLES ===
+
+Table 1:
+In this section...
+“Introduction” on page 9-7
+“ECM Algorithm” on page 9-7
+“Standard Errors” on page 9-8
+“Data Augmentation” on page 9-8
+
+=== PAGE 1068 TABLES ===
+
+Table 1:
+In this section...
+“Multivariate Normal Regression Without Missing Data” on page 9-11
+“Multivariate Normal Regression With Missing Data” on page 9-11
+“Least-Squares Regression With Missing Data” on page 9-11
+“Multivariate Normal Parameter Estimation With Missing Data” on page 9-12
+“Support Functions” on page 9-12
+
+=== PAGE 1069 TABLES ===
+
+Table 1:
+mvnrmle Estimate model parameters, residuals, and the residual
+covariance.
+mvnrstd Estimate standard errors of model and covariance parameters.
+mvnrfish Estimate the Fisher information matrix.
+mvnrobj Calculate the log-likelihood function.
+
+Table 2:
+ecmmvnrmle Estimate model parameters, residuals, and the residual
+covariance.
+ecmmvnrstd Estimate standard errors of model and covariance parameters.
+ecmmvnrfish Estimate the Fisher information matrix.
+ecmmvnrobj Calculate the log-likelihood function.
+
+Table 3:
+ecmlsrmle Estimate model parameters, residuals, and the residual
+covariance.
+ecmlsrobj Calculate the least-squares objective function (pseudo log-
+likelihood).
+
+=== PAGE 1070 TABLES ===
+
+Table 1:
+ecmmvnrstd Estimate standard errors of model and covariance parameters.
+ecmmvnrfish Estimate the Fisher information matrix.
+
+Table 2:
+ecmnmle Estimate the mean and covariance of the data.
+ecmnstd Estimate standard errors of the mean and covariance of the data.
+ecmnfish Estimate the Fisher information matrix.
+ecmnhess Estimate the Fisher information matrix using the Hessian.
+ecmnobj Calculate the log-likelihood function.
+
+Table 3:
+convert2sur Convert a multivariate normal regression model into an SUR
+model.
+ecmninit Obtain initial estimates for the mean and covariance of a Data
+matrix.
+
+=== PAGE 1071 TABLES ===
+
+Table 1:
+In this section...
+“Regressions” on page 9-13
+“Multivariate Normal Regression” on page 9-13
+“Multivariate Normal Regression Without Missing Data” on page 9-13
+“Multivariate Normal Regression With Missing Data” on page 9-14
+“Least-Squares Regression” on page 9-14
+“Least-Squares Regression Without Missing Data” on page 9-14
+“Least-Squares Regression With Missing Data” on page 9-14
+“Covariance-Weighted Least Squares” on page 9-14
+“Covariance-Weighted Least Squares Without Missing Data” on page 9-15
+“Covariance-Weighted Least Squares With Missing Data” on page 9-15
+“Feasible Generalized Least Squares” on page 9-15
+“Feasible Generalized Least Squares Without Missing Data” on page 9-15
+“Feasible Generalized Least Squares With Missing Data” on page 9-16
+“Seemingly Unrelated Regression” on page 9-16
+“Seemingly Unrelated Regression Without Missing Data” on page 9-17
+“Seemingly Unrelated Regression With Missing Data” on page 9-17
+“Mean and Covariance Parameter Estimation” on page 9-17
+
+=== PAGE 1084 TABLES ===
+
+Table 1:
+In this section...
+“Introduction” on page 9-26
+“Capital Asset Pricing Model” on page 9-26
+“Estimation of the CAPM” on page 9-27
+“Estimation with Missing Data” on page 9-27
+“Estimation of Some Technology Stock Betas” on page 9-27
+“Grouped Estimation of Some Technology Stock Betas” on page 9-30
+“References” on page 9-32
+
+=== PAGE 1114 TABLES ===
+
+Table 1:
+Option | Price | Delta | Gamma | Vega | Quantity
+1 | 6.3441 | 0.5856 | 0.0290 | 17.4293 | 22332.6131
+2 | 6.6035 | -0.6255 | 0.0353 | 20.0347 | 6864.0731
+3 | 4.2993 | 0.7003 | 0.0548 | 9.5837 | -15654.8657
+4 | 22.7694 | -0.4830 | 0.0074 | 83.5225 | -4510.5153
+
+=== PAGE 1118 TABLES ===
+
+Table 1:
+Zero Rates | Forward Rates | Swap Price (Fixed Rate)
+0.0614 | 0.0614 | 0.0845
+0.0642 | 0.0670 | 
+0.0660 | 0.0695 | 
+0.0684 | 0.0758 | 
+0.0702 | 0.0774 | 
+0.0726 | 0.0846 | 
+0.0754 | 0.0925 | 
+0.0795 | 0.1077 | 
+0.0827 | 0.1089 | 
+0.0868 | 0.1239 | 
+
+=== PAGE 1172 TABLES ===
+
+Table 1:
+In this section...
+“Create Time Series” on page 11-2
+“Index an Object” on page 11-3
+“Transform Time Series” on page 11-3
+“Convert Time Series” on page 11-4
+“Merge Time Series” on page 11-5
+“Analyze Time Series” on page 11-5
+“Data Extraction” on page 11-6
+
+Table 2:
+Task | Removed Functionality | Use This Functionality
+Construct by passing in
+data and dates | fints(dates,data,datanames
+) | Use timetable:
+timetable(rowTimes,var1,...,
+varN,'VariableNames',
+{'a','b',...})
+Construct by conversion of
+files | ascii2fts(filename,descrow
+,colheadrow,skiprows) | Use readtable and
+table2timetable:
+T =
+readtable(filename,opts,Name
+,Value)
+TT =
+table2timetable(T,'RowTimes'
+,timeVarName)
+Write files | fts2ascii(filename,tsobj,e
+xttext) | Use writetable:
+writetable(TT,filename)
+Convert to matrix | fts2mat(tsobj) | S = vartype('numeric');
+TT2 = TT(:,S)
+TT2.Variables
+
+=== PAGE 1173 TABLES ===
+
+Table 1:
+Task | Removed Functionality | Use This Functionality
+Indexing with a date | myfts('05/11/99') | TT({'1999-05-11'},:)
+Indexing with a date range | myfts
+('05/11/99::05/15/99') | Use timerange:
+S =
+timerange('1999-05-11','1999
+-05-15');
+TT2 = TT(S,:)
+Indexing with integers for
+rows | myfts.series2(1)
+myfts.series2([1, 3, 5])
+myfts.series2(16:20) | TT(1,{'series2'})
+TT([1, 3, 5],{'series2'})
+TT(16:20,{'series2'})
+Contents of a specific time
+field | myfts.times | Use timeofday:
+timeofday(TT.Properties.RowT
+imes)
+Contents for a specific field
+in a matrix | fts2mat(myfts.series2) | TT.series2
+
+=== PAGE 1174 TABLES ===
+
+Table 1:
+Task | Removed Functionality | Use This Functionality
+Boxcox transformation | newfts = boxcox(oldfts) | Use boxcox:
+TT.Variables =
+boxcox(TT.Variables)
+Differencing | diff(myfts) | TT{2:end,:} =
+diff(TT.Variables)
+TT(1,:) = []
+Indexing with integers for
+rows | fillts(oldfts,fill_method) | Use fillmissing:
+fillmissing(TT,method)
+(Assumes no missing dates)
+Linear filtering | filter(B,A, myfts) | Use filter:
+TT.Variables =
+filter(b,a,TT.Variables)
+Lag or lead time series
+object | lagts(myfts,lagperiod)
+leadts(myfts,leadperiod) | Use lag:
+lag(TT,lagperiod)
+lag(TT,-leadperiod)
+(Assumes a regularly spaced
+timetable)
+Periodic average | peravg(myfts) | Use retime:
+retime(TT,newTimes,'mean')
+Downsample data | resamplets(oldfts,samplest
+ep) | Use retime:
+retime(TT,newTimeStep,method
+)
+Smooth data | smoothts(input) | Use smoothdata:
+smoothdata(TT)
+Moving average | tsmovavg(tsobj,method,lag) | Use movavg:
+movavg(TT,type,windowSize)
+
+=== PAGE 1175 TABLES ===
+
+Table 1:
+Task | Removed Functionality | Use This Functionality
+Convert to specified
+frequency | convertto(oldfts,newfreq) | Use retime:
+retime(TT,newTimeStep,method
+)
+Convert to annual | toannual(oldfts,...) | Use convert2annual:
+convert2annual(TT,…)
+Convert to daily | todaily(oldfts,...) | Use convert2daily:
+convert2daily(TT,…)
+Convert to monthly | tomonthly(oldfts,...) | Use convert2monthly:
+convert2monthly(TT,…)
+Convert to quarterly | toquarterly(oldfts,...) | Use convert2quarterly:
+convert2quarterly(TT,…)
+Convert to semiannual | tosemi(oldfts,...) | Use convert2semiannual:
+convert2semiannual(TT,…)
+Convert to weekly | toweekly(oldfts,...) | Use convert2weekly:
+convert2weekly(TT,…)
+
+Table 2:
+Task | Removed Functionality | Use This Functionality
+Merge multiple time series
+objects | merge(fts1,fts2) | [TT1;TT2] (requires variable name
+to be the same)
+unique(TT)
+Concatenate financial time
+series objects horizontally | horzcat(fts1,fts2) or
+[fts1,fts2] | Use horzcat or synchronize:
+horzcat[TT1,TT2] (requires
+variable name to be the same) or
+synchronize(TT1,TT2)
+Concatenate financial time
+series objects vertically | vertcat(fts1,fts2) or
+[fts1;fts2] | Use vertcat:
+vertcat[TT1;TT2]
+
+=== PAGE 1176 TABLES ===
+
+Table 1:
+Task | Removed Functionality | Use This Functionality
+Extract out numerical data | srs2 = myfts.series2 | TT.Variables
+Apply some options
+(statistics) | For example: min, max,
+mean, median, cov, std,
+and var | Use cov (or max, mean, median, min,
+std, or var):
+cov(TT.Variables)
+Apply some options
+(operations) | For example: sum and
+cumsum | Use sum or cumsum:
+TT.Variables =
+cumsum(TT.Variables)
+
+=== PAGE 1186 TABLES ===
+
+Table 1:
+In this section...
+“Using UICalendar in Standalone Mode” on page 12-4
+“Using UICalendar with an Application” on page 12-4
+
+=== PAGE 1190 TABLES ===
+
+Table 1:
+Function Type
+adosc Accumulation/distribution oscillator
+chaikosc Chaikin oscillator
+macd Moving Average Convergence/Divergence
+stochosc Stochastic oscillator
+tsaccel Acceleration
+tsmom Momentum
+
+Table 2:
+Function Type
+chaikvolat Chaikin volatility
+stochosc Fast stochastics, slow stochastics
+willpctr Williams %R
+
+Table 3:
+Function Type
+negvolidx Negative volume index
+posvolidx Positive volume index
+rsindex Relative strength index
+
+=== PAGE 1191 TABLES ===
+
+Table 1:
+Function Type
+adline Accumulation/distribution line
+bollinger Bollinger band
+hhigh Highest high
+llow Lowest low
+medprice Median price
+onbalvol On balance volume
+prcroc Price rate of change
+pvtrend Price-volume trend
+typprice Typical price
+volroc Volume rate of change
+wclose Weighted close
+willad Williams accumulation/distribution
+
+=== PAGE 1194 TABLES ===
+
+Table 1:
+In this section...
+“SDE Modeling” on page 14-2
+“Trials vs. Paths” on page 14-3
+“NTrials, NPeriods, and NSteps” on page 14-3
+
+Table 2:
+To perform this task ... | Use these types of models ...
+“Simulating Equity Prices” on page 14-31 | • Geometric Brownian Motion (GBM) on page
+14-25
+• Constant Elasticity of Variance (CEV) on page
+14-25
+• Stochastic Differential Equation (SDE) on
+page 14-16
+• Stochastic Differential Equations from Drift
+and Diffusion Objects (SDEDDO) on page 14-
+19
+• Stochastic Differential Equations from Linear
+Drift (SDELD) on page 14-22
+• Heston Stochastic Volatility (Heston) on page
+14-29
+“Simulating Interest Rates” on page 14-50 | • Hull-White-Vasicek (HWV) on page 14-28
+• Cox-Ingersoll-Ross (CIR) on page 14-27
+• Stochastic Differential Equation (SDE) on
+page 14-16
+• Stochastic Differential Equations from Drift
+and Diffusion Objects (SDEDDO) on page 14-
+19
+• Stochastic Differential Equations from Mean-
+Reverting Drift (SDEMRD) Models on page
+14-26
+“Price European Stock Options Using Monte
+Carlo Simulation” on page 14-47 | Geometric Brownian Motion (GBM) on page 14-
+25
+“Stratified Sampling” on page 14-58 | All supported models on page 14-11
+“Quasi-Monte Carlo Simulation” on page 14-63 | All supported models on page 14-11
+
+=== PAGE 1195 TABLES ===
+
+Table 1:
+To perform this task ... | Use these types of models ...
+“Performance Considerations” on page 14-65 | All supported models on page 14-11
+
+=== PAGE 1197 TABLES ===
+
+Table 1:
+Class Name | For More Information, See ...
+SDE | sde and “Base SDE Models” on page 14-16
+Drift, Diffusion | drift, diffusion, and “Overview” on page 14-19
+SDEDDO | sdeddo and “Drift and Diffusion Models” on page 14-
+19
+SDELD | sdeld and “Linear Drift Models” on page 14-22
+CEV | cev and “Creating Constant Elasticity of Variance
+(CEV) Models” on page 14-25
+BM | bm and “Creating Brownian Motion (BM) Models” on
+page 14-24
+SDEMRD | sdemrd and “Creating Stochastic Differential Equations
+from Mean-Reverting Drift (SDEMRD) Models” on page
+14-26
+GBM | gbm and “Creating Geometric Brownian Motion (GBM)
+Models” on page 14-25
+HWV | hwv and “Creating Hull-White/Vasicek (HWV) Gaussian
+Diffusion Models” on page 14-28
+CIR | cir and “Creating Cox-Ingersoll-Ross (CIR) Square
+Root Diffusion Models” on page 14-27
+Heston | heston and “Creating Heston Stochastic Volatility
+Models” on page 14-29
+Merton | merton
+Bates | bates
+rvm | rvm
+roughbergomi | roughbergomi
+roughheston | roughheston
+
+=== PAGE 1199 TABLES ===
+
+Table 1:
+In this section...
+“Introduction” on page 14-7
+“Creating SDE Objects” on page 14-7
+“Drift and Diffusion” on page 14-10
+“Available SDE Models” on page 14-11
+“SDE Simulation and Interpolation Methods” on page 14-13
+
+=== PAGE 1204 TABLES ===
+
+Table 1:
+Model Name | Specification
+Brownian Motion (BM) | dX = A(t)dt+V(t)dW
+t t
+Geometric Brownian Motion (GBM) | dX =B(t)Xdt+V(t)XdW
+t t t t
+Constant Elasticity of Variance (CEV) | α(t)
+dX =B(t)Xdt+V(t)X dW
+t t t t
+Cox-Ingersoll-Ross (CIR) | 1
+dX =S(t)(L(t)−X)dt+V(t)X2dW
+t t t
+t
+Hull-White/Vasicek (HWV) | dX =S(t)(L(t)−X)dt+V(t)dW
+t t t
+Heston | dX =B(t)X dt+ X X dW
+1t 1t 2t 1t 1t
+dX =S(t)[L(t)−X ]dt+V(t) X dW
+2t 2t 2t 2t
+Merton | dX =B(t,X)Xdt+D(t,X)V(t,x)dW +Y(t,X)XdN
+t t t t t t t t t
+Bates | Bates models are bivariate composite models. Each Bates
+model consists of two coupled univariate models:
+• A geometric Brownian motion (gbm) model with a
+stochastic volatility function.
+dX =B(t)X dt+ X X dW +Y(t)X dN
+1t 1t 2t 1t 1t 1t t
+• A Cox-Ingersoll-Ross (cir) square root diffusion model.
+dX =S(t)[L(t)−X ]dt+V(t) X dW
+2t 2t 2t 2t
+rvm | The rough volatility model (RVM) model allows you to
+simulate any vector-valued RVM of the form:
+dX =B(t)X dt+X X dW
+1t 1t 2t 1t 1t
+Yt
+X =ξe
+2t
+∫t
+Y = g(t−s)ν dW
+t s s
+−∞
+roughbergomi | The rough Bergomi volatility model allows you to simulate
+any vector-valued RVM of the form:
+dX =B(t)X dt+ X X dW
+1t 1t 2t 1t 1t
+2
+α η 2α+1
+X 2t =ξ 0 (t)eη 2a+1Yt − 2 t
+∫t
+α
+Y = (t−s) dW
+t s
+0
+roughheston | The rough Heston volatility model allows you to simulate
+any vector-valued RVM of the form:
+dX =B(t)Xdt+ Y XdW
+t t t t t
+1 ∫t α 1 ∫t
+Y =Y + (t−s) κ(θ−Y ds+ (t−
+t 0 Γ(α+1) 0 s) Γ(α+1) 0
+
+=== PAGE 1206 TABLES ===
+
+Table 1:
+SDE Class Names | Supported Simulation Methods
+sde | simByEuler, simulate
+bm | simByEuler, simByMilstein,
+simByMilstein2, simulate
+gbm | simByEuler, simBySolution,
+simByMilstein, simByMilstein2, simulate
+merton | simBySolution, simByMilstein,
+simByMilstein2, simulate
+bates | simByTransition, simByQuadExp,
+simByMilstein, simByMilstein2, simulate
+hwv | simBySolution, simByMilstein,
+simByMilstein2, simulate
+heston | simByTransition, simByQuadExp,
+simByMilstein, simByMilstein2, simulate
+cev | simByEuler, simByMilstein,
+simByMilstein2, simulate
+cir | simByEuler, simByTransition,
+simByQuadExp, simByMilstein,
+simByMilstein2, simulate
+sdeddo | simByEuler, simByMilstein,
+simByMilstein2, simulate
+sdeld | simByEuler, simByMilstein,
+simByMilstein2, simulate
+sdemrd | simByEuler, simByMilstein,
+simByMilstein2, simulate
+rvm | simByEuler, simByHybrid
+roughbergomi | simByEuler, simByHybrid
+roughheston | simByEuler
+
+=== PAGE 1208 TABLES ===
+
+Table 1:
+In this section...
+“Overview” on page 14-16
+“Specify Base Stochastic Differential Equation (SDE) Model” on page 14-16
+
+=== PAGE 1211 TABLES ===
+
+Table 1:
+In this section...
+“Overview” on page 14-19
+“Specify Drift and Diffusion Rate Functions” on page 14-19
+“Specify SDEDDO with Drift and Diffusion Functions” on page 14-20
+
+=== PAGE 1214 TABLES ===
+
+Table 1:
+In this section...
+“Overview” on page 14-22
+“Specify SDELD Model” on page 14-22
+
+=== PAGE 1216 TABLES ===
+
+Table 1:
+In this section...
+“Creating Brownian Motion (BM) Models” on page 14-24
+“Specify Brownian Motion Model” on page 14-24
+“Creating Constant Elasticity of Variance (CEV) Models” on page 14-25
+“Creating Geometric Brownian Motion (GBM) Models” on page 14-25
+“Creating Stochastic Differential Equations from Mean-Reverting Drift (SDEMRD) Models” on page
+14-26
+“Creating Cox-Ingersoll-Ross (CIR) Square Root Diffusion Models” on page 14-27
+“Creating Hull-White/Vasicek (HWV) Gaussian Diffusion Models” on page 14-28
+“Creating Heston Stochastic Volatility Models” on page 14-29
+
+=== PAGE 1223 TABLES ===
+
+Table 1:
+In this section...
+“Simulating Multidimensional Market Models” on page 14-31
+“Induce Dependence and Correlation Between States” on page 14-41
+“Dynamic Behavior of Market Parameters” on page 14-43
+“Price European Stock Options Using Monte Carlo Simulation” on page 14-47
+
+=== PAGE 1242 TABLES ===
+
+Table 1:
+In this section...
+“Simulate Interest Rates Through Interpolation” on page 14-50
+“Simulate Positive Interest Rates” on page 14-54
+
+=== PAGE 1255 TABLES ===
+
+Table 1:
+Class Names | Methods Supporting Quasi-Monte Carlo
+Simulation and Brownian Bridge
+Construction
+sde | simByEuler, simulate
+bm | simByEuler, simByMilstein,
+simByMilstein2, simulate
+gbm | simByEuler, simBySolution,
+simByMilstein, simByMilstein2, simulate
+merton | simBySolution, simByMilstein,
+simByMilstein2, simulate
+bates | simByTransition, simByQuadExp,
+simByMilstein, simByMilstein2, simulate
+hwv | simBySolution, simByMilstein,
+simByMilstein2, simulate
+heston | simByTransition, simByQuadExp,
+simByMilstein, simByMilstein2, simulate
+
+=== PAGE 1256 TABLES ===
+
+Table 1:
+Class Names | Methods Supporting Quasi-Monte Carlo
+Simulation and Brownian Bridge
+Construction
+cev | simByEuler, simByMilstein,
+simByMilstein2, simulate
+cir | simByEuler, simByTransition,
+simByQuadExp, simByMilstein,
+simByMilstein2, simulate
+sdeddo | simByEuler, simByMilstein,
+simByMilstein2, simulate
+sdeld | simByEuler, simByMilstein,
+simByMilstein2, simulate
+sdemrd | simByEuler, simByMilstein,
+simByMilstein2, simulate
+rvm | simByEuler, simByHybrid
+roughbergomi | simByEuler, simByHybrid
+roughheston | simByEuler
+
+=== PAGE 1257 TABLES ===
+
+Table 1:
+In this section...
+“Managing Memory” on page 14-65
+“Enhancing Performance” on page 14-66
+“Optimizing Accuracy: About Solution Precision and Error” on page 14-66
+
+=== PAGE 1715 TABLES ===
+
+Table 1:
+simulate Scheme Value | Supported Objects
+"euler" | sde, sdeddo, sdeld, sdemrd, bm, cev, gbm,
+merton, hwv, cir, heston, or bates
+"solution" | gbm, merton, or hwv
+"transition" | cir, heston, or bates
+"quadratic-exponential" | cir, heston, or bates
+"milstein" | sdeddo, sdeld, sdemrd, bm, cev, gbm, merton,
+hwv, cir, heston, or bates
+"milstein2" | sdeddo, sdeld, sdemrd, bm, cev, gbm, merton,
+hwv, cir, heston, or bates
+
+=== PAGE 1870 TABLES ===
+
+Table 1:
+PV = | Present value of a cash flow.
+CF = | Cash flow amount.
+
+=== PAGE 1871 TABLES ===
+
+Table 1:
+z = | Risk-adjusted annualized rate or yield corresponding to a given cash flow. The
+yield is quoted on a semiannual basis.
+f = | Frequency of quotes for the yield. Default is 2 for Basis values 0 to 7 and 13
+and 1 for Basis values 8 to 12. The default can be overridden by specifying the
+CompoundingFrequency name-value pair.
+TF = | Time factor for a given cash flow. The time factor is computed using the
+compounding frequency and the discount basis. If these values are not specified,
+then the defaults are as follows: CompoundingFrequency default is 2 for Basis
+values 0 to 7 and 13 and 1 for Basis values 8 to 12. DiscountBasis is 0 for
+Basis values 0 to 7 and 13 and the input Basis for Basis values 8 to 12.
+
+=== PAGE 1897 TABLES ===
+
+Table 1:
+PV = | Present value of a cash flow.
+CF = | The cash flow amount.
+z = | The risk-adjusted annualized rate or yield corresponding to a given cash flow. The
+yield is quoted on a semiannual basis.
+f = | The frequency of quotes for the yield.
+TF = | Time factor for a given cash flow. Time is measured in semiannual periods from
+the settlement date to the cash flow date. In computing time factors, use SIA
+actual/actual day count conventions for all time factor calculations.
+
+=== PAGE 1915 TABLES ===
+
+Table 1:
+Color Name | Short Name | RGB Triplet | Hexadecimal
+Color Code | Appearance
+"red" | "r" | [1 0 0] | "#FF0000" | 
+"green" | "g" | [0 1 0] | "#00FF00" | 
+"blue" | "b" | [0 0 1] | "#0000FF" | 
+"cyan" | "c" | [0 1 1] | "#00FFFF" | 
+"magenta" | "m" | [1 0 1] | "#FF00FF" | 
+"yellow" | "y" | [1 1 0] | "#FFFF00" | 
+"black" | "k" | [0 0 0] | "#000000" | 
+"white" | "w" | [1 1 1] | "#FFFFFF" | 
+
+Table 2:
+Palette | Palette Colors
+"gem" — Light theme default
+Most plots use these colors by default. | 
+"glow" — Dark theme default | 
+
+=== PAGE 1984 TABLES ===
+
+Table 1:
+Flag | Cash Flow Type
+0 | Accrued interest due on a bond at settlement.
+1 | Initial cash flow amount smaller than normal due to a “stub” coupon period. A
+stub period is created when the time from issue date to first coupon date is
+shorter than normal.
+2 | Larger than normal initial cash flow amount because the first coupon period is
+longer than normal.
+3 | Nominal coupon cash flow amount.
+4 | Normal maturity cash flow amount (face value plus the nominal coupon amount).
+5 | End “stub” coupon amount (last coupon period is abnormally short and actual
+maturity cash flow is smaller than normal).
+6 | Larger than normal maturity cash flow because the last coupon period longer
+than normal.
+7 | Maturity cash flow on a coupon bond when the bond has less than one coupon
+period to maturity.
+
+=== PAGE 1985 TABLES ===
+
+Table 1:
+Flag | Cash Flow Type
+8 | Smaller than normal maturity cash flow when the bond has less than one coupon
+period to maturity.
+9 | Larger than normal maturity cash flow when the bond has less than one coupon
+period to maturity.
+10 | Maturity cash flow on a zero coupon bond.
+11 | Sinking principal and initial cash flow amount smaller than normal due to a
+"stub" coupon period. A stub period is created when the time from issue date to
+first coupon date is shorter than normal.
+12 | Sinking principal and larger than normal initial cash flow amount because the
+first coupon period is longer than normal.
+13 | Sinking principal and nominal coupon cash flow amount.
+
+Table 2:
+PV = | Present value of a cash flow.
+CF = | Cash flow amount.
+z = | Risk-adjusted annualized rate or yield corresponding to a given cash flow. The
+yield is quoted on a semiannual basis.
+f = | Frequency of quotes for the yield. Default is 2 for Basis values 0 to 7 and 13
+and 1 for Basis values 8 to 12. The default can be overridden by specifying the
+CompoundingFrequency name-value pair.
+
+=== PAGE 1986 TABLES ===
+
+Table 1:
+TF = | Time factor for a given cash flow. The time factor is computed using the
+compounding frequency and the discount basis. If these values are not specified,
+then the defaults are as follows: CompoundingFrequency default is 2 for Basis
+values 0 to 7 and 13 and 1 for Basis values 8 to 12.
+DiscountBasis is 0 for Basis values 0 to 7 and 13 and the value of the input
+Basis for Basis values 8 to 12.
+
+=== PAGE 2010 TABLES ===
+
+Table 1:
+DateFormNum | Example
+2 | 03/01/00
+3 | Mar
+
+=== PAGE 2011 TABLES ===
+
+Table 1:
+DateFormNum | Example
+5 | 03
+6 | 03/01
+7 | 01
+8 | Wed
+9 | W
+10 | 2000
+11 | 00
+12 | Mar00
+17 | Q1–00
+18 | Q1
+19 | 01/03
+20 | 01/03/00
+27 | Q1–2000
+28 | Mar2000
+29 | 2000–03–01
+
+=== PAGE 2104 TABLES ===
+
+Table 1:
+DateForm Format Description
+0 01-Mar-1999 15:45:17 day-month-year hour:minute:second
+1 01-mar-1999 day-month-year
+2 03/01/99 month/day/year
+3 Mar month, three letters
+4 M month, single letter
+5 3 month
+6 03/01 month/day
+
+=== PAGE 2105 TABLES ===
+
+Table 1:
+DateForm Format Description
+7 1 day of month
+8 Wed day of week, three letters
+9 W day of week, single letter
+10 1999 year, four digits
+11 99 year, two digits
+12 Mar99 month year
+13 15:45:17 hour:minute:second
+14 03:45:17 PM hour:minute:second AM or PM
+15 15:45 hour:minute
+16 03:45 PM hour:minute AM or PM
+17 95/03/01 year month day
+
+=== PAGE 2261 TABLES ===
+
+Table 1:
+ | D
+a
+t
+e
+s | D
+JI | A
+A | A
+I
+G | A
+X
+P | B
+A | C | C
+A
+T | D
+D | D
+I
+S | G
+E | G
+M | H
+D | H
+O
+N | H
+P
+Q | I
+B
+M | I
+N
+T
+C | J
+N
+J | J
+P
+M | K
+O | M
+C
+D | M
+M
+M | M
+O | M
+R
+K | M
+S
+F
+T | P
+F
+E | P
+G | T | U
+T
+X | V
+Z | W
+M
+T | X
+O
+M
+1 | 1/
+3/
+2
+0
+0
+6 | 1.
+0
+8
+4
+7
+e
++
+0
+4 | 2
+8.
+7
+2
+0
+0 | 6
+8.
+4
+1
+0
+0 | 5
+1.
+5
+3
+0
+0 | 6
+8.
+6
+3
+0
+0 | 4
+5.
+2
+6
+0
+0 | 5
+5.
+8
+6
+0
+0 | 4
+0.
+6
+8
+0
+0 | 2
+4.
+1
+8
+0
+0 | 3
+3.
+6
+0
+0
+0 | 1
+7.
+8
+2
+0
+0 | 3
+9.
+7
+9
+0
+0 | 3
+6.
+1
+4
+0
+0 | 2
+8.
+3
+5
+0
+0 | 8
+0.
+1
+3
+0
+0 | 2
+4.
+5
+7
+0
+0 | 5
+9.
+0
+8
+0
+0 | 3
+7.
+7
+8
+0
+0 | 3
+8.
+9
+8
+0
+0 | 3
+2.
+7
+2
+0
+0 | 7
+5.
+9
+3
+0
+0 | 5
+2.
+2
+7
+0
+0 | 3
+0.
+7
+3
+0
+0 | 2
+6.
+1
+9
+0
+0 | 2
+2.
+1
+6
+0
+0 | 5
+6.
+3
+8
+0
+0 | 2
+2.
+7
+0
+0
+0 | 5
+4.
+9
+4
+0
+0 | 2
+6.
+7
+9
+0
+0 | 4
+4.
+9
+0
+0
+0 | 5
+6.
+6
+4
+0
+0
+2 | 1/
+4/
+2
+0
+0
+6 | 1.
+0
+8
+8
+0
+e
++
+0
+4 | 2
+8.
+8
+9
+0
+0 | 6
+8.
+5
+1
+0
+0 | 5
+1.
+0
+3
+0
+0 | 6
+9.
+3
+4
+0
+0 | 4
+4.
+4
+2
+0
+0 | 5
+7.
+2
+9
+0
+0 | 4
+0.
+4
+6
+0
+0 | 2
+3.
+7
+7
+0
+0 | 3
+3.
+5
+6
+0
+0 | 1
+8.
+3
+0
+0
+0 | 3
+9.
+0
+5
+0
+0 | 3
+5.
+9
+9
+0
+0 | 2
+9.
+1
+8
+0
+0 | 8
+0.
+0
+3
+0
+0 | 2
+4.
+9
+0
+0
+0 | 5
+9.
+9
+9
+0
+0 | 3
+7.
+5
+6
+0
+0 | 3
+8.
+9
+1
+0
+0 | 3
+3.
+0
+1
+0
+0 | 7
+5.
+5
+4
+0
+0 | 5
+2.
+6
+5
+0
+0 | 3
+1.
+0
+8
+0
+0 | 2
+6.
+3
+2
+0
+0 | 2
+2.
+8
+8
+0
+0 | 5
+6.
+4
+8
+0
+0 | 2
+2.
+8
+7
+0
+0 | 5
+4.
+6
+1
+0
+0 | 2
+7.
+5
+8
+0
+0 | 4
+4.
+9
+9
+0
+0 | 5
+6.
+7
+4
+0
+0
+3 | 1/
+5/
+2
+0
+0
+6 | 1.
+0
+8
+8
+2
+e
++
+0
+4 | 2
+9.
+1
+2
+0
+0 | 6
+8.
+6
+0
+0
+0 | 5
+1.
+5
+7
+0
+0 | 6
+8.
+5
+3
+0
+0 | 4
+4.
+6
+5
+0
+0 | 5
+7.
+2
+9
+0
+0 | 4
+0.
+3
+8
+0
+0 | 2
+4.
+1
+9
+0
+0 | 3
+3.
+4
+7
+0
+0 | 1
+9.
+3
+4
+0
+0 | 3
+8.
+6
+7
+0
+0 | 3
+5.
+9
+7
+0
+0 | 2
+8.
+9
+7
+0
+0 | 8
+0.
+5
+6
+0
+0 | 2
+5.
+2
+5
+0
+0 | 5
+9.
+7
+4
+0
+0 | 3
+7.
+6
+7
+0
+0 | 3
+9.
+1
+0
+0
+0 | 3
+3.
+0
+5
+0
+0 | 7
+4.
+8
+5
+0
+0 | 5
+2.
+5
+2
+0
+0 | 3
+1.
+1
+3
+0
+0 | 2
+6.
+3
+4
+0
+0 | 2
+2.
+9
+0
+0
+0 | 5
+6.
+3
+0
+0
+0 | 2
+2.
+9
+2
+0
+0 | 5
+4.
+4
+1
+0
+0 | 2
+7.
+9
+0
+0
+0 | 4
+4.
+3
+8
+0
+0 | 5
+6.
+4
+5
+0
+0
+
+=== PAGE 2262 TABLES ===
+
+Table 1:
+ | D
+a
+t
+e
+s | D
+JI | A
+A | A
+I
+G | A
+X
+P | B
+A | C | C
+A
+T | D
+D | D
+I
+S | G
+E | G
+M | H
+D | H
+O
+N | H
+P
+Q | I
+B
+M | I
+N
+T
+C | J
+N
+J | J
+P
+M | K
+O | M
+C
+D | M
+M
+M | M
+O | M
+R
+K | M
+S
+F
+T | P
+F
+E | P
+G | T | U
+T
+X | V
+Z | W
+M
+T | X
+O
+M
+4 | 1/
+6/
+2
+0
+0
+6 | 1.
+0
+9
+5
+9
+e
++
+0
+4 | 2
+9.
+0
+2
+0
+0 | 6
+8.
+8
+9
+0
+0 | 5
+1.
+7
+5
+0
+0 | 6
+7.
+5
+7
+0
+0 | 4
+4.
+6
+5
+0
+0 | 5
+8.
+4
+3
+0
+0 | 4
+0.
+5
+5
+0
+0 | 2
+4.
+5
+2
+0
+0 | 3
+3.
+7
+0
+0
+0 | 1
+9.
+6
+1
+0
+0 | 3
+8.
+9
+6
+0
+0 | 3
+6.
+5
+3
+0
+0 | 2
+9.
+8
+0
+0
+0 | 8
+2.
+9
+6
+0
+0 | 2
+5.
+2
+8
+0
+0 | 6
+0.
+0
+1
+0
+0 | 3
+7.
+9
+4
+0
+0 | 3
+9.
+4
+7
+0
+0 | 3
+3.
+2
+5
+0
+0 | 7
+5.
+4
+7
+0
+0 | 5
+2.
+9
+5
+0
+0 | 3
+1.
+0
+8
+0
+0 | 2
+6.
+2
+6
+0
+0 | 2
+3.
+1
+6
+0
+0 | 5
+6.
+2
+4
+0
+0 | 2
+3.
+2
+1
+0
+0 | 5
+4.
+5
+8
+0
+0 | 2
+8.
+0
+1
+0
+0 | 4
+4.
+5
+6
+0
+0 | 5
+7.
+5
+7
+0
+0
+5 | 1/
+9/
+2
+0
+0
+6 | 1.
+1
+0
+1
+2
+e
++
+0
+4 | 2
+9.
+3
+7
+0
+0 | 6
+8.
+5
+7
+0
+0 | 5
+3.
+0
+4
+0
+0 | 6
+7.
+0
+1
+0
+0 | 4
+4.
+4
+3
+0
+0 | 5
+9.
+4
+9
+0
+0 | 4
+0.
+3
+2
+0
+0 | 2
+4.
+7
+8
+0
+0 | 3
+3.
+6
+1
+0
+0 | 2
+1.
+1
+2
+0
+0 | 3
+9.
+3
+8
+0
+0 | 3
+6.
+2
+3
+0
+0 | 3
+0.
+1
+7
+0
+0 | 8
+1.
+7
+6
+0
+0 | 2
+5.
+4
+4
+0
+0 | 6
+0.
+3
+8
+0
+0 | 3
+8.
+5
+5
+0
+0 | 3
+9.
+6
+6
+0
+0 | 3
+3.
+8
+8
+0
+0 | 7
+5.
+8
+4
+0
+0 | 5
+3.
+1
+1
+0
+0 | 3
+1.
+5
+8
+0
+0 | 2
+6.
+2
+1
+0
+0 | 2
+3.
+1
+6
+0
+0 | 5
+6.
+6
+7
+0
+0 | 2
+3.
+3
+0
+0
+0 | 5
+5.
+2
+0
+0
+0 | 2
+8.
+1
+2
+0
+0 | 4
+4.
+4
+0
+0
+0 | 5
+7.
+5
+4
+0
+0
+6 | 1/
+1
+0/
+2
+0
+0
+6 | 1.
+1
+0
+1
+2
+e
++
+0
+4 | 2
+8.
+4
+4
+0
+0 | 6
+9.
+1
+8
+0
+0 | 5
+2.
+8
+8
+0
+0 | 6
+7.
+3
+3
+0
+0 | 4
+4.
+5
+7
+0
+0 | 5
+9.
+2
+5
+0
+0 | 4
+0.
+2
+0
+0
+0 | 2
+5.
+0
+9
+0
+0 | 3
+3.
+4
+3
+0
+0 | 2
+0.
+7
+9
+0
+0 | 4
+0.
+3
+3
+0
+0 | 3
+6.
+1
+7
+0
+0 | 3
+0.
+3
+3
+0
+0 | 8
+2.
+1
+0
+0
+0 | 2
+5.
+1
+0
+0
+0 | 6
+0.
+4
+9
+0
+0 | 3
+8.
+6
+1
+0
+0 | 3
+9.
+7
+0
+0
+0 | 3
+3.
+9
+1
+0
+0 | 7
+5.
+3
+7
+0
+0 | 5
+3.
+0
+4
+0
+0 | 3
+1.
+2
+7
+0
+0 | 2
+6.
+3
+5
+0
+0 | 2
+2.
+7
+7
+0
+0 | 5
+6.
+4
+5
+0
+0 | 2
+3.
+1
+6
+0
+0 | 5
+5.
+2
+4
+0
+0 | 2
+8.
+2
+4
+0
+0 | 4
+4.
+5
+4
+0
+0 | 5
+7.
+9
+9
+0
+0
+7 | 1/
+1
+1/
+2
+0
+0
+6 | 1.
+1
+0
+4
+3
+e
++
+0
+4 | 2
+8.
+0
+5
+0
+0 | 6
+9.
+6
+0
+0
+0 | 5
+2.
+5
+9
+0
+0 | 6
+8.
+3
+0
+0
+0 | 4
+4.
+9
+8
+0
+0 | 5
+9.
+2
+8
+0
+0 | 3
+8.
+8
+7
+0
+0 | 2
+5.
+3
+3
+0
+0 | 3
+3.
+6
+6
+0
+0 | 2
+0.
+6
+1
+0
+0 | 4
+1.
+4
+4
+0
+0 | 3
+6.
+1
+9
+0
+0 | 3
+0.
+8
+8
+0
+0 | 8
+2.
+1
+9
+0
+0 | 2
+5.
+1
+2
+0
+0 | 5
+9.
+9
+1
+0
+0 | 3
+8.
+5
+8
+0
+0 | 3
+9.
+7
+2
+0
+0 | 3
+4.
+5
+0
+0
+0 | 7
+5.
+2
+2
+0
+0 | 5
+3.
+3
+1
+0
+0 | 3
+1.
+3
+9
+0
+0 | 2
+6.
+6
+3
+0
+0 | 2
+3.
+0
+6
+0
+0 | 5
+6.
+6
+5
+0
+0 | 2
+3.
+3
+4
+0
+0 | 5
+4.
+4
+1
+0
+0 | 2
+8.
+5
+8
+0
+0 | 4
+5.
+2
+3
+0
+0 | 5
+8.
+3
+8
+0
+0
+
+=== PAGE 2263 TABLES ===
+
+Table 1:
+ | D
+a
+t
+e
+s | D
+JI | A
+A | A
+I
+G | A
+X
+P | B
+A | C | C
+A
+T | D
+D | D
+I
+S | G
+E | G
+M | H
+D | H
+O
+N | H
+P
+Q | I
+B
+M | I
+N
+T
+C | J
+N
+J | J
+P
+M | K
+O | M
+C
+D | M
+M
+M | M
+O | M
+R
+K | M
+S
+F
+T | P
+F
+E | P
+G | T | U
+T
+X | V
+Z | W
+M
+T | X
+O
+M
+8 | 1/
+1
+2/
+2
+0
+0
+6 | 1.
+0
+9
+6
+2
+e
++
+0
+4 | 2
+7.
+6
+8
+0
+0 | 6
+9.
+0
+4
+0
+0 | 5
+2.
+6
+0
+0
+0 | 6
+7.
+9
+0
+0
+0 | 4
+5.
+0
+2
+0
+0 | 6
+0.
+1
+3
+0
+0 | 3
+8.
+0
+2
+0
+0 | 2
+5.
+4
+1
+0
+0 | 3
+3.
+2
+5
+0
+0 | 1
+9.
+7
+6
+0
+0 | 4
+1.
+0
+5
+0
+0 | 3
+5.
+7
+7
+0
+0 | 3
+0.
+5
+7
+0
+0 | 8
+1.
+6
+1
+0
+0 | 2
+4.
+9
+6
+0
+0 | 5
+9.
+6
+3
+0
+0 | 3
+7.
+8
+7
+0
+0 | 3
+9.
+5
+0
+0
+0 | 3
+3.
+9
+6
+0
+0 | 7
+4.
+5
+7
+0
+0 | 5
+3.
+2
+3
+0
+0 | 3
+1.
+4
+1
+0
+0 | 2
+6.
+4
+8
+0
+0 | 2
+2.
+9
+0
+0
+0 | 5
+6.
+0
+2
+0
+0 | 2
+3.
+2
+4
+0
+0 | 5
+3.
+9
+0
+0
+0 | 2
+8.
+6
+9
+0
+0 | 4
+4.
+4
+3
+0
+0 | 5
+7.
+7
+7
+0
+0
+9 | 1/
+1
+3/
+2
+0
+0
+6 | 1.
+0
+9
+6
+0
+e
++
+0
+4 | 2
+7.
+8
+1
+0
+0 | 6
+8.
+8
+4
+0
+0 | 5
+2.
+5
+0
+0
+0 | 6
+7.
+7
+0
+0
+0 | 4
+4.
+9
+2
+0
+0 | 6
+0.
+2
+4
+0
+0 | 3
+7.
+8
+6
+0
+0 | 2
+5.
+4
+7
+0
+0 | 3
+3.
+3
+5
+0
+0 | 1
+9.
+2
+0
+0
+0 | 4
+0.
+4
+3
+0
+0 | 3
+5.
+8
+5
+0
+0 | 3
+1.
+4
+3
+0
+0 | 8
+1.
+2
+2
+0
+0 | 2
+4.
+7
+8
+0
+0 | 5
+9.
+2
+6
+0
+0 | 3
+7.
+8
+4
+0
+0 | 3
+9.
+3
+7
+0
+0 | 3
+3.
+6
+5
+0
+0 | 7
+4.
+3
+8
+0
+0 | 5
+3.
+2
+9
+0
+0 | 3
+1.
+4
+0
+0
+0 | 2
+6.
+5
+3
+0
+0 | 2
+2.
+9
+9
+0
+0 | 5
+6.
+4
+9
+0
+0 | 2
+3.
+2
+7
+0
+0 | 5
+4.
+1
+0
+0
+0 | 2
+8.
+7
+5
+0
+0 | 4
+4.
+1
+0
+0
+0 | 5
+9.
+0
+6
+0
+0
+1
+0 | 1/
+1
+7/
+2
+0
+0
+6 | 1.
+0
+8
+9
+6
+e
++
+0
+4 | 2
+7.
+9
+7
+0
+0 | 6
+7.
+8
+4
+0
+0 | 5
+2.
+0
+3
+0
+0 | 6
+6.
+9
+3
+0
+0 | 4
+4.
+4
+7
+0
+0 | 6
+0.
+8
+5
+0
+0 | 3
+7.
+7
+5
+0
+0 | 2
+5.
+1
+5
+0
+0 | 3
+3.
+2
+0
+0
+0 | 1
+8.
+6
+8
+0
+0 | 4
+0.
+1
+1
+0
+0 | 3
+5.
+5
+6
+0
+0 | 3
+1.
+2
+0
+0
+0 | 8
+1.
+0
+5
+0
+0 | 2
+4.
+5
+2
+0
+0 | 5
+8.
+7
+4
+0
+0 | 3
+7.
+6
+4
+0
+0 | 3
+9.
+1
+1
+0
+0 | 3
+3.
+7
+7
+0
+0 | 7
+3.
+9
+9
+0
+0 | 5
+2.
+8
+5
+0
+0 | 3
+1.
+1
+6
+0
+0 | 2
+6.
+3
+4
+0
+0 | 2
+2.
+6
+3
+0
+0 | 5
+6.
+2
+5
+0
+0 | 2
+3.
+1
+3
+0
+0 | 5
+4.
+4
+1
+0
+0 | 2
+8.
+1
+2
+0
+0 | 4
+3.
+6
+6
+0
+0 | 5
+9.
+6
+1
+0
+0
+1
+1 | 1/
+1
+8/
+2
+0
+0
+6 | 1.
+0
+8
+5
+5
+e
++
+0
+4 | 2
+7.
+8
+1
+0
+0 | 6
+7.
+4
+2
+0
+0 | 5
+1.
+8
+4
+0
+0 | 6
+6.
+5
+8
+0
+0 | 4
+4.
+4
+1
+0
+0 | 6
+0.
+0
+4
+0
+0 | 3
+7.
+5
+4
+0
+0 | 2
+4.
+9
+7
+0
+0 | 3
+3.
+0
+8
+0
+0 | 1
+8.
+9
+8
+0
+0 | 4
+0.
+4
+2
+0
+0 | 3
+5.
+7
+1
+0
+0 | 3
+1.
+2
+1
+0
+0 | 8
+1.
+8
+3
+0
+0 | 2
+1.
+7
+2
+0
+0 | 5
+9.
+6
+1
+0
+0 | 3
+7.
+2
+4
+0
+0 | 3
+8.
+9
+1
+0
+0 | 3
+4.
+1
+6
+0
+0 | 7
+4.
+0
+7
+0
+0 | 5
+2.
+8
+9
+0
+0 | 3
+0.
+9
+9
+0
+0 | 2
+6.
+1
+8
+0
+0 | 2
+2.
+3
+6
+0
+0 | 5
+6.
+5
+4
+0
+0 | 2
+3.
+1
+1
+0
+0 | 5
+4.
+0
+8
+0
+0 | 2
+7.
+8
+3
+0
+0 | 4
+3.
+8
+8
+0
+0 | 5
+8.
+7
+8
+0
+0
+
+=== PAGE 2264 TABLES ===
+
+Table 1:
+ | D
+a
+t
+e
+s | D
+JI | A
+A | A
+I
+G | A
+X
+P | B
+A | C | C
+A
+T | D
+D | D
+I
+S | G
+E | G
+M | H
+D | H
+O
+N | H
+P
+Q | I
+B
+M | I
+N
+T
+C | J
+N
+J | J
+P
+M | K
+O | M
+C
+D | M
+M
+M | M
+O | M
+R
+K | M
+S
+F
+T | P
+F
+E | P
+G | T | U
+T
+X | V
+Z | W
+M
+T | X
+O
+M
+1
+2 | 1/
+1
+9/
+2
+0
+0
+6 | 1.
+0
+8
+8
+1
+e
++
+0
+4 | 2
+8.
+3
+3
+0
+0 | 6
+6.
+9
+2
+0
+0 | 5
+1.
+6
+6
+0
+0 | 6
+6.
+4
+2
+0
+0 | 4
+4.
+0
+2
+0
+0 | 6
+0.
+6
+6
+0
+0 | 3
+7.
+6
+9
+0
+0 | 2
+6.
+0
+0
+0
+0 | 3
+2.
+9
+5
+0
+0 | 1
+9.
+1
+0
+0
+0 | 3
+9.
+8
+3
+0
+0 | 3
+5.
+8
+8
+0
+0 | 3
+1.
+7
+7
+0
+0 | 8
+1.
+1
+4
+0
+0 | 2
+1.
+5
+3
+0
+0 | 5
+9.
+6
+0
+0
+0 | 3
+7.
+0
+3
+0
+0 | 3
+9.
+0
+1
+0
+0 | 3
+4.
+3
+6
+0
+0 | 7
+3.
+8
+1
+0
+0 | 5
+2.
+6
+8
+0
+0 | 3
+1.
+2
+6
+0
+0 | 2
+6.
+3
+6
+0
+0 | 2
+3.
+2
+7
+0
+0 | 5
+6.
+3
+9
+0
+0 | 2
+3.
+1
+8
+0
+0 | 5
+4.
+4
+1
+0
+0 | 2
+8.
+0
+7
+0
+0 | 4
+4.
+4
+9
+0
+0 | 5
+9.
+5
+7
+0
+0
+1
+3 | 1/
+2
+0/
+2
+0
+0
+6 | 1.
+0
+6
+6
+7
+e
++
+0
+4 | 2
+7.
+6
+7
+0
+0 | 6
+5.
+5
+5
+0
+0 | 5
+0.
+4
+9
+0
+0 | 6
+4.
+7
+9
+0
+0 | 4
+1.
+9
+5
+0
+0 | 5
+8.
+9
+8
+0
+0 | 3
+7.
+3
+4
+0
+0 | 2
+5.
+4
+9
+0
+0 | 3
+1.
+7
+0
+0
+0 | 1
+8.
+9
+0
+0
+0 | 3
+8.
+7
+6
+0
+0 | 3
+4.
+5
+7
+0
+0 | 3
+1.
+2
+8
+0
+0 | 7
+9.
+4
+5
+0
+0 | 2
+0.
+9
+1
+0
+0 | 5
+8.
+2
+8
+0
+0 | 3
+6.
+0
+7
+0
+0 | 3
+8.
+2
+1
+0
+0 | 3
+5.
+0
+1
+0
+0 | 7
+2.
+2
+1
+0
+0 | 5
+2.
+1
+8
+0
+0 | 3
+1.
+2
+0
+0
+0 | 2
+5.
+7
+7
+0
+0 | 2
+3.
+0
+3
+0
+0 | 5
+5.
+7
+4
+0
+0 | 2
+3.
+0
+1
+0
+0 | 5
+3.
+4
+6
+0
+0 | 2
+7.
+6
+4
+0
+0 | 4
+3.
+7
+1
+0
+0 | 5
+8.
+6
+3
+0
+0
+1
+4 | 1/
+2
+3/
+2
+0
+0
+6 | 1.
+0
+6
+8
+9
+e
++
+0
+4 | 2
+8.
+0
+3
+0
+0 | 6
+5.
+4
+6
+0
+0 | 5
+0.
+5
+3
+0
+0 | 6
+5.
+3
+0
+0
+0 | 4
+2.
+2
+4
+0
+0 | 5
+9.
+2
+3
+0
+0 | 3
+7.
+3
+7
+0
+0 | 2
+5.
+2
+9
+0
+0 | 3
+1.
+6
+3
+0
+0 | 2
+0.
+6
+0
+0
+0 | 3
+8.
+2
+9
+0
+0 | 3
+4.
+7
+8
+0
+0 | 3
+0.
+8
+8
+0
+0 | 7
+9.
+5
+0
+0
+0 | 2
+0.
+5
+2
+0
+0 | 5
+8.
+6
+6
+0
+0 | 3
+6.
+2
+8
+0
+0 | 3
+8.
+6
+0
+0
+0 | 3
+4.
+8
+6
+0
+0 | 7
+2.
+6
+5
+0
+0 | 5
+2.
+0
+9
+0
+0 | 3
+0.
+8
+0
+0
+0 | 2
+5.
+7
+1
+0
+0 | 2
+3.
+1
+9
+0
+0 | 5
+5.
+5
+5
+0
+0 | 2
+2.
+7
+7
+0
+0 | 5
+2.
+9
+4
+0
+0 | 2
+7.
+6
+9
+0
+0 | 4
+3.
+9
+5
+0
+0 | 5
+9.
+2
+8
+0
+0
+1
+5 | 1/
+2
+4/
+2
+0
+0
+6 | 1.
+0
+7
+1
+2
+e
++
+0
+4 | 2
+8.
+1
+6
+0
+0 | 6
+5.
+3
+9
+0
+0 | 5
+1.
+8
+9
+0
+0 | 6
+5.
+9
+2
+0
+0 | 4
+2.
+2
+5
+0
+0 | 5
+9.
+5
+3
+0
+0 | 3
+7.
+0
+9
+0
+0 | 2
+5.
+7
+6
+0
+0 | 3
+1.
+3
+2
+0
+0 | 2
+1.
+7
+3
+0
+0 | 3
+9.
+0
+3
+0
+0 | 3
+5.
+2
+5
+0
+0 | 3
+0.
+9
+1
+0
+0 | 7
+8.
+9
+5
+0
+0 | 2
+0.
+4
+5
+0
+0 | 5
+6.
+9
+0
+0
+0 | 3
+6.
+1
+3
+0
+0 | 3
+8.
+9
+8
+0
+0 | 3
+5.
+0
+0
+0
+0 | 7
+1.
+2
+1
+0
+0 | 5
+1.
+7
+4
+0
+0 | 3
+0.
+7
+6
+0
+0 | 2
+5.
+6
+4
+0
+0 | 2
+2.
+9
+1
+0
+0 | 5
+5.
+7
+7
+0
+0 | 2
+2.
+9
+6
+0
+0 | 5
+4.
+8
+6
+0
+0 | 2
+7.
+6
+0
+0
+0 | 4
+4.
+4
+1
+0
+0 | 5
+9.
+0
+5
+0
+0
+
+=== PAGE 2265 TABLES ===
+
+Table 1:
+ | D
+a
+t
+e
+s | D
+JI | A
+A | A
+I
+G | A
+X
+P | B
+A | C | C
+A
+T | D
+D | D
+I
+S | G
+E | G
+M | H
+D | H
+O
+N | H
+P
+Q | I
+B
+M | I
+N
+T
+C | J
+N
+J | J
+P
+M | K
+O | M
+C
+D | M
+M
+M | M
+O | M
+R
+K | M
+S
+F
+T | P
+F
+E | P
+G | T | U
+T
+X | V
+Z | W
+M
+T | X
+O
+M
+1
+6 | 1/
+2
+5/
+2
+0
+0
+6 | 1.
+0
+7
+1
+0
+e
++
+0
+4 | 2
+8.
+5
+7
+0
+0 | 6
+4.
+6
+7
+0
+0 | 5
+1.
+9
+7
+0
+0 | 6
+5.
+1
+9
+0
+0 | 4
+2.
+4
+5
+0
+0 | 6
+0.
+2
+3
+0
+0 | 3
+7.
+0
+5
+0
+0 | 2
+5.
+2
+1
+0
+0 | 3
+1.
+1
+3
+0
+0 | 2
+2.
+4
+8
+0
+0 | 3
+8.
+5
+7
+0
+0 | 3
+4.
+7
+9
+0
+0 | 3
+1.
+6
+4
+0
+0 | 7
+9.
+0
+1
+0
+0 | 2
+0.
+3
+8
+0
+0 | 5
+6.
+0
+8
+0
+0 | 3
+6.
+4
+8
+0
+0 | 3
+9.
+2
+1
+0
+0 | 3
+4.
+3
+2
+0
+0 | 7
+0.
+0
+6
+0
+0 | 5
+1.
+4
+9
+0
+0 | 3
+1.
+1
+4
+0
+0 | 2
+5.
+7
+6
+0
+0 | 2
+3.
+1
+4
+0
+0 | 5
+6.
+3
+5
+0
+0 | 2
+3.
+4
+7
+0
+0 | 5
+5.
+4
+0
+0
+0 | 2
+8.
+0
+3
+0
+0 | 4
+4.
+6
+5
+0
+0 | 5
+8.
+3
+2
+0
+0
+⋮ |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+
+=== PAGE 2273 TABLES ===
+
+Table 1:
+ | D
+a
+t
+e
+s | D
+JI | A
+A | A
+I
+G | A
+X
+P | B
+A | C | C
+A
+T | D
+D | D
+I
+S | G
+E | G
+M | H
+D | H
+O
+N | H
+P
+Q | I
+B
+M | I
+N
+T
+C | J
+N
+J | J
+P
+M | K
+O | M
+C
+D | M
+M
+M | M
+O | M
+R
+K | M
+S
+F
+T | P
+F
+E | P
+G | T | U
+T
+X | V
+Z | W
+M
+T | X
+O
+M
+1 | 1/
+3/
+2
+0
+0
+6 | 1.
+0
+8
+4
+7
+e
++
+0
+4 | 2
+8.
+7
+2
+0
+0 | 6
+8.
+4
+1
+0
+0 | 5
+1.
+5
+3
+0
+0 | 6
+8.
+6
+3
+0
+0 | 4
+5.
+2
+6
+0
+0 | 5
+5.
+8
+6
+0
+0 | 4
+0.
+6
+8
+0
+0 | 2
+4.
+1
+8
+0
+0 | 3
+3.
+6
+0
+0
+0 | 1
+7.
+8
+2
+0
+0 | 3
+9.
+7
+9
+0
+0 | 3
+6.
+1
+4
+0
+0 | 2
+8.
+3
+5
+0
+0 | 8
+0.
+1
+3
+0
+0 | 2
+4.
+5
+7
+0
+0 | 5
+9.
+0
+8
+0
+0 | 3
+7.
+7
+8
+0
+0 | 3
+8.
+9
+8
+0
+0 | 3
+2.
+7
+2
+0
+0 | 7
+5.
+9
+3
+0
+0 | 5
+2.
+2
+7
+0
+0 | 3
+0.
+7
+3
+0
+0 | 2
+6.
+1
+9
+0
+0 | 2
+2.
+1
+6
+0
+0 | 5
+6.
+3
+8
+0
+0 | 2
+2.
+7
+0
+0
+0 | 5
+4.
+9
+4
+0
+0 | 2
+6.
+7
+9
+0
+0 | 4
+4.
+9
+0
+0
+0 | 5
+6.
+6
+4
+0
+0
+2 | 1/
+4/
+2
+0
+0
+6 | 1.
+0
+8
+8
+0
+e
++
+0
+4 | 2
+8.
+8
+9
+0
+0 | 6
+8.
+5
+1
+0
+0 | 5
+1.
+0
+3
+0
+0 | 6
+9.
+3
+4
+0
+0 | 4
+4.
+4
+2
+0
+0 | 5
+7.
+2
+9
+0
+0 | 4
+0.
+4
+6
+0
+0 | 2
+3.
+7
+7
+0
+0 | 3
+3.
+5
+6
+0
+0 | 1
+8.
+3
+0
+0
+0 | 3
+9.
+0
+5
+0
+0 | 3
+5.
+9
+9
+0
+0 | 2
+9.
+1
+8
+0
+0 | 8
+0.
+0
+3
+0
+0 | 2
+4.
+9
+0
+0
+0 | 5
+9.
+9
+9
+0
+0 | 3
+7.
+5
+6
+0
+0 | 3
+8.
+9
+1
+0
+0 | 3
+3.
+0
+1
+0
+0 | 7
+5.
+5
+4
+0
+0 | 5
+2.
+6
+5
+0
+0 | 3
+1.
+0
+8
+0
+0 | 2
+6.
+3
+2
+0
+0 | 2
+2.
+8
+8
+0
+0 | 5
+6.
+4
+8
+0
+0 | 2
+2.
+8
+7
+0
+0 | 5
+4.
+6
+1
+0
+0 | 2
+7.
+5
+8
+0
+0 | 4
+4.
+9
+9
+0
+0 | 5
+6.
+7
+4
+0
+0
+3 | 1/
+5/
+2
+0
+0
+6 | 1.
+0
+8
+8
+2
+e
++
+0
+4 | 2
+9.
+1
+2
+0
+0 | 6
+8.
+6
+0
+0
+0 | 5
+1.
+5
+7
+0
+0 | 6
+8.
+5
+3
+0
+0 | 4
+4.
+6
+5
+0
+0 | 5
+7.
+2
+9
+0
+0 | 4
+0.
+3
+8
+0
+0 | 2
+4.
+1
+9
+0
+0 | 3
+3.
+4
+7
+0
+0 | 1
+9.
+3
+4
+0
+0 | 3
+8.
+6
+7
+0
+0 | 3
+5.
+9
+7
+0
+0 | 2
+8.
+9
+7
+0
+0 | 8
+0.
+5
+6
+0
+0 | 2
+5.
+2
+5
+0
+0 | 5
+9.
+7
+4
+0
+0 | 3
+7.
+6
+7
+0
+0 | 3
+9.
+1
+0
+0
+0 | 3
+3.
+0
+5
+0
+0 | 7
+4.
+8
+5
+0
+0 | 5
+2.
+5
+2
+0
+0 | 3
+1.
+1
+3
+0
+0 | 2
+6.
+3
+4
+0
+0 | 2
+2.
+9
+0
+0
+0 | 5
+6.
+3
+0
+0
+0 | 2
+2.
+9
+2
+0
+0 | 5
+4.
+4
+1
+0
+0 | 2
+7.
+9
+0
+0
+0 | 4
+4.
+3
+8
+0
+0 | 5
+6.
+4
+5
+0
+0
+
+=== PAGE 2274 TABLES ===
+
+Table 1:
+ | D
+a
+t
+e
+s | D
+JI | A
+A | A
+I
+G | A
+X
+P | B
+A | C | C
+A
+T | D
+D | D
+I
+S | G
+E | G
+M | H
+D | H
+O
+N | H
+P
+Q | I
+B
+M | I
+N
+T
+C | J
+N
+J | J
+P
+M | K
+O | M
+C
+D | M
+M
+M | M
+O | M
+R
+K | M
+S
+F
+T | P
+F
+E | P
+G | T | U
+T
+X | V
+Z | W
+M
+T | X
+O
+M
+4 | 1/
+6/
+2
+0
+0
+6 | 1.
+0
+9
+5
+9
+e
++
+0
+4 | 2
+9.
+0
+2
+0
+0 | 6
+8.
+8
+9
+0
+0 | 5
+1.
+7
+5
+0
+0 | 6
+7.
+5
+7
+0
+0 | 4
+4.
+6
+5
+0
+0 | 5
+8.
+4
+3
+0
+0 | 4
+0.
+5
+5
+0
+0 | 2
+4.
+5
+2
+0
+0 | 3
+3.
+7
+0
+0
+0 | 1
+9.
+6
+1
+0
+0 | 3
+8.
+9
+6
+0
+0 | 3
+6.
+5
+3
+0
+0 | 2
+9.
+8
+0
+0
+0 | 8
+2.
+9
+6
+0
+0 | 2
+5.
+2
+8
+0
+0 | 6
+0.
+0
+1
+0
+0 | 3
+7.
+9
+4
+0
+0 | 3
+9.
+4
+7
+0
+0 | 3
+3.
+2
+5
+0
+0 | 7
+5.
+4
+7
+0
+0 | 5
+2.
+9
+5
+0
+0 | 3
+1.
+0
+8
+0
+0 | 2
+6.
+2
+6
+0
+0 | 2
+3.
+1
+6
+0
+0 | 5
+6.
+2
+4
+0
+0 | 2
+3.
+2
+1
+0
+0 | 5
+4.
+5
+8
+0
+0 | 2
+8.
+0
+1
+0
+0 | 4
+4.
+5
+6
+0
+0 | 5
+7.
+5
+7
+0
+0
+5 | 1/
+9/
+2
+0
+0
+6 | 1.
+1
+0
+1
+2
+e
++
+0
+4 | 2
+9.
+3
+7
+0
+0 | 6
+8.
+5
+7
+0
+0 | 5
+3.
+0
+4
+0
+0 | 6
+7.
+0
+1
+0
+0 | 4
+4.
+4
+3
+0
+0 | 5
+9.
+4
+9
+0
+0 | 4
+0.
+3
+2
+0
+0 | 2
+4.
+7
+8
+0
+0 | 3
+3.
+6
+1
+0
+0 | 2
+1.
+1
+2
+0
+0 | 3
+9.
+3
+8
+0
+0 | 3
+6.
+2
+3
+0
+0 | 3
+0.
+1
+7
+0
+0 | 8
+1.
+7
+6
+0
+0 | 2
+5.
+4
+4
+0
+0 | 6
+0.
+3
+8
+0
+0 | 3
+8.
+5
+5
+0
+0 | 3
+9.
+6
+6
+0
+0 | 3
+3.
+8
+8
+0
+0 | 7
+5.
+8
+4
+0
+0 | 5
+3.
+1
+1
+0
+0 | 3
+1.
+5
+8
+0
+0 | 2
+6.
+2
+1
+0
+0 | 2
+3.
+1
+6
+0
+0 | 5
+6.
+6
+7
+0
+0 | 2
+3.
+3
+0
+0
+0 | 5
+5.
+2
+0
+0
+0 | 2
+8.
+1
+2
+0
+0 | 4
+4.
+4
+0
+0
+0 | 5
+7.
+5
+4
+0
+0
+6 | 1/
+1
+0/
+2
+0
+0
+6 | 1.
+1
+0
+1
+2
+e
++
+0
+4 | 2
+8.
+4
+4
+0
+0 | 6
+9.
+1
+8
+0
+0 | 5
+2.
+8
+8
+0
+0 | 6
+7.
+3
+3
+0
+0 | 4
+4.
+5
+7
+0
+0 | 5
+9.
+2
+5
+0
+0 | 4
+0.
+2
+0
+0
+0 | 2
+5.
+0
+9
+0
+0 | 3
+3.
+4
+3
+0
+0 | 2
+0.
+7
+9
+0
+0 | 4
+0.
+3
+3
+0
+0 | 3
+6.
+1
+7
+0
+0 | 3
+0.
+3
+3
+0
+0 | 8
+2.
+1
+0
+0
+0 | 2
+5.
+1
+0
+0
+0 | 6
+0.
+4
+9
+0
+0 | 3
+8.
+6
+1
+0
+0 | 3
+9.
+7
+0
+0
+0 | 3
+3.
+9
+1
+0
+0 | 7
+5.
+3
+7
+0
+0 | 5
+3.
+0
+4
+0
+0 | 3
+1.
+2
+7
+0
+0 | 2
+6.
+3
+5
+0
+0 | 2
+2.
+7
+7
+0
+0 | 5
+6.
+4
+5
+0
+0 | 2
+3.
+1
+6
+0
+0 | 5
+5.
+2
+4
+0
+0 | 2
+8.
+2
+4
+0
+0 | 4
+4.
+5
+4
+0
+0 | 5
+7.
+9
+9
+0
+0
+7 | 1/
+1
+1/
+2
+0
+0
+6 | 1.
+1
+0
+4
+3
+e
++
+0
+4 | 2
+8.
+0
+5
+0
+0 | 6
+9.
+6
+0
+0
+0 | 5
+2.
+5
+9
+0
+0 | 6
+8.
+3
+0
+0
+0 | 4
+4.
+9
+8
+0
+0 | 5
+9.
+2
+8
+0
+0 | 3
+8.
+8
+7
+0
+0 | 2
+5.
+3
+3
+0
+0 | 3
+3.
+6
+6
+0
+0 | 2
+0.
+6
+1
+0
+0 | 4
+1.
+4
+4
+0
+0 | 3
+6.
+1
+9
+0
+0 | 3
+0.
+8
+8
+0
+0 | 8
+2.
+1
+9
+0
+0 | 2
+5.
+1
+2
+0
+0 | 5
+9.
+9
+1
+0
+0 | 3
+8.
+5
+8
+0
+0 | 3
+9.
+7
+2
+0
+0 | 3
+4.
+5
+0
+0
+0 | 7
+5.
+2
+2
+0
+0 | 5
+3.
+3
+1
+0
+0 | 3
+1.
+3
+9
+0
+0 | 2
+6.
+6
+3
+0
+0 | 2
+3.
+0
+6
+0
+0 | 5
+6.
+6
+5
+0
+0 | 2
+3.
+3
+4
+0
+0 | 5
+4.
+4
+1
+0
+0 | 2
+8.
+5
+8
+0
+0 | 4
+5.
+2
+3
+0
+0 | 5
+8.
+3
+8
+0
+0
+
+=== PAGE 2275 TABLES ===
+
+Table 1:
+ | D
+a
+t
+e
+s | D
+JI | A
+A | A
+I
+G | A
+X
+P | B
+A | C | C
+A
+T | D
+D | D
+I
+S | G
+E | G
+M | H
+D | H
+O
+N | H
+P
+Q | I
+B
+M | I
+N
+T
+C | J
+N
+J | J
+P
+M | K
+O | M
+C
+D | M
+M
+M | M
+O | M
+R
+K | M
+S
+F
+T | P
+F
+E | P
+G | T | U
+T
+X | V
+Z | W
+M
+T | X
+O
+M
+8 | 1/
+1
+2/
+2
+0
+0
+6 | 1.
+0
+9
+6
+2
+e
++
+0
+4 | 2
+7.
+6
+8
+0
+0 | 6
+9.
+0
+4
+0
+0 | 5
+2.
+6
+0
+0
+0 | 6
+7.
+9
+0
+0
+0 | 4
+5.
+0
+2
+0
+0 | 6
+0.
+1
+3
+0
+0 | 3
+8.
+0
+2
+0
+0 | 2
+5.
+4
+1
+0
+0 | 3
+3.
+2
+5
+0
+0 | 1
+9.
+7
+6
+0
+0 | 4
+1.
+0
+5
+0
+0 | 3
+5.
+7
+7
+0
+0 | 3
+0.
+5
+7
+0
+0 | 8
+1.
+6
+1
+0
+0 | 2
+4.
+9
+6
+0
+0 | 5
+9.
+6
+3
+0
+0 | 3
+7.
+8
+7
+0
+0 | 3
+9.
+5
+0
+0
+0 | 3
+3.
+9
+6
+0
+0 | 7
+4.
+5
+7
+0
+0 | 5
+3.
+2
+3
+0
+0 | 3
+1.
+4
+1
+0
+0 | 2
+6.
+4
+8
+0
+0 | 2
+2.
+9
+0
+0
+0 | 5
+6.
+0
+2
+0
+0 | 2
+3.
+2
+4
+0
+0 | 5
+3.
+9
+0
+0
+0 | 2
+8.
+6
+9
+0
+0 | 4
+4.
+4
+3
+0
+0 | 5
+7.
+7
+7
+0
+0
+9 | 1/
+1
+3/
+2
+0
+0
+6 | 1.
+0
+9
+6
+0
+e
++
+0
+4 | 2
+7.
+8
+1
+0
+0 | 6
+8.
+8
+4
+0
+0 | 5
+2.
+5
+0
+0
+0 | 6
+7.
+7
+0
+0
+0 | 4
+4.
+9
+2
+0
+0 | 6
+0.
+2
+4
+0
+0 | 3
+7.
+8
+6
+0
+0 | 2
+5.
+4
+7
+0
+0 | 3
+3.
+3
+5
+0
+0 | 1
+9.
+2
+0
+0
+0 | 4
+0.
+4
+3
+0
+0 | 3
+5.
+8
+5
+0
+0 | 3
+1.
+4
+3
+0
+0 | 8
+1.
+2
+2
+0
+0 | 2
+4.
+7
+8
+0
+0 | 5
+9.
+2
+6
+0
+0 | 3
+7.
+8
+4
+0
+0 | 3
+9.
+3
+7
+0
+0 | 3
+3.
+6
+5
+0
+0 | 7
+4.
+3
+8
+0
+0 | 5
+3.
+2
+9
+0
+0 | 3
+1.
+4
+0
+0
+0 | 2
+6.
+5
+3
+0
+0 | 2
+2.
+9
+9
+0
+0 | 5
+6.
+4
+9
+0
+0 | 2
+3.
+2
+7
+0
+0 | 5
+4.
+1
+0
+0
+0 | 2
+8.
+7
+5
+0
+0 | 4
+4.
+1
+0
+0
+0 | 5
+9.
+0
+6
+0
+0
+1
+0 | 1/
+1
+7/
+2
+0
+0
+6 | 1.
+0
+8
+9
+6
+e
++
+0
+4 | 2
+7.
+9
+7
+0
+0 | 6
+7.
+8
+4
+0
+0 | 5
+2.
+0
+3
+0
+0 | 6
+6.
+9
+3
+0
+0 | 4
+4.
+4
+7
+0
+0 | 6
+0.
+8
+5
+0
+0 | 3
+7.
+7
+5
+0
+0 | 2
+5.
+1
+5
+0
+0 | 3
+3.
+2
+0
+0
+0 | 1
+8.
+6
+8
+0
+0 | 4
+0.
+1
+1
+0
+0 | 3
+5.
+5
+6
+0
+0 | 3
+1.
+2
+0
+0
+0 | 8
+1.
+0
+5
+0
+0 | 2
+4.
+5
+2
+0
+0 | 5
+8.
+7
+4
+0
+0 | 3
+7.
+6
+4
+0
+0 | 3
+9.
+1
+1
+0
+0 | 3
+3.
+7
+7
+0
+0 | 7
+3.
+9
+9
+0
+0 | 5
+2.
+8
+5
+0
+0 | 3
+1.
+1
+6
+0
+0 | 2
+6.
+3
+4
+0
+0 | 2
+2.
+6
+3
+0
+0 | 5
+6.
+2
+5
+0
+0 | 2
+3.
+1
+3
+0
+0 | 5
+4.
+4
+1
+0
+0 | 2
+8.
+1
+2
+0
+0 | 4
+3.
+6
+6
+0
+0 | 5
+9.
+6
+1
+0
+0
+1
+1 | 1/
+1
+8/
+2
+0
+0
+6 | 1.
+0
+8
+5
+5
+e
++
+0
+4 | 2
+7.
+8
+1
+0
+0 | 6
+7.
+4
+2
+0
+0 | 5
+1.
+8
+4
+0
+0 | 6
+6.
+5
+8
+0
+0 | 4
+4.
+4
+1
+0
+0 | 6
+0.
+0
+4
+0
+0 | 3
+7.
+5
+4
+0
+0 | 2
+4.
+9
+7
+0
+0 | 3
+3.
+0
+8
+0
+0 | 1
+8.
+9
+8
+0
+0 | 4
+0.
+4
+2
+0
+0 | 3
+5.
+7
+1
+0
+0 | 3
+1.
+2
+1
+0
+0 | 8
+1.
+8
+3
+0
+0 | 2
+1.
+7
+2
+0
+0 | 5
+9.
+6
+1
+0
+0 | 3
+7.
+2
+4
+0
+0 | 3
+8.
+9
+1
+0
+0 | 3
+4.
+1
+6
+0
+0 | 7
+4.
+0
+7
+0
+0 | 5
+2.
+8
+9
+0
+0 | 3
+0.
+9
+9
+0
+0 | 2
+6.
+1
+8
+0
+0 | 2
+2.
+3
+6
+0
+0 | 5
+6.
+5
+4
+0
+0 | 2
+3.
+1
+1
+0
+0 | 5
+4.
+0
+8
+0
+0 | 2
+7.
+8
+3
+0
+0 | 4
+3.
+8
+8
+0
+0 | 5
+8.
+7
+8
+0
+0
+
+=== PAGE 2276 TABLES ===
+
+Table 1:
+ | D
+a
+t
+e
+s | D
+JI | A
+A | A
+I
+G | A
+X
+P | B
+A | C | C
+A
+T | D
+D | D
+I
+S | G
+E | G
+M | H
+D | H
+O
+N | H
+P
+Q | I
+B
+M | I
+N
+T
+C | J
+N
+J | J
+P
+M | K
+O | M
+C
+D | M
+M
+M | M
+O | M
+R
+K | M
+S
+F
+T | P
+F
+E | P
+G | T | U
+T
+X | V
+Z | W
+M
+T | X
+O
+M
+1
+2 | 1/
+1
+9/
+2
+0
+0
+6 | 1.
+0
+8
+8
+1
+e
++
+0
+4 | 2
+8.
+3
+3
+0
+0 | 6
+6.
+9
+2
+0
+0 | 5
+1.
+6
+6
+0
+0 | 6
+6.
+4
+2
+0
+0 | 4
+4.
+0
+2
+0
+0 | 6
+0.
+6
+6
+0
+0 | 3
+7.
+6
+9
+0
+0 | 2
+6.
+0
+0
+0
+0 | 3
+2.
+9
+5
+0
+0 | 1
+9.
+1
+0
+0
+0 | 3
+9.
+8
+3
+0
+0 | 3
+5.
+8
+8
+0
+0 | 3
+1.
+7
+7
+0
+0 | 8
+1.
+1
+4
+0
+0 | 2
+1.
+5
+3
+0
+0 | 5
+9.
+6
+0
+0
+0 | 3
+7.
+0
+3
+0
+0 | 3
+9.
+0
+1
+0
+0 | 3
+4.
+3
+6
+0
+0 | 7
+3.
+8
+1
+0
+0 | 5
+2.
+6
+8
+0
+0 | 3
+1.
+2
+6
+0
+0 | 2
+6.
+3
+6
+0
+0 | 2
+3.
+2
+7
+0
+0 | 5
+6.
+3
+9
+0
+0 | 2
+3.
+1
+8
+0
+0 | 5
+4.
+4
+1
+0
+0 | 2
+8.
+0
+7
+0
+0 | 4
+4.
+4
+9
+0
+0 | 5
+9.
+5
+7
+0
+0
+1
+3 | 1/
+2
+0/
+2
+0
+0
+6 | 1.
+0
+6
+6
+7
+e
++
+0
+4 | 2
+7.
+6
+7
+0
+0 | 6
+5.
+5
+5
+0
+0 | 5
+0.
+4
+9
+0
+0 | 6
+4.
+7
+9
+0
+0 | 4
+1.
+9
+5
+0
+0 | 5
+8.
+9
+8
+0
+0 | 3
+7.
+3
+4
+0
+0 | 2
+5.
+4
+9
+0
+0 | 3
+1.
+7
+0
+0
+0 | 1
+8.
+9
+0
+0
+0 | 3
+8.
+7
+6
+0
+0 | 3
+4.
+5
+7
+0
+0 | 3
+1.
+2
+8
+0
+0 | 7
+9.
+4
+5
+0
+0 | 2
+0.
+9
+1
+0
+0 | 5
+8.
+2
+8
+0
+0 | 3
+6.
+0
+7
+0
+0 | 3
+8.
+2
+1
+0
+0 | 3
+5.
+0
+1
+0
+0 | 7
+2.
+2
+1
+0
+0 | 5
+2.
+1
+8
+0
+0 | 3
+1.
+2
+0
+0
+0 | 2
+5.
+7
+7
+0
+0 | 2
+3.
+0
+3
+0
+0 | 5
+5.
+7
+4
+0
+0 | 2
+3.
+0
+1
+0
+0 | 5
+3.
+4
+6
+0
+0 | 2
+7.
+6
+4
+0
+0 | 4
+3.
+7
+1
+0
+0 | 5
+8.
+6
+3
+0
+0
+1
+4 | 1/
+2
+3/
+2
+0
+0
+6 | 1.
+0
+6
+8
+9
+e
++
+0
+4 | 2
+8.
+0
+3
+0
+0 | 6
+5.
+4
+6
+0
+0 | 5
+0.
+5
+3
+0
+0 | 6
+5.
+3
+0
+0
+0 | 4
+2.
+2
+4
+0
+0 | 5
+9.
+2
+3
+0
+0 | 3
+7.
+3
+7
+0
+0 | 2
+5.
+2
+9
+0
+0 | 3
+1.
+6
+3
+0
+0 | 2
+0.
+6
+0
+0
+0 | 3
+8.
+2
+9
+0
+0 | 3
+4.
+7
+8
+0
+0 | 3
+0.
+8
+8
+0
+0 | 7
+9.
+5
+0
+0
+0 | 2
+0.
+5
+2
+0
+0 | 5
+8.
+6
+6
+0
+0 | 3
+6.
+2
+8
+0
+0 | 3
+8.
+6
+0
+0
+0 | 3
+4.
+8
+6
+0
+0 | 7
+2.
+6
+5
+0
+0 | 5
+2.
+0
+9
+0
+0 | 3
+0.
+8
+0
+0
+0 | 2
+5.
+7
+1
+0
+0 | 2
+3.
+1
+9
+0
+0 | 5
+5.
+5
+5
+0
+0 | 2
+2.
+7
+7
+0
+0 | 5
+2.
+9
+4
+0
+0 | 2
+7.
+6
+9
+0
+0 | 4
+3.
+9
+5
+0
+0 | 5
+9.
+2
+8
+0
+0
+1
+5 | 1/
+2
+4/
+2
+0
+0
+6 | 1.
+0
+7
+1
+2
+e
++
+0
+4 | 2
+8.
+1
+6
+0
+0 | 6
+5.
+3
+9
+0
+0 | 5
+1.
+8
+9
+0
+0 | 6
+5.
+9
+2
+0
+0 | 4
+2.
+2
+5
+0
+0 | 5
+9.
+5
+3
+0
+0 | 3
+7.
+0
+9
+0
+0 | 2
+5.
+7
+6
+0
+0 | 3
+1.
+3
+2
+0
+0 | 2
+1.
+7
+3
+0
+0 | 3
+9.
+0
+3
+0
+0 | 3
+5.
+2
+5
+0
+0 | 3
+0.
+9
+1
+0
+0 | 7
+8.
+9
+5
+0
+0 | 2
+0.
+4
+5
+0
+0 | 5
+6.
+9
+0
+0
+0 | 3
+6.
+1
+3
+0
+0 | 3
+8.
+9
+8
+0
+0 | 3
+5.
+0
+0
+0
+0 | 7
+1.
+2
+1
+0
+0 | 5
+1.
+7
+4
+0
+0 | 3
+0.
+7
+6
+0
+0 | 2
+5.
+6
+4
+0
+0 | 2
+2.
+9
+1
+0
+0 | 5
+5.
+7
+7
+0
+0 | 2
+2.
+9
+6
+0
+0 | 5
+4.
+8
+6
+0
+0 | 2
+7.
+6
+0
+0
+0 | 4
+4.
+4
+1
+0
+0 | 5
+9.
+0
+5
+0
+0
+
+=== PAGE 2277 TABLES ===
+
+Table 1:
+ | D
+a
+t
+e
+s | D
+JI | A
+A | A
+I
+G | A
+X
+P | B
+A | C | C
+A
+T | D
+D | D
+I
+S | G
+E | G
+M | H
+D | H
+O
+N | H
+P
+Q | I
+B
+M | I
+N
+T
+C | J
+N
+J | J
+P
+M | K
+O | M
+C
+D | M
+M
+M | M
+O | M
+R
+K | M
+S
+F
+T | P
+F
+E | P
+G | T | U
+T
+X | V
+Z | W
+M
+T | X
+O
+M
+1
+6 | 1/
+2
+5/
+2
+0
+0
+6 | 1.
+0
+7
+1
+0
+e
++
+0
+4 | 2
+8.
+5
+7
+0
+0 | 6
+4.
+6
+7
+0
+0 | 5
+1.
+9
+7
+0
+0 | 6
+5.
+1
+9
+0
+0 | 4
+2.
+4
+5
+0
+0 | 6
+0.
+2
+3
+0
+0 | 3
+7.
+0
+5
+0
+0 | 2
+5.
+2
+1
+0
+0 | 3
+1.
+1
+3
+0
+0 | 2
+2.
+4
+8
+0
+0 | 3
+8.
+5
+7
+0
+0 | 3
+4.
+7
+9
+0
+0 | 3
+1.
+6
+4
+0
+0 | 7
+9.
+0
+1
+0
+0 | 2
+0.
+3
+8
+0
+0 | 5
+6.
+0
+8
+0
+0 | 3
+6.
+4
+8
+0
+0 | 3
+9.
+2
+1
+0
+0 | 3
+4.
+3
+2
+0
+0 | 7
+0.
+0
+6
+0
+0 | 5
+1.
+4
+9
+0
+0 | 3
+1.
+1
+4
+0
+0 | 2
+5.
+7
+6
+0
+0 | 2
+3.
+1
+4
+0
+0 | 5
+6.
+3
+5
+0
+0 | 2
+3.
+4
+7
+0
+0 | 5
+5.
+4
+0
+0
+0 | 2
+8.
+0
+3
+0
+0 | 4
+4.
+6
+5
+0
+0 | 5
+8.
+3
+2
+0
+0
+⋮ |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+
+=== PAGE 2424 TABLES ===
+
+Table 1:
+Color Name | Short Name | RGB Triplet | Hexadecimal
+Color Code | Appearance
+"red" | "r" | [1 0 0] | "#FF0000" | 
+"green" | "g" | [0 1 0] | "#00FF00" | 
+"blue" | "b" | [0 0 1] | "#0000FF" | 
+"cyan" | "c" | [0 1 1] | "#00FFFF" | 
+"magenta" | "m" | [1 0 1] | "#FF00FF" | 
+"yellow" | "y" | [1 1 0] | "#FFFF00" | 
+"black" | "k" | [0 0 0] | "#000000" | 
+"white" | "w" | [1 1 1] | "#FFFFFF" | 
+
+Table 2:
+Palette | Palette Colors
+"gem" — Light theme default
+Most plots use these colors by default. | 
+"glow" — Dark theme default | 
+
+=== PAGE 2577 TABLES ===
+
+Table 1:
+Constraint Type | Description | Values
+'Default' | All allocations are >= 0;
+no short selling allowed.
+Combined value of
+portfolio allocations
+normalized to 1. | NumAssets (required). Scalar representing number of
+assets in portfolio.
+'PortValue' | Fix total value of
+portfolio to PVal. | PVal (required). Scalar representing total value of
+portfolio.
+NumAssets (required). Scalar representing number of
+assets in portfolio. See pcpval.
+'AssetLims' | Minimum and maximum
+allocation per asset. | AssetMin (required). Scalar or vector of length NASSETS,
+specifying minimum allocation per asset.
+AssetMax (required). Scalar or vector of length NASSETS,
+specifying maximum allocation per asset.
+NumAssets (optional). See pcalims.
+
+=== PAGE 2578 TABLES ===
+
+Table 1:
+Constraint Type | Description | Values
+'GroupLims' | Minimum and maximum
+allocations to asset
+group. | Groups (required). NGROUPS-by-NASSETS matrix
+specifying which assets belong to each group.
+GroupMin (required). Scalar or a vector of length
+NGROUPS, specifying minimum combined allocations in
+each group.
+GroupMax (required). Scalar or a vector of length
+NGROUPS, specifying maximum combined allocations in
+each group.
+See pcglims.
+'GroupComparison' | Group-to-group
+comparison constraints. | GroupA (required). NGROUPS-by-NASSETS matrix
+specifying first group in the comparison.
+AtoBmin (required). Scalar or vector of length NGROUPS
+specifying minimum ratios of allocations in GroupA to
+allocations in GroupB.
+AtoBmax (required). Scalar or vector of length NGROUPS
+specifying maximum ratios of allocations in GroupA to
+allocations in GroupB.
+GroupB (required). NGROUPS-by-NASSETS matrix
+specifying second group in the comparison.
+See pcgcomp.
+'Custom' | Custom linear inequality
+constraints A*PortWts'
+<= b. | A (required). NCONSTRAINTS-by-NASSETS matrix,
+specifying weights for each asset in each inequality
+equation.
+b (required). Vector of length NCONSTRAINTS specifying
+the right-hand sides of the inequalities.
+ |  | Note For more information using Custom, see
+“Specifying Group Constraints” on page 3-24.
+
+=== PAGE 2600 TABLES ===
+
+Table 1:
+Shortcut Argument Name | Equivalent Argument / Property Name
+ae | AEquality
+ai | AInequality
+covar | AssetCovar
+assetnames or assets | AssetList
+mean | AssetMean
+be | bEquality
+bi | bInequality
+group | GroupMatrix
+lb | LowerBound
+n or num | NumAssets
+rfr | RiskFreeRate
+ub | UpperBound
+budget | UpperBudget and LowerBudget
+
+=== PAGE 2622 TABLES ===
+
+Table 1:
+Shortcut Argument Name | Equivalent Argument / Property Name
+ae | AEquality
+ai | AInequality
+assetnames or assets | AssetList
+be | bEquality
+bi | bInequality
+budget | UpperBudget and LowerBudget
+group | GroupMatrix
+lb | LowerBound
+n or num | NumAssets
+level, problevel, or plevel | ProbabilityLevel
+rfr | RiskFreeRate
+scenario or assetscenarios | Scenarios
+ub | UpperBound
+
+=== PAGE 2645 TABLES ===
+
+Table 1:
+Shortcut Argument Name | Equivalent Argument / Property Name
+ae | AEquality
+ai | AInequality
+assetnames or assets | AssetList
+be | bEquality
+bi | bInequality
+budget | UpperBudget and LowerBudget
+group | GroupMatrix
+lb | LowerBound
+n or num | NumAssets
+rfr | RiskFreeRate
+scenario or assetscenarios | Scenarios
+ub | UpperBound
+
+=== PAGE 2813 TABLES ===
+
+Table 1:
+Value | Description
+'maxiter' | Maximum number of iterations,specified as the comma-separated pair
+consisting of 'MaxIter' and a positive integer. The default value is 1 +
+n3, where n is the dimension of the input.
+'tiebreak' | Method to break ties for pivot selection, specified as the comma-separated
+pair consisting of 'tiebreak' and one of the following options:
+• first - Select pivot with lowest index.
+• last - Select pivot with highest index.
+• random - Select a pivot at random.
+The default value is first.
+'tolpiv' | Pivot tolerance below which a number is considered to be zero, specified
+as the comma-separated pair consisting of 'tolpiv' and a numeric value.
+The default value is 1.0e-9.
+
+Table 2:
+Value | Description
+'MaxIter' | Maximum number of iterations, specified as the comma-separated
+pair consisting of 'MaxIter' and a positive integer. The default
+value is 1000.
+'AbsTol' | Absolute stopping tolerance, specified as the comma-separated pair
+consisting of 'AbsTol' and a positive scalar. The default value is
+1e6.
+'RelTol' | Relative stopping tolerance, specified as the comma-separated pair
+consisting of 'RelTol' and a positive scalar. The default value is
+1e5.
+
+=== PAGE 2814 TABLES ===
+
+Table 1:
+Value | Description
+'MainSolverOptions
+' | Options for the main solver linprog, specified as the comma-
+separated pair consisting of 'MainSolverOptions' and an
+optimoptions object. The default is
+optimoptions('linprog','Algorithm','dual-simplex-
+highs','Display','off').
+
+Table 2:
+Value | Description
+'MaxIterations' | Maximum number of iterations, specified as the comma-separated pair
+consisting of 'MaxIterations' and a positive real number. The default
+value is 1e3.
+'NonlinearScalingFa
+ctor' | Scales the nonlinear function and its gradient by a factor, specified as the
+comma-separated pair consisting of 'NonlinearScalingFactor' and a
+positive real number. The default value is 1e3.
+'ObjectiveScalingFa
+ctor' | Scales the objective function by a factor, specified as the comma-
+separated pair consisting of 'ObjectiveScalingFactor' and a positive
+real number. The default value is 1e3.
+'AbsoluteGapToleran
+ce' | Solver stops if the absolute difference between the approximated
+nonlinear function value and its true value is less than or equal to
+AbsoluteGapTolerance, specified as the comma-separated pair
+consisting of 'AbsoluteGapTolerance' and a positive real number. The
+default value is 1e7.
+'RelativeGapToleran
+ce' | Solver stops if the relative difference between the approximated nonlinear
+function value and its true value is less than or equal to
+RelativeGapTolerance, specified as the comma-separated pair
+consisting of 'RelativeGapTolerance' and a positive real number. The
+default value is 1e5.
+
+=== PAGE 2815 TABLES ===
+
+Table 1:
+Value | Description
+'Display' | Level of display, specified as the comma-separated pair consisting of
+'Display' and a supported value of:
+• 'iter' displays output at each iteration and gives the technical exit
+message.
+• 'final' displays just the final output and gives the final technical exit
+message.
+• 'off' is the default and displays no output.
+'CutGeneration' | Method to add the cut, specified as the comma-separated pair consisting
+of 'CutGeneration' and a supported value of:
+• 'basic' is the default and the new cut is added at the latest solution
+found.
+• 'midway' is where the new cut is added at the mid point between the
+latest and previous solution found.
+'MaxIterationsInact
+iveCut' | Removes constraints that are not active for the last
+MaxIterationsInactiveCut iterations, specified as the comma-
+separated pair consisting of 'MaxIterationsInactiveCut' and a
+positive integer. The default value is 30.
+'ActiveCutTolerance
+' | Determines if the cuts are active and is used together with
+MaxIterationsInactiveCut to decide which cuts to remove from the
+LP subproblem, specified as the comma-separated pair consisting of
+'ActiveCutTolerance' and a real number. The default value is 1e7.
+'MainSolverOptions' | Options for the main solver linprog, specified as the comma-separated
+pair consisting of 'MainSolverOptions' and an optimoptions object.
+The default is optimoptions('linprog','Algorithm','dual-
+simplex-highs','Display','off').
+'TrustRegionStartIt
+eration' | Use this parameter only for a solverType of 'TrustRegionCP'. Solver
+starts to apply the trust region heuristic at
+TrustRegionStartIteration. Nonnegative integer. Default is 2.
+'ShrinkRatio' | Use this parameter only for a solverType of 'TrustRegionCP'. If the
+approximated functions are not agreeing well in the previous iterations,
+the algorithm will shrink the size of trust region by the ShrinkRatio.
+Nonnegative real between 0 and 1. Default is 0.75.
+'InitialDelta' | Use this parameter only for a solverType of 'TrustRegionCP'. Value
+to initialize trust region. Nonnegative real. Default is 0.5.
+
+=== PAGE 2816 TABLES ===
+
+Table 1:
+Value | Description
+'DeltaLimit' | Use this parameter only for a solverType of 'TrustRegionCP'. The
+trust region of the approximated functions is bounded by DeltaLimit
+during the iterations. The DeltaLimit value is a nonnegative real and
+the default value is 1e6.
+ | Note Modifying 'DeltaLimit' might result in the solver not being able
+to find a solution.
+If you modify 'DeltaLimit' without specifying a value for
+'InitialDelta', the 'InitialDelta' is automatically set to
+InitialDelta' = 'DeltaLimit'/2.
+'DeltaLowerBound' | Use this parameter only for a solverType of 'TrustRegionCP'. Use
+'DeltaLowerBound' to set the lower bound for the trust-region radius.
+The 'DeltaLowerBound' numeric value must be in [0,1] and you can
+include 0 and 1. The default value is 0.01.
+
+=== PAGE 2934 TABLES ===
+
+Table 1:
+Value | Day Ending Each Week
+"Sunday" or 1 | Sunday
+"Monday" or 2 | Monday
+"Tuesday" or 3 | Tuesday
+"Wednesday" or 4 | Wednesday
+"Thursday" or 5 | Thursday
+"Friday" or 6 | Friday
+"Saturday" or 7 | Saturday
+
+=== PAGE 2956 TABLES ===
+
+Table 1:
+Value | Month Ending Each Year
+"January" or 1 | January
+"February" or 2 | February
+"March" or 3 | March
+"April" or 4 | April
+"May" or 5 | May
+"June" or 6 | June
+
+=== PAGE 2957 TABLES ===
+
+Table 1:
+Value | Month Ending Each Year
+"July" or 7 | July
+"August" or 8 | August
+"September" or 9 | September
+"October" or 10 | October
+"November" or 11 | November
+"December" or 12 | December
+
+=== PAGE 2989 TABLES ===
+
+Table 1:
+Data Input Type | ID (1st Column) | Date (2nd
+Column) | Rating (3rd
+Column) | Weight
+(Optional 4th
+Column)
+Table | • Numeric array
+• Cell array of
+character
+vectors
+• String array
+• Categorical
+array | • Numeric array
+• Cell array of
+character
+vectors
+• String array
+• Datetime
+array | • Numeric array
+• Cell array of
+character
+vectors
+• String array
+• Categorical
+array | • Numeric array
+with
+nonnegative
+values
+
+=== PAGE 2990 TABLES ===
+
+Table 1:
+Data Input Type | ID (1st Column) | Date (2nd
+Column) | Rating (3rd
+Column) | Weight
+(Optional 4th
+Column)
+Cell | • Numeric
+elements
+• Character
+vector
+elements | • Numeric
+elements
+• Character
+vector
+elements | • Numeric
+elements
+• Character
+vector
+elements | • Numeric
+elements with
+nonnegative
+values
+
+=== PAGE 3013 TABLES ===
+
+Table 1:
+Data Input Type | ID (1st Column) | Date (2nd
+Column) | Rating (3rd
+Column) | Weight
+(Optional 4th
+Column)
+Table | • Numeric array
+• Cell array of
+character
+vectors
+• String array
+• Categorical
+array | • Numeric array
+• Cell array of
+character
+vectors
+• String array
+• Datetime
+array | • Numeric array
+• Cell array of
+character
+vectors
+• String array
+• Categorical
+array | • Numeric array
+with
+nonnegative
+values
+
+=== PAGE 3014 TABLES ===
+
+Table 1:
+Data Input Type | ID (1st Column) | Date (2nd
+Column) | Rating (3rd
+Column) | Weight
+(Optional 4th
+Column)
+Cell | • Numeric
+elements
+• Character
+vector
+elements | • Numeric
+elements
+• Character
+vector
+elements | • Numeric
+elements
+• Character
+vector
+elements | • Numeric
+elements with
+nonnegative
+values
+
+=== PAGE 3166 TABLES ===
+
+Table 1:
+Predictors | Bin | Points
+Predictor_1 | Bin_11 | Points_11
+Predictor_1 | Bin_12 | Points_12
+Predictor_1 | Bin_13 | Points_13
+ | ... | ...
+Predictor_1 | '<missing>' | NaN (Default)
+Predictor_2 | Bin_21 | Points_21
+Predictor_2 | Bin_22 | Points_22
+Predictor_2 | Bin_23 | Points_23
+ | ... | ...
+Predictor_2 | '<missing>' | NaN (Default)
+Predictor_j | Bin_ji | Points_ji
+ | ... | ...
+Predictor_j | '<missing>' | NaN (Default)
+
+=== PAGE 3242 TABLES ===
+
+Table 1:
+Category | BinNumber
+'Cat1' | 1
+'Cat2' | 2
+... | ...
+'CatM’' | M
+
+=== PAGE 3243 TABLES ===
+
+Table 1:
+Category | BinNumber
+'Cat1' | 1
+'Cat2' | 2
+'Cat3' | 2
+
+=== PAGE 3263 TABLES ===
+
+Table 1:
+ | Good | Bad | Total
+b1: | n11 | n12 | n1
+b2: | n21 | n22 | n2
+bM: | nM1 | nM2 | nM
+Total: | nGood | nBad | nTotal
+
+=== PAGE 3286 TABLES ===
+
+Table 1:
+Bin | Good | Bad | Iteration1 | Iteration2 | Iteration3 | Iteration4
+'[-
+Inf,33000)
+' | 127 | 107 | 0.543 |  |  | 
+'[33000,38
+000)' | 194 | 90 | 0.620 | 0.683 |  | 
+'[38000,42
+000)' | 135 | 78 | 0.624 | 0.662 |  | 
+'[42000,47
+000)' | 164 | 66 | 0.645 | 0.678 | 0.713 | 
+'[47000,In
+f]' | 183 | 56 | 0.669 | 0.700 | 0.740 | 0.766
+
+Table 2:
+Bin | Good | Bad | Odds
+'Home Owner' | 365 | 177 | 2.062
+'Tenant' | 307 | 167 | 1.838
+'Other' | 131 | 53 | 2.474
+
+=== PAGE 3287 TABLES ===
+
+Table 1:
+Bin | Good | Bad | Odds | Iteration1 | Iteration2 | Iteration3
+'Tenant' | 307 | 167 | 1.838 | 0.648 |  | 
+'Home
+Owner' | 365 | 177 | 2.062 | 0.661 | 0.673 | 
+'Other' | 131 | 53 | 2.472 | 0.669 | 0.683 | 0.712
+
+Table 2:
+Iteration
+0 Bin
+Number | Member | Gini | Iteration
+1 Bin
+Number | Member | Gini | Iteration
+2 Bin
+Number | Member | Gini
+1 | 'Tenant' |  | 1 | 'Tenant' |  | 1 | 'Tenant' | 0.45638
+1 | 'Subletter
+' |  | 1 | 'Subletter
+' | 0.44789 | 1 | 'Subletter
+' | 
+
+=== PAGE 3288 TABLES ===
+
+Table 1:
+Iteration
+0 Bin
+Number | Member | Gini | Iteration
+1 Bin
+Number | Member | Gini | Iteration
+2 Bin
+Number | Member | Gini
+1 | 'Home
+Owner' |  | 1 | 'Home
+Owner' |  | 2 | 'Home
+Owner' | 0.43984
+1 | 'Other' |  | 2 | 'Other' | 0.41015 | 3 | 'Other' | 0.41015
+Total Gini |  | 0.442765 |  |  | 0.442102 |  |  | 0.441822
+Relative
+Change |  | 0 |  |  | 0.001498 |  |  | 0.002128
+
+Table 2:
+Iteration
+0 Bin
+Number | Member | Gini | Iteration
+1 Bin
+Number | Gini | Iteration
+2 Bin
+Number | Gini | Iteration
+3 Bin
+Number | Gini
+1 | '21' |  | '[-
+Inf,47]
+' | 0.473897 | '[-
+Inf,47]
+' | 0.473897 | '[-
+Inf,35]
+' | 0.494941
+1 | '22' |  | '[47,In
+f]' | 0.385238 | '[47,61
+]' | 0.407072 | '[35,
+47]' | 0.463201
+1 | '23' |  |  |  | '[61,In
+f]' | 0.208795 | '[47,
+61]' | 0.407072
+1 | '74' |  |  | 0 |  |  | '[61,In
+f]' | 0.208795
+Total Gini |  | 0.442765 |  | 0.435035 |  | 0.432048 |  | 0.430511
+Relative
+Change |  | 0 |  | 0.01746 |  | 0.006867 |  | 0.0356
+
+=== PAGE 3290 TABLES ===
+
+Table 1:
+Iteration
+0 Bin
+Number | Member | Chi2 | Iteration
+1 Bin
+Number | Member | Chi2 | Iteration
+2 Bin
+Number | Member | Chi2
+1 | 'Tenant' | 1.007613 | 1 | 'Tenant' | 0.795920 | 1 | 'Tenant' | 
+2 | 'Subletter
+' | 0.257347 | 2 | 'Subletter
+' |  | 1 | 'Subletter
+' | 
+3 | 'Home
+Owner' | 1.566330 | 2 | 'Home
+Owner' | 1.522914 | 1 | 'Home
+Owner' | 1.797395
+4 | 'Other' |  | 3 | 'Other' |  | 2 | 'Other' | 
+Total Chi2 |  | 2.573943 |  |  | 2.317717 |  |  | 1.797395
+
+=== PAGE 3291 TABLES ===
+
+Table 1:
+Iteration 0
+Bin Number | Chi2 | Iteration 1
+Bins | Chi2 |  | Final
+Iteration
+Bins | Chi2
+'[-
+Inf,22]' | 0.11814 | '[-
+Inf,22]' | 0.11814 |  | '[-
+Inf,33]' | 8.4876
+'[22,23]' | 1.6464 | '[22,23]' | 1.6464 |  | '[33, 48]' | 7.9369
+... |  | ... |  |  | '[48,64]' | 9.956
+'[58,59]' | 0.311578 | '[58,59]' | 0.27489 |  | '[64,65]' | 9.6988
+'[59,60]' | 0.068978 | '[59,61]' | 1.8403 |  | '[65,Inf]' | NaN
+'[60,61]' | 1.8709 | '[61,62]' | 5.7946 | ... |  | 
+'[61,62]' | 5.7946 | ... |  |  |  | 
+... |  | '[69,70]' | 6.4271 |  |  | 
+'[69,70]' | 6.4271 | '[70,Inf]' | NaN |  |  | 
+'[70,Inf]' | NaN |  |  |  |  | 
+ |  |  |  |  |  | 
+Total Chi2 | 67.467 |  | 67.399 |  |  | 23.198
+
+=== PAGE 3294 TABLES ===
+
+Table 1:
+Bin | Good | Bad | Odds
+'Home Owner' | 365 | 177 | 2.062
+'Tenant' | 307 | 167 | 1.838
+'Other' | 131 | 53 | 2.472
+
+Table 2:
+Bin | Good | Bad | Odds
+'Tenant' | 307 | 167 | 1.838
+'Home Owner' | 365 | 177 | 2.062
+'Other' | 131 | 53 | 2.472
+
+=== PAGE 3338 TABLES ===
+
+Table 1:
+If Response Variable is... | GoodLabel Must be...
+numeric | numeric
+logical | logical or numeric
+cell array of character vectors | character vector
+character array | character vector
+categorical | character vector
+
+=== PAGE 3339 TABLES ===
+
+Table 1:
+If Response Variable is... | GoodLabel must be:
+numeric | numeric
+logical | logical or numeric
+cell array of character vectors | character vector
+character array | character vector
+categorical | character vector
+
+=== PAGE 3341 TABLES ===
+
+Table 1:
+creditscorecard
+Property | Set/Modify Property
+from Command Line
+Using
+creditscorecard
+Function | Modify Property
+Using Dot Notation | Property Not User-
+Defined and Value Is
+Defined Internally
+Data | No | No | Yes, copy of data input
+IDVar | Yes | Yes | No, but the user
+specifies this
+VarNames | No | No | Yes
+ResponseVar | Yes | No | If not specified, set to
+last column of data
+input
+WeightsVar | No | No | Yes
+GoodLabel | Yes | No | If not specified, set to
+response value with
+highest count
+PredictorVars | Yes (also modifiable
+using fitmodel
+function) | Yes | Yes, but the user can
+modify this
+NumericPredictors | No (can only be
+modified using
+modifypredictor
+function) | No | Yes, but the user can
+modify this
+
+=== PAGE 3342 TABLES ===
+
+Table 1:
+creditscorecard
+Property | Set/Modify Property
+from Command Line
+Using
+creditscorecard
+Function | Modify Property
+Using Dot Notation | Property Not User-
+Defined and Value Is
+Defined Internally
+CategoricalPredict
+ors | No (can only be
+modified using
+modifypredictor
+function) | No | Yes, but the user can
+modify this
+BinMissingData | Yes | No | False by default, but the
+user can modify this
