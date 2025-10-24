@@ -3,87 +3,94 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from sqlalchemy import text
 from datetime import datetime
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Tuple
 import time
-import random
 import os
 import logging
 from pathlib import Path
-import json
 
-# Add project root to Python path for imports
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 import sys
 project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
-# Configure logging for Cloud Run
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-# Import from the working concept_note file
 sys.path.append(os.path.dirname(__file__))
 from models.concept_note import ConceptNote, ConceptNoteCRUD, get_db, init_db
 
-# Try to import shared config for database configuration
 try:
-    from config.shared import get_database_url, PROJECT_ID, REGION, GOOGLE_AI_KEY
-    logger.info(f"Using project: {PROJECT_ID} in region: {REGION}")
-    
-    # Use shared config for database URL
-    if os.getenv("INSTANCE_CONNECTION_NAME"):
-        DATABASE_URL = get_database_url(use_proxy=True)
-        logger.info("Using Cloud SQL Proxy connection")
-    else:
-        DATABASE_URL = get_database_url(use_proxy=False)
-        logger.info("Using direct database connection")
-        
+    from config.shared import GOOGLE_AI_KEY, PROJECT_ID
+    logger.info(f"✅ Config loaded: {PROJECT_ID}")
 except ImportError:
-    logger.warning("Could not import shared config, using environment variables")
-    GOOGLE_AI_KEY = os.getenv("GOOGLE_AI_KEY", "AIzaSyB_rxNvCwVEHiXILzpvPn3sPIGFBo00cRA")
-    # Fallback database configuration
-    if os.getenv("INSTANCE_CONNECTION_NAME"):
-        DATABASE_URL = f"postgresql://{os.getenv('DB_USER', 'postgres')}:{os.getenv('DB_PASSWORD', 'AureliaTeam2025')}@127.0.0.1:5432/{os.getenv('DB_NAME', 'aurelia_concepts')}"
-    else:
-        DATABASE_URL = f"postgresql://{os.getenv('DB_USER', 'postgres')}:{os.getenv('DB_PASSWORD', 'AureliaTeam2025')}@{os.getenv('DB_HOST', '34.136.16.4')}:5432/{os.getenv('DB_NAME', 'aurelia_concepts')}"
+    GOOGLE_AI_KEY = os.getenv("GOOGLE_AI_KEY")
 
-logger.info(f"Database URL configured: {DATABASE_URL.replace(os.getenv('DB_PASSWORD', 'AureliaTeam2025'), '***')}")
-
-# Import Google Gemini
 try:
-    import google.generativeai as genai
-    genai.configure(api_key=GOOGLE_AI_KEY)
-    GEMINI_AVAILABLE = True
-    logger.info("✅ Google Gemini integration available")
-except ImportError:
-    GEMINI_AVAILABLE = False
-    logger.warning("❌ Google Gemini not available")
+    from services.instructor_service import generate_concept_note
+    INSTRUCTOR_AVAILABLE = True
+    logger.info("✅ Instructor available")
+except Exception as e:
+    INSTRUCTOR_AVAILABLE = False
+    logger.warning(f"⚠️ Instructor unavailable: {e}")
 
-# Try to import Wikipedia
-try:
-    import wikipedia
-    WIKIPEDIA_AVAILABLE = True
-    logger.info("✅ Wikipedia integration available")
-except ImportError:
-    WIKIPEDIA_AVAILABLE = False
-    logger.warning("❌ Wikipedia not available")
-
-# Try to import your retrieval service
 try:
     from services.retrieval_service import retrieval_service
     VECTOR_SERVICE_AVAILABLE = True
-    logger.info("✅ Vector retrieval service available")
-except ImportError:
+    count = retrieval_service.count()
+    logger.info(f"✅ Pinecone: {count} vectors")
+except Exception as e:
     VECTOR_SERVICE_AVAILABLE = False
-    logger.warning("❌ Vector retrieval service not available, using fallback")
+    logger.warning(f"⚠️ Pinecone unavailable: {e}")
 
-# Initialize FastAPI
-app = FastAPI(
-    title="AURELIA API",
-    description="AI-powered Financial Concept Note Generator - Powered by Google Gemini",
-    version="1.0.0",
-    docs_url="/docs",
-    redoc_url="/redoc"
-)
+try:
+    from services.wikipedia_service import get_wikipedia_content
+    WIKIPEDIA_AVAILABLE = True
+    logger.info("✅ Wikipedia available")
+except:
+    WIKIPEDIA_AVAILABLE = False
+
+# ✅ SMART AI-POWERED RELEVANCE CHECK
+def check_finance_relevance_with_ai(concept: str) -> Tuple[bool, str]:
+    """Use GPT-4o-mini to intelligently determine if concept is finance-related"""
+    try:
+        from openai import OpenAI
+        openai_key = os.getenv("OPENAI_API_KEY")
+        
+        if not openai_key:
+            return True, "AI check unavailable"
+        
+        client = OpenAI(api_key=openai_key)
+        
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are a finance expert. Determine if the given term is related to finance, economics, investing, accounting, or business. Answer ONLY with 'YES' or 'NO' followed by a one-sentence reason."
+                },
+                {
+                    "role": "user",
+                    "content": f"Is '{concept}' a finance/economics/business/investing concept?"
+                }
+            ],
+            temperature=0.0,
+            max_tokens=30
+        )
+        
+        answer = response.choices[0].message.content.strip()
+        
+        if answer.upper().startswith("YES"):
+            return True, answer
+        elif answer.upper().startswith("NO"):
+            return False, answer
+        else:
+            return True, "Uncertain"
+            
+    except Exception as e:
+        logger.warning(f"Relevance check error: {e}")
+        return True, "Check failed"
+
+app = FastAPI(title="AURELIA API", version="2.0.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -93,106 +100,29 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Add logging middleware for Cloud Run
-@app.middleware("http")
-async def log_requests(request, call_next):
-    start_time = time.time()
-    logger.info(f"Request: {request.method} {request.url}")
-    
-    response = await call_next(request)
-    
-    process_time = time.time() - start_time
-    logger.info(f"Response: {response.status_code} - {process_time:.4f}s")
-    
-    return response
-
-# Global metrics
 metrics = {
     "start_time": datetime.utcnow(),
     "total_queries": 0,
     "cache_hits": 0,
     "total_response_time": 0.0,
-    "gemini_calls": 0,
-    "wikipedia_fallbacks": 0
-}
-
-# Enhanced financial knowledge base (fallback when vector service unavailable)
-FINANCIAL_KNOWLEDGE = {
-    "duration": {
-        "content": "Duration measures the price sensitivity of a bond to changes in interest rates. Modified duration adjusts Macaulay duration for yield changes and is calculated as Macaulay Duration / (1 + YTM/n).",
-        "page_num": 15,
-        "score": 0.95
-    },
-    "sharpe ratio": {
-        "content": "The Sharpe ratio measures risk-adjusted return by dividing excess return by standard deviation. Formula: (Rp - Rf) / σp. Higher ratios indicate better risk-adjusted performance.",
-        "page_num": 23,
-        "score": 0.92
-    },
-    "beta": {
-        "content": "Beta measures systematic risk by comparing asset returns to market returns. Formula: β = Cov(Ra, Rm) / Var(Rm). Beta of 1 means the asset moves with the market.",
-        "page_num": 31,
-        "score": 0.89
-    },
-    "alpha": {
-        "content": "Alpha measures excess returns generated by an investment relative to a benchmark. Formula: α = Rp - [Rf + β(Rm - Rf)]. Positive alpha indicates outperformance.",
-        "page_num": 38,
-        "score": 0.87
-    },
-    "var": {
-        "content": "Value at Risk (VaR) estimates potential losses over a specific time period with given confidence level. Formula: VaR = μ - ασ. Common confidence levels are 95% and 99%.",
-        "page_num": 45,
-        "score": 0.91
-    },
-    "capm": {
-        "content": "Capital Asset Pricing Model (CAPM) calculates expected return based on systematic risk. Formula: Ra = Rf + βa(Rm - Rf). Used for portfolio optimization and cost of equity calculations.",
-        "page_num": 52,
-        "score": 0.88
-    }
+    "instructor_calls": 0,
+    "pinecone_queries": 0,
+    "wikipedia_fallbacks": 0,
+    "rejected_queries": 0
 }
 
 @app.on_event("startup")
 async def startup_event():
-    logger.info("Starting AURELIA API...")
-    environment = "Cloud Run" if os.getenv("INSTANCE_CONNECTION_NAME") else "Local"
-    logger.info(f"Environment: {environment}")
-    logger.info(f"Gemini Available: {GEMINI_AVAILABLE}")
-    logger.info(f"Wikipedia Available: {WIKIPEDIA_AVAILABLE}")
-    logger.info(f"Vector Service Available: {VECTOR_SERVICE_AVAILABLE}")
+    logger.info("🚀 AURELIA v2.0.0 - Final")
     init_db()
 
 @app.get("/")
 async def root():
     return {
         "service": "AURELIA API",
-        "description": "AI-powered Financial Concept Note Generator - Powered by Google Gemini",
-        "version": "1.0.0",
+        "version": "2.0.0",
         "status": "operational",
-        "ai_model": "Google Gemini 1.5 Flash" if GEMINI_AVAILABLE else "Fallback",
-        "environment": "cloud" if os.getenv("INSTANCE_CONNECTION_NAME") else "local",
-        "features": [
-            "Database Integration", 
-            "RAG Pipeline", 
-            "Google Gemini AI",
-            "Wikipedia Fallback", 
-            "Caching",
-            "Vector Similarity Search"
-        ],
-        "endpoints": {
-            "health": "/health",
-            "docs": "/docs", 
-            "query": "/query",
-            "concepts": "/concepts",
-            "seed": "/seed",
-            "stats": "/stats",
-            "metrics": "/metrics"
-        },
-        "integrations": {
-            "gemini": GEMINI_AVAILABLE,
-            "wikipedia": WIKIPEDIA_AVAILABLE,
-            "vector_service": VECTOR_SERVICE_AVAILABLE,
-            "database": "connected"
-        },
-        "timestamp": datetime.utcnow().isoformat()
+        "features": ["AI Relevance Check", "PDF Citations", "Instructor", "Pinecone RAG"]
     }
 
 @app.get("/health")
@@ -202,76 +132,29 @@ async def health_check(db: Session = Depends(get_db)):
         db_status = "healthy"
     except Exception as e:
         db_status = f"unhealthy: {str(e)}"
-        logger.error(f"Database health check failed: {e}")
     
-    # Check vector store if available
-    vector_status = "not available"
+    pinecone_status = "not available"
     if VECTOR_SERVICE_AVAILABLE:
         try:
-            count = retrieval_service.collection.count()
-            vector_status = f"healthy ({count} documents)"
+            count = retrieval_service.count()
+            pinecone_status = f"healthy ({count} vectors from fintbx.pdf)"
         except Exception as e:
-            vector_status = f"unhealthy: {str(e)}"
+            pinecone_status = f"error: {str(e)}"
     
     return {
-        "status": "healthy" if db_status == "healthy" else "degraded",
+        "status": "healthy",
         "timestamp": datetime.utcnow(),
         "database_status": db_status,
-        "vector_store_status": vector_status,
-        "ai_model": "gemini-1.5-flash" if GEMINI_AVAILABLE else "fallback",
-        "environment": "cloud" if os.getenv("INSTANCE_CONNECTION_NAME") else "local",
-        "version": "1.0.0"
-    }
-
-@app.get("/metrics")
-async def get_metrics():
-    """Cloud Run compatible metrics endpoint"""
-    uptime_seconds = (datetime.utcnow() - metrics["start_time"]).total_seconds()
-    cache_hit_rate = (metrics["cache_hits"] / max(metrics["total_queries"], 1)) * 100
-    avg_response_time = (metrics["total_response_time"] / max(metrics["total_queries"], 1)) * 1000
-    
-    return {
-        "service": "AURELIA API",
-        "uptime_seconds": uptime_seconds,
-        "total_queries": metrics["total_queries"],
-        "cache_hits": metrics["cache_hits"],
-        "cache_hit_rate": cache_hit_rate,
-        "avg_response_time_ms": avg_response_time,
-        "gemini_calls": metrics["gemini_calls"],
-        "wikipedia_fallbacks": metrics["wikipedia_fallbacks"],
-        "environment": "cloud" if os.getenv("INSTANCE_CONNECTION_NAME") else "local",
-        "integrations": {
-            "gemini": GEMINI_AVAILABLE,
-            "wikipedia": WIKIPEDIA_AVAILABLE,
-            "vector_service": VECTOR_SERVICE_AVAILABLE
+        "pinecone_status": pinecone_status,
+        "ai_models": {
+            "instructor": "available" if INSTRUCTOR_AVAILABLE else "unavailable"
         },
-        "timestamp": datetime.utcnow().isoformat()
-    }
-
-@app.get("/stats")
-async def get_stats(db: Session = Depends(get_db)):
-    db_stats = ConceptNoteCRUD.get_stats(db)
-    
-    cache_hit_rate = 0.0
-    avg_time = 0.0
-    
-    if metrics["total_queries"] > 0:
-        cache_hit_rate = (metrics["cache_hits"] / metrics["total_queries"]) * 100
-        avg_time = (metrics["total_response_time"] / metrics["total_queries"]) * 1000
-    
-    return {
-        "total_concepts": db_stats["total_concepts"],
-        "fintbx_concepts": db_stats["fintbx_concepts"],
-        "wikipedia_concepts": db_stats["wikipedia_concepts"],
-        "cache_hit_rate": cache_hit_rate,
-        "avg_generation_time_ms": avg_time,
-        "total_queries": metrics["total_queries"],
-        "gemini_calls": metrics["gemini_calls"],
-        "wikipedia_fallbacks": metrics["wikipedia_fallbacks"]
+        "version": "2.0.0"
     }
 
 @app.get("/concepts")
 async def list_concepts(limit: int = Query(50, ge=1, le=200), db: Session = Depends(get_db)):
+    """Get all cached concepts"""
     try:
         concepts = ConceptNoteCRUD.get_all_concepts(db, limit=limit)
         return [concept.to_dict() for concept in concepts]
@@ -279,243 +162,39 @@ async def list_concepts(limit: int = Query(50, ge=1, le=200), db: Session = Depe
         logger.error(f"Error listing concepts: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-def get_wikipedia_content(concept: str) -> str:
-    """Get Wikipedia content for a concept"""
-    if not WIKIPEDIA_AVAILABLE:
-        return f"Wikipedia not available for {concept}"
-    
-    try:
-        search_results = wikipedia.search(concept, results=3)
-        if not search_results:
-            return f"No Wikipedia content found for {concept}"
-        
-        try:
-            page = wikipedia.page(search_results[0])
-            return page.content[:4000]
-        except wikipedia.exceptions.DisambiguationError as e:
-            page = wikipedia.page(e.options[0])
-            return page.content[:4000]
-            
-    except Exception as e:
-        logger.error(f"Wikipedia error for {concept}: {e}")
-        return f"Error retrieving Wikipedia content: {str(e)}"
-
-def retrieve_for_concept(concept: str, vector_store="chroma"):
-    """Enhanced retrieval with real vector similarity matching"""
-    
-    # Use YOUR retrieval service if available
-    if VECTOR_SERVICE_AVAILABLE:
-        try:
-            result = retrieval_service.search_similar(concept, n_results=5)
-            chunks = result.get("chunks", [])
-            
-            if chunks:
-                logger.info(f"Vector service retrieved {len(chunks)} chunks for: {concept}")
-                return {
-                    "chunks": chunks,
-                    "vector_store": "chromadb",
-                    "retrieval_time_ms": random.uniform(80, 150),
-                    "query": concept
-                }
-        except Exception as e:
-            logger.error(f"Vector service error: {e}")
-    
-    # Fallback to knowledge base
-    time.sleep(0.1)
-    concept_lower = concept.lower()
-    
-    if concept_lower in FINANCIAL_KNOWLEDGE:
-        knowledge = FINANCIAL_KNOWLEDGE[concept_lower]
-        chunks = [{
-            "content": knowledge["content"],
-            "page_num": knowledge["page_num"],
-            "score": knowledge["score"],
-            "metadata": {"page_num": knowledge["page_num"], "source": "fintbx"}
-        }]
-        chunks.append({
-            "content": f"Additional context for {concept}: This concept is widely used in financial analysis and portfolio management.",
-            "page_num": knowledge["page_num"] + 1,
-            "score": knowledge["score"] - 0.1,
-            "metadata": {"page_num": knowledge["page_num"] + 1, "source": "fintbx"}
-        })
-    else:
-        matches = []
-        for key, value in FINANCIAL_KNOWLEDGE.items():
-            if any(word in key for word in concept_lower.split()) or any(word in concept_lower for word in key.split()):
-                matches.append((key, value))
-        
-        if matches:
-            best_match = max(matches, key=lambda x: x[1]["score"])
-            chunks = [{
-                "content": f"Related financial concept: {best_match[1]['content']}",
-                "page_num": best_match[1]["page_num"],
-                "score": 0.6,
-                "metadata": {"page_num": best_match[1]["page_num"], "source": "fintbx"}
-            }]
-        else:
-            chunks = [{
-                "content": f"Limited financial information available for {concept}.",
-                "page_num": random.randint(1, 50),
-                "score": 0.4,
-                "metadata": {"page_num": 0, "source": "unknown"}
-            }]
+@app.get("/metrics")
+async def get_metrics():
+    uptime = (datetime.utcnow() - metrics["start_time"]).total_seconds()
+    cache_rate = (metrics["cache_hits"] / max(metrics["total_queries"], 1)) * 100
     
     return {
-        "chunks": chunks,
-        "vector_store": vector_store,
-        "retrieval_time_ms": random.uniform(80, 150),
-        "query": concept
+        "uptime_seconds": uptime,
+        "total_queries": metrics["total_queries"],
+        "cache_hit_rate": cache_rate,
+        "instructor_calls": metrics["instructor_calls"],
+        "pinecone_queries": metrics["pinecone_queries"],
+        "wikipedia_fallbacks": metrics["wikipedia_fallbacks"],
+        "rejected_queries": metrics["rejected_queries"]
     }
 
-def generate_concept_note_with_gemini(concept: str, chunks: List[Dict], source: str) -> Dict[str, Any]:
-    """
-    Generate concept note using Google Gemini AI
-    This replaces the previous generate_concept_note function
-    """
+def retrieve_for_concept(concept: str):
+    """Retrieve from Pinecone"""
+    if not VECTOR_SERVICE_AVAILABLE:
+        return {"chunks": [], "scores": [], "total_found": 0}
     
-    if not GEMINI_AVAILABLE:
-        logger.warning("Gemini not available, using fallback generation")
-        return generate_concept_note_fallback(concept, chunks, source)
-    
-    # Combine chunks into context
-    if chunks:
-        context = "\n\n".join([
-            f"[Page {chunk.get('page_num', chunk.get('metadata', {}).get('page_num', 'N/A'))}]: {chunk.get('content', '')}" 
-            for chunk in chunks
-        ])
-    else:
-        context = "No specific context available."
-    
-    # Create prompt for Gemini
-    prompt = f"""You are a financial education expert. Generate a comprehensive concept note for: {concept}
-
-Context:
-{context}
-
-Instructions:
-1. Provide a clear, accurate definition (2-3 sentences)
-2. Include the mathematical formula if applicable (use proper notation)
-3. Give a practical numerical example with calculations
-4. List 3-5 real-world applications
-5. Provide 3-5 key points students should remember
-
-Output as JSON with this exact structure:
-{{
-    "concept_name": "{concept}",
-    "definition": "clear definition here",
-    "formula": "mathematical formula or null if not applicable",
-    "example": "detailed example with numbers and calculations",
-    "applications": ["application 1", "application 2", "application 3"],
-    "key_points": ["point 1", "point 2", "point 3"]
-}}
-
-Return ONLY valid JSON, no markdown formatting."""
-
     try:
-        # Use Gemini
-        model = genai.GenerativeModel('gemini-1.5-flash')
-        
-        response = model.generate_content(
-            prompt,
-            generation_config=genai.types.GenerationConfig(
-                temperature=0.3,
-                top_p=0.8,
-                top_k=40,
-                max_output_tokens=2048,
-            )
-        )
-        
-        # Extract JSON
-        response_text = response.text.strip()
-        
-        # Remove markdown
-        if response_text.startswith("```json"):
-            response_text = response_text.replace("```json", "").replace("```", "").strip()
-        elif response_text.startswith("```"):
-            response_text = response_text.replace("```", "").strip()
-        
-        # Parse JSON
-        concept_data = json.loads(response_text)
-        
-        # Add metadata
-        concept_data['source'] = source
-        concept_data['pdf_references'] = [
-            chunk.get('page_num', chunk.get('metadata', {}).get('page_num', 'N/A')) 
-            for chunk in chunks
-        ] if source == "fintbx" else None
-        
-        metrics["gemini_calls"] += 1
-        logger.info(f"✅ Gemini generated concept note for: {concept}")
-        
-        return concept_data
-        
+        result = retrieval_service.search_similar(concept, n_results=5)
+        chunks = result.get("chunks", [])
+        scores = [c.get("score", 0) for c in chunks]
+        logger.info(f"🔍 Pinecone: {len(chunks)} chunks (scores: {[f'{s:.3f}' for s in scores[:3]]})")
+        return result
     except Exception as e:
-        logger.error(f"Gemini generation error: {e}")
-        return generate_concept_note_fallback(concept, chunks, source)
-
-def generate_concept_note_fallback(concept: str, chunks: List[Dict], source: str) -> Dict[str, Any]:
-    """Fallback generation when Gemini unavailable"""
-    
-    if source == "fintbx":
-        main_chunk = chunks[0] if chunks else {}
-        chunk_content = main_chunk.get("content", "")
-        
-        if chunk_content and concept.lower() in FINANCIAL_KNOWLEDGE:
-            knowledge = FINANCIAL_KNOWLEDGE[concept.lower()]
-            definition = knowledge["content"].split('.')[0] + "."
-            
-            formula_mapping = {
-                "duration": "Modified Duration = Macaulay Duration / (1 + YTM/n)",
-                "sharpe ratio": "Sharpe Ratio = (Rp - Rf) / σp",
-                "beta": "β = Cov(Ra, Rm) / Var(Rm)",
-                "alpha": "α = Rp - [Rf + β(Rm - Rf)]",
-                "var": "VaR = μ - ασ",
-                "capm": "Ra = Rf + βa(Rm - Rf)"
-            }
-            formula = formula_mapping.get(concept.lower())
-        else:
-            definition = f"{concept} is a key financial metric used in quantitative analysis and risk management."
-            formula = None
-        
-        applications = [
-            "Portfolio risk management",
-            "Investment performance evaluation",
-            "Quantitative analysis",
-            "Risk-adjusted returns assessment"
-        ]
-        
-        example = f"For example, when analyzing {concept}, professionals consider market conditions, historical data, and risk factors."
-        pdf_references = [chunk.get("page_num") for chunk in chunks if chunk.get("page_num")]
-        
-    else:  # Wikipedia fallback
-        if WIKIPEDIA_AVAILABLE:
-            wikipedia_content = get_wikipedia_content(concept)
-            definition = f"{concept}: {wikipedia_content[:200]}..."
-        else:
-            definition = f"{concept} is a concept with diverse applications across multiple domains."
-        
-        formula = None
-        applications = [
-            "General business analysis",
-            "Economic research",
-            "Cross-disciplinary applications"
-        ]
-        example = f"Various applications of {concept} in financial and business contexts."
-        pdf_references = []
-    
-    return {
-        "concept_name": concept,
-        "definition": definition,
-        "formula": formula,
-        "example": example,
-        "applications": applications,
-        "key_points": ["Important concept", "Widely used in finance", "Requires understanding of fundamentals"],
-        "source": source,
-        "pdf_references": pdf_references
-    }
+        logger.error(f"Pinecone error: {e}")
+        return {"chunks": [], "scores": [], "total_found": 0}
 
 @app.post("/query")
 async def query_concept(request: Dict[str, Any], db: Session = Depends(get_db)):
+    """Generate concept note with AI relevance check and PDF citations"""
     start_time = time.time()
     metrics["total_queries"] += 1
     
@@ -523,202 +202,206 @@ async def query_concept(request: Dict[str, Any], db: Session = Depends(get_db)):
     force_refresh = request.get("force_refresh", False)
     
     if not concept:
-        raise HTTPException(status_code=400, detail="Concept name is required")
+        raise HTTPException(status_code=400, detail="Concept required")
     
     try:
-        # Check cache
-        cached_concept = ConceptNoteCRUD.get_concept(db, concept)
+        cached = ConceptNoteCRUD.get_concept(db, concept)
         
-        if cached_concept and not force_refresh:
+        if cached and not force_refresh:
             metrics["cache_hits"] += 1
             processing_time = (time.time() - start_time) * 1000
-            metrics["total_response_time"] += processing_time / 1000
             
-            logger.info(f"✅ Cache hit for concept: {concept}")
             return {
-                "concept_note": cached_concept.to_dict(),
+                "concept_note": cached.to_dict(),
                 "cached": True,
                 "processing_time_ms": processing_time,
-                "chunks_retrieved": 0,
-                "fallback_used": False,
-                "ai_model": "cached"
+                "source": cached.source if hasattr(cached, 'source') else 'unknown',
+                "ai_model": "cached",
+                "pdf_pages": cached.pdf_references if hasattr(cached, 'pdf_references') else []
             }
         
-        # RAG pipeline - retrieve relevant chunks
-        retrieval_result = retrieve_for_concept(concept, "chromadb")
-        chunks = retrieval_result['chunks']
+        retrieval_result = retrieve_for_concept(concept)
+        chunks = retrieval_result.get("chunks", [])
+        max_score = max([c.get("score", 0) for c in chunks]) if chunks else 0
         
-        # Determine if we need Wikipedia fallback (threshold: 0.7)
-        max_score = max([chunk.get('score', 0) for chunk in chunks]) if chunks else 0
-        use_fallback = max_score < 0.7
-        
-        source = "wikipedia" if use_fallback else "fintbx"
+        use_fallback = max_score < 0.3
         
         if use_fallback:
-            metrics["wikipedia_fallbacks"] += 1
-            logger.info(f"🌐 Using Wikipedia fallback for: {concept} (score: {max_score:.3f})")
+            is_finance, reason = check_finance_relevance_with_ai(concept)
             
-            # Get Wikipedia content
-            wiki_content = get_wikipedia_content(concept)
-            wiki_chunks = [{
-                "content": wiki_content,
-                "page_num": "Wikipedia",
-                "score": 1.0,
-                "metadata": {"source": "wikipedia"}
-            }]
+            if not is_finance:
+                metrics["rejected_queries"] += 1
+                logger.warning(f"🚫 Rejected: '{concept}' - {reason}")
+                raise HTTPException(
+                    status_code=400,
+                    detail=f"This query doesn't appear to be finance-related. {reason}. Please enter a financial concept."
+                )
             
-            # Generate with Gemini using Wikipedia content
-            concept_note = generate_concept_note_with_gemini(concept, wiki_chunks, "wikipedia")
+            if WIKIPEDIA_AVAILABLE:
+                metrics["wikipedia_fallbacks"] += 1
+                logger.info(f"🌐 Wikipedia: {concept} (finance, not in PDF)")
+                wiki_content = get_wikipedia_content(concept)
+                chunks = [{"content": wiki_content, "page": "Wikipedia", "score": 1.0}]
+                source = "wikipedia"
+            else:
+                raise HTTPException(status_code=404, detail="Not found")
         else:
-            logger.info(f"📚 Using PDF content for: {concept} (score: {max_score:.3f})")
-            # Generate with Gemini using PDF chunks
-            concept_note = generate_concept_note_with_gemini(concept, chunks, "fintbx")
+            source = "fintbx.pdf"
+            logger.info(f"📊 fintbx.pdf: '{concept}' (score: {max_score:.3f})")
         
-        # Save to database
-        if cached_concept:
-            for key, value in concept_note.items():
-                if hasattr(cached_concept, key):
-                    setattr(cached_concept, key, value)
-            cached_concept.updated_at = datetime.utcnow()
-            db.commit()
-            db.refresh(cached_concept)
-            saved_concept = cached_concept
-            logger.info(f"🔄 Updated cached concept: {concept}")
+        # ✅ FIX: Extract pages using P1's field name 'page' (not 'page_num')
+        pdf_pages = []
+        if source == "fintbx.pdf" and chunks:
+            for chunk in chunks:
+                # P1 uses 'page' field (float like 1851.0)
+                page = chunk.get('page') or chunk.get('page_num')
+                if not page and 'metadata' in chunk:
+                    page = chunk['metadata'].get('page') or chunk['metadata'].get('page_num')
+                
+                if page:
+                    try:
+                        page_int = int(float(page))  # Convert 1851.0 to 1851
+                        if page_int not in pdf_pages and page_int > 0:
+                            pdf_pages.append(page_int)
+                    except (ValueError, TypeError):
+                        pass
+            
+            pdf_pages.sort()
+            logger.info(f"📄 Pages: {pdf_pages}")
+        
+        if INSTRUCTOR_AVAILABLE:
+            metrics["instructor_calls"] += 1
+            concept_note = generate_concept_note(concept, chunks, source)
+            ai_model = "gpt-4o-mini (instructor)"
         else:
-            saved_concept = ConceptNoteCRUD.create_concept(db, concept_note)
-            logger.info(f"💾 Saved new concept: {concept}")
+            concept_note = {
+                "concept_name": concept,
+                "definition": f"{concept} is a financial concept.",
+                "formula": None,
+                "example": f"Example for {concept}",
+                "applications": ["Financial analysis"],
+                "source": source
+            }
+            ai_model = "fallback"
+        
+        # Add PDF references
+        if source == "fintbx.pdf":
+            concept_note['pdf_references'] = pdf_pages
+        
+        existing = ConceptNoteCRUD.get_concept(db, concept)
+        
+        if existing:
+            for key, value in concept_note.items():
+                if hasattr(existing, key):
+                    setattr(existing, key, value)
+            existing.updated_at = datetime.utcnow()
+            db.commit()
+            db.refresh(existing)
+            saved = existing
+        else:
+            saved = ConceptNoteCRUD.create_concept(db, concept_note)
         
         processing_time = (time.time() - start_time) * 1000
-        metrics["total_response_time"] += processing_time / 1000
         
         return {
-            "concept_note": saved_concept.to_dict(),
+            "concept_note": saved.to_dict(),
             "cached": False,
             "processing_time_ms": processing_time,
             "chunks_retrieved": len(chunks),
-            "fallback_used": use_fallback,
-            "ai_model": "gemini-1.5-flash" if GEMINI_AVAILABLE else "fallback"
+            "source": source,
+            "ai_model": ai_model,
+            "pdf_pages": pdf_pages if source == "fintbx.pdf" else []
         }
     
+    except HTTPException:
+        raise
     except Exception as e:
-        processing_time = (time.time() - start_time) * 1000
-        metrics["total_response_time"] += processing_time / 1000
-        logger.error(f"Error processing concept {concept}: {e}")
+        logger.error(f"Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/seed")
 async def seed_concepts(request: Dict[str, Any], db: Session = Depends(get_db)):
-    start_time = time.time()
-    
+    """Seed from fintbx.pdf only - skip if not found"""
     concepts = request.get("concepts", [])
-    overwrite = request.get("overwrite", False)
-    
     if not concepts:
-        raise HTTPException(status_code=400, detail="At least one concept required")
-    
-    logger.info(f"🌱 Seeding {len(concepts)} concepts, overwrite: {overwrite}")
+        raise HTTPException(status_code=400, detail="Concepts required")
     
     results = []
     successful = 0
+    skipped = 0
     
     for concept in concepts:
         try:
-            existing = ConceptNoteCRUD.get_concept(db, concept)
+            retrieval_result = retrieve_for_concept(concept)
+            chunks = retrieval_result.get("chunks", [])
+            max_score = max([c.get("score", 0) for c in chunks]) if chunks else 0
             
-            if existing and not overwrite:
+            if max_score < 0.3:
+                logger.info(f"⏭️ Skipping '{concept}' (score: {max_score:.3f})")
                 results.append({
                     "concept": concept,
-                    "success": True,
-                    "message": "Already exists",
-                    "concept_note": existing.to_dict()
+                    "success": False,
+                    "skipped": True,
+                    "reason": f"Not found in PDF"
                 })
-                successful += 1
+                skipped += 1
+                continue
+            
+            # ✅ FIX: Extract pages using P1's 'page' field
+            pdf_pages = []
+            for chunk in chunks:
+                page = chunk.get('page') or chunk.get('page_num')
+                if not page and 'metadata' in chunk:
+                    page = chunk['metadata'].get('page') or chunk['metadata'].get('page_num')
+                
+                if page:
+                    try:
+                        page_int = int(float(page))
+                        if page_int not in pdf_pages and page_int > 0:
+                            pdf_pages.append(page_int)
+                    except:
+                        pass
+            
+            pdf_pages.sort()
+            
+            if INSTRUCTOR_AVAILABLE:
+                concept_note = generate_concept_note(concept, chunks, "fintbx.pdf")
             else:
-                # Generate new
-                retrieval_result = retrieve_for_concept(concept)
-                chunks = retrieval_result['chunks']
-                max_score = max([chunk.get('score', 0) for chunk in chunks]) if chunks else 0
-                use_fallback = max_score < 0.7
-                source = "wikipedia" if use_fallback else "fintbx"
-                
-                if use_fallback:
-                    wiki_content = get_wikipedia_content(concept)
-                    wiki_chunks = [{
-                        "content": wiki_content,
-                        "page_num": "Wikipedia",
-                        "score": 1.0,
-                        "metadata": {"source": "wikipedia"}
-                    }]
-                    concept_note = generate_concept_note_with_gemini(concept, wiki_chunks, "wikipedia")
-                else:
-                    concept_note = generate_concept_note_with_gemini(concept, chunks, "fintbx")
-                
-                if existing:
-                    for key, value in concept_note.items():
-                        if hasattr(existing, key):
-                            setattr(existing, key, value)
-                    existing.updated_at = datetime.utcnow()
-                    db.commit()
-                    saved_concept = existing
-                else:
-                    saved_concept = ConceptNoteCRUD.create_concept(db, concept_note)
-                
-                results.append({
-                    "concept": concept,
-                    "success": True,
-                    "message": "Generated successfully",
-                    "source": source,
-                    "concept_note": saved_concept.to_dict()
-                })
-                successful += 1
-                
-        except Exception as e:
-            logger.error(f"Error seeding concept {concept}: {e}")
+                concept_note = {"concept_name": concept, "source": "fintbx.pdf"}
+            
+            concept_note['pdf_references'] = pdf_pages
+            
+            existing = ConceptNoteCRUD.get_concept(db, concept)
+            if existing:
+                for key, value in concept_note.items():
+                    if hasattr(existing, key):
+                        setattr(existing, key, value)
+                existing.updated_at = datetime.utcnow()
+                db.commit()
+                saved = existing
+            else:
+                saved = ConceptNoteCRUD.create_concept(db, concept_note)
+            
             results.append({
                 "concept": concept,
-                "success": False,
-                "message": f"Failed: {str(e)}"
+                "success": True,
+                "source": "fintbx.pdf",
+                "pages": pdf_pages
             })
-    
-    logger.info(f"✅ Seeding completed: {successful}/{len(concepts)} successful")
+            successful += 1
+            
+        except Exception as e:
+            logger.error(f"Error: {e}")
+            results.append({"concept": concept, "success": False, "error": str(e)})
     
     return {
         "results": results,
-        "total_requested": len(concepts),
+        "total": len(concepts),
         "successful": successful,
-        "failed": len(concepts) - successful,
-        "processing_time_ms": (time.time() - start_time) * 1000
+        "skipped": skipped
     }
 
 if __name__ == "__main__":
     import uvicorn
-    
-    # Use PORT from environment (Cloud Run requirement)
     port = int(os.getenv("PORT", 8000))
-    host = os.getenv("HOST", "0.0.0.0")
-    environment = "Cloud Run" if os.getenv("INSTANCE_CONNECTION_NAME") else "Local"
-    
-    print(f"\n{'='*60}")
-    print("PROJECT AURELIA - Cloud Ready API with Google Gemini")
-    print(f"{'='*60}")
-    print(f"API: http://{host}:{port}")
-    print(f"Docs: http://{host}:{port}/docs")
-    print(f"Health: http://{host}:{port}/health")
-    print(f"Stats: http://{host}:{port}/stats")
-    print(f"Metrics: http://{host}:{port}/metrics")
-    print(f"Environment: {environment}")
-    print(f"\nAI Integration:")
-    print(f"- Google Gemini: {'✅ Available' if GEMINI_AVAILABLE else '❌ Not Available'}")
-    print(f"- Wikipedia: {'✅ Available' if WIKIPEDIA_AVAILABLE else '❌ Not Available'}")
-    print(f"- Vector Service: {'✅ Available' if VECTOR_SERVICE_AVAILABLE else '❌ Not Available'}")
-    print(f"\nFeatures:")
-    print("- Google Gemini AI for Structured Generation")
-    print("- Vector Similarity Search (ChromaDB)")
-    print("- Wikipedia Fallback Integration")
-    print("- Smart Caching with Performance Metrics")
-    print("- Cloud Run Deployment Ready")
-    print(f"{'='*60}\n")
-    
-    # Use reload=False for production (Cloud Run)
-    reload_mode = os.getenv("ENVIRONMENT", "development") == "development"
-    uvicorn.run("main:app", host=host, port=port, reload=reload_mode)
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
