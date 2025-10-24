@@ -1,5 +1,4 @@
-
-# ===== CORE API FRAMEWORK =====
+# ===== CORE FRAMEWORK =====
 fastapi==0.115.4
 uvicorn[standard]==0.32.0
 pydantic==2.9.2
@@ -12,18 +11,29 @@ sqlalchemy==2.0.36
 psycopg2-binary==2.9.10
 alembic==1.13.1
 
-# ===== GOOGLE CLOUD SQL (FIXED VERSION) =====
+# ===== GOOGLE CLOUD SQL =====
 pg8000==1.31.2
 cloud-sql-python-connector[pg8000]==1.18.5
 
-# ===== GOOGLE AI / GEMINI (REQUIRED) =====
-google-generativeai==0.8.3
-google-ai-generativelanguage==0.6.10
+# ===== AI - INSTRUCTOR + OPENAI =====
+instructor==0.3.3
+openai==1.109.1
 
-# ===== WIKIPEDIA FALLBACK (REQUIRED) =====
+# ===== AI - GOOGLE GEMINI =====
+google-generativeai==0.8.5
+google-ai-generativelanguage==0.6.15
+
+# ===== VECTOR DATABASE - PINECONE =====
+pinecone==5.0.0
+sentence-transformers==5.1.1
+torch>=2.0.0
+scikit-learn>=1.2.0
+transformers>=4.30.0
+
+# ===== WIKIPEDIA =====
 wikipedia==1.4.0
 
-# ===== GOOGLE CLOUD SERVICES =====
+# ===== GOOGLE CLOUD =====
 google-cloud-storage==2.18.2
 google-cloud-secret-manager==2.21.1
 
@@ -34,7 +44,5 @@ httpx==0.27.2
 # ===== UTILITIES =====
 typing-extensions==4.12.2
 annotated-types==0.7.0
-
-# ===== ASYNC SUPPORT =====
 anyio==4.6.2.post1
 starlette==0.41.3
