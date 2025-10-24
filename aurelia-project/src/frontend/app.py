@@ -16,7 +16,7 @@ API_URL = "https://aurelia-backend-1074058468365.us-central1.run.app"
 if 'API_URL' not in st.session_state:
     st.session_state.API_URL = API_URL
 
-st.sidebar.title("📊 AURELIA")
+st.sidebar.title("AURELIA")
 st.sidebar.markdown("**AI Financial Concept Generator**")
 st.sidebar.markdown("---")
 
@@ -33,28 +33,28 @@ try:
     
     lines = ["**System Status:**"]
     if db_status == "healthy":
-        lines.append("- Database: ✅ PostgreSQL")
+        lines.append("- Database:  PostgreSQL")
     if "vectors" in pinecone:
         count = pinecone.split('(')[1].split(' ')[0]
-        lines.append(f"- Pinecone: ✅ {count} vectors")
+        lines.append(f"- Pinecone:  {count} vectors")
     if ai_models.get('instructor') == 'available':
-        lines.append("- Instructor: ✅ GPT-4o-mini")
+        lines.append("- Instructor: GPT-4o-mini")
     lines.append(f"- Version: v{version}")
     
     st.sidebar.success("\n".join(lines))
 except:
-    st.sidebar.error("❌ Backend unreachable")
+    st.sidebar.error(" Backend unreachable")
 
 st.sidebar.markdown("---")
 
 if menu == "Home":
-    st.title("📊 AURELIA")
+    st.title(" AURELIA")
     st.markdown("**AI Financial Concept Generator**")
     
     col1, col2 = st.columns(2)
     with col1:
         st.markdown("""
-        ### 🎯 Features
+        ###  Features
         - **20,711 Vectors** from fintbx.pdf
         - **Instructor + OpenAI**
         - **Pinecone RAG**
@@ -62,7 +62,7 @@ if menu == "Home":
         """)
     with col2:
         st.markdown("""
-        ### 🚀 Quick Start
+        ###  Quick Start
         1. **Generate** - Create notes
         2. **Browse Cache** - View saved
         3. **Batch Seed** - Bulk generate
