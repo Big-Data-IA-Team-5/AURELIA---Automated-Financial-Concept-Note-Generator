@@ -23,7 +23,7 @@ AURELIA extracts financial concepts from the Financial Toolbox PDF corpus, proce
 - Backend API: https://aurelia-backend-1074058468365.us-central1.run.app
 - Frontend UI: https://aurelia-frontend-1074058468365.us-central1.run.app
 - API Documentation: https://aurelia-backend-1074058468365.us-central1.run.app/docs
-- Demo video URL: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+- Demo video URL: https:[//www.youtube.com/watch?v=dQw4w9WgXcQ](https://youtu.be/EfKXtyzSC0k)
 - Google Codelab link: https://codelabs-preview.appspot.com/?file_id=1IdCTMyAI9XGI3dAA2c7xzAaLcEPnVPqmRHvpz3LJE48#5
 
 
